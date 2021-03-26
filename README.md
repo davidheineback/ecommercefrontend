@@ -1,7 +1,7 @@
 # frontend
 
 
-**Info**
+**Info**  
 Detta repositorium används för att utveckla kod som specifierats i de baskraven på frontend som finns i repositoriumet ["Requirements"](https://gitlab.lnu.se/1dv613/student/du222aa/projects/requirements) för projektet "Modular ecommerce".
 En issue ska alltid innehålla minst en testsvit som i sin tur kan innehålla ett eller flera testfall. De flesta krav kommer att innehålla delmoment som specificeras i en checklista i respektive issue.
 
