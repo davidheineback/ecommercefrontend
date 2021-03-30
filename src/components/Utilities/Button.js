@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import React from 'react'
 
 const StyledButton = styled.button`
-background: ${props => props.primary ? "black" : "white"};
+background: ${props => props.primary ? "black" : props.theme.colors.main};
 color: ${props => props.primary ? "white" : "black"};
 appearance: none;
 border: 0;

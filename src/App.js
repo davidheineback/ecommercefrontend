@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
 font-size: 3rem;
-margin-top: 180px;
+margin-top: ${props => props.theme.elementAfterHeader.marginTop};
+margin-left: ${props => props.theme.elementAfterHeader.marginLeft};
 `
 
 function App() {
