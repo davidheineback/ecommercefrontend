@@ -18,18 +18,19 @@ text-align: center;
 
 const categories = ["First", "Second", "Third"]
 
-function Header( { onScroll } ) {
+function Header( { size, onScroll } ) {
   return (
     <StyledHeader>
       {categories.map((category, index) => {
         return (
           <Link to={'/'+ slugify(category, {
             lower: true
-          })}>
+          })} key={index}>
           <Button
             btnType="headerBtn"
             key={index}>
               {category}
+              {size}
           </Button>
           </Link>
         )
