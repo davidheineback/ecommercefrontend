@@ -13,30 +13,37 @@ margin: 0;
 left: 0;
 padding: 4rem 1rem;
 padding-bottom: 5px;
-text-align: center;
+text-align: ${props => props.align || "center"};
 `
 
 const categories = ["First", "Second", "Third"]
 
 function Header( { size, onScroll } ) {
-  return (
-    <StyledHeader>
-      {categories.map((category, index) => {
-        return (
-          <Link to={'/'+ slugify(category, {
-            lower: true
-          })} key={index}>
-          <Button
-            btnType="headerBtn"
-            key={index}>
-              {category}
-              {size}
-          </Button>
-          </Link>
-        )
+  if (size > 500) {
+    return (
+      <StyledHeader>
+        {categories.map((category, index) => {
+            return (
+              <Link to={'/'+ slugify(category, {
+                lower: true
+              })} key={index}>
+              <Button
+                btnType="headerBtn"
+                key={index}>
+                  {category}
+              </Button>
+              </Link>
+            )
       })}
-    </StyledHeader> 
+      </StyledHeader> 
+    )
+  } else {
+  return (
+    <StyledHeader align="left">
+    <Button btnType='primary'></Button>
+    </StyledHeader>
   )
+}
 }
 
 export default Header

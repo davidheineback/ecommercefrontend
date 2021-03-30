@@ -1,7 +1,7 @@
 import styled from 'styled-components'
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import  { useState } from 'react'
 import Header from './components/Header/Header.js'
-import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 
 const Wrapper = styled.div`
 font-size: 3rem;
