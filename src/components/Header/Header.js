@@ -17,6 +17,7 @@ function Header( { onScroll } ) {
   return (
     <StyledHeader>
       <Button>Hej</Button>
+      <Button>Branch</Button>
       <Button primary>Primary hej</Button>
     </StyledHeader> 
   )
