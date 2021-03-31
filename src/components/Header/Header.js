@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom'
 import Button from '../Utilities/Button.js'
 import BurgerButton from '../Utilities/BurgerButton.js'
 import Sidebar from '../Utilities/Sidebar.js'
+import CartIcon from '../Utilities/CartIcon.js'
 
 const StyledHeader = styled.div`
 position: fixed;
 top: 0;
 width: 100%;
+min-height: 65px;
 background-color: ${props => props.theme.colors.headerBackground};
 margin: 0;
 left: 0;
@@ -32,7 +34,7 @@ function Header( { size, onScroll } ) {
   )
 
 
-  if (size > 800) {
+  if (size > 500) {
     return (
       <StyledHeader>
         {categories.map((category, index) => {
@@ -48,6 +50,7 @@ function Header( { size, onScroll } ) {
               </Link>
             )
       })}
+      <CartIcon itemsInCart="0"/>
       </StyledHeader> 
     )
   } else {
@@ -55,6 +58,7 @@ function Header( { size, onScroll } ) {
     <>
     <StyledHeader>
     <BurgerButton isActive={active} onBurgerClick={handleActive}/>
+    <CartIcon itemsInCart="0"/>
     </StyledHeader>
     {active && (<Sidebar categories={categories}/>)}
     </>

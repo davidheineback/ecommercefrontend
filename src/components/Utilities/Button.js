@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
 appearance: none;
 border: 0;
 border-radius: 100px;

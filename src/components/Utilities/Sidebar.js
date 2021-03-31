@@ -13,7 +13,7 @@ const StyledSideBar = styled.div`
   padding: 0;
   position: fixed;
   left: 0;
-  top: 85px;
+  top: 150px;
 `
 
 function SideBar({ categories }) {
