@@ -4,6 +4,7 @@ import slugify from 'slugify'
 import { Link } from 'react-router-dom'
 import Button from '../Utilities/Button.js'
 import BurgerButton from '../Utilities/BurgerButton.js'
+import Sidebar from '../Utilities/Sidebar.js'
 
 const StyledHeader = styled.div`
 position: fixed;
@@ -51,10 +52,12 @@ function Header( { size, onScroll } ) {
     )
   } else {
   return (
+    <>
     <StyledHeader>
-    {active ? (console.log("Button")) : (<BurgerButton isActive={active} onBurgerClick={handleActive}/>)}
-    {/* <BurgerButton isActive={active} onBurgerClick={handleActive}/> */}
+    <BurgerButton isActive={active} onBurgerClick={handleActive}/>
     </StyledHeader>
+    {active && (<Sidebar/>)}
+    </>
   )
 }
 }
