@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import slugify from 'slugify'
 import { Link } from 'react-router-dom'
 import Button from '../Utilities/Button.js'
+import BurgerButton from '../Utilities/BurgerButton.js'
 
 const StyledHeader = styled.div`
 position: fixed;
@@ -19,6 +20,8 @@ text-align: ${props => props.align || "center"};
 const categories = ["First", "Second", "Third"]
 
 function Header( { size, onScroll } ) {
+  const [active, setActive] = useState(false)
+  
   if (size > 500) {
     return (
       <StyledHeader>
@@ -40,7 +43,7 @@ function Header( { size, onScroll } ) {
   } else {
   return (
     <StyledHeader align="left">
-    <Button btnType='primary'></Button>
+    <BurgerButton isActive={active} setActive={setActive} />
     </StyledHeader>
   )
 }
