@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
 import slugify from 'slugify'
 import { Link } from 'react-router-dom'
@@ -21,12 +21,21 @@ const categories = ["First", "Second", "Third"]
 
 function Header( { size, onScroll } ) {
   const [active, setActive] = useState(false)
-  
-  if (size > 500) {
+
+  const handleActive = useCallback(
+    (e) => {
+      e = !active
+      setActive(e)
+    },
+    [active, setActive],
+  )
+
+
+  if (size > 800) {
     return (
       <StyledHeader>
         {categories.map((category, index) => {
-            return (
+            return (  
               <Link to={'/'+ slugify(category, {
                 lower: true
               })} key={index}>
@@ -42,8 +51,9 @@ function Header( { size, onScroll } ) {
     )
   } else {
   return (
-    <StyledHeader align="left">
-    <BurgerButton isActive={active} setActive={setActive} />
+    <StyledHeader>
+    {active ? (console.log("Button")) : (<BurgerButton isActive={active} onBurgerClick={handleActive}/>)}
+    {/* <BurgerButton isActive={active} onBurgerClick={handleActive}/> */}
     </StyledHeader>
   )
 }

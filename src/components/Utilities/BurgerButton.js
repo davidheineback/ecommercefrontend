@@ -25,13 +25,14 @@ import styled from 'styled-components';
   }
 `
 
-function BurgerButton({ active, setActive }) {
+function BurgerButton({ active, onBurgerClick }) {
   return (
-    <StyledBurger isActive={active} onClick={() => setActive(!active)} >
+    <StyledBurger isActive={active} onClick={() => onBurgerClick(!active)}>
       <div/>
       <div/>
       <div/>
     </StyledBurger>
+    
   )
 }
 
