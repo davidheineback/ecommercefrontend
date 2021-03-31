@@ -56,7 +56,7 @@ function Header( { size, onScroll } ) {
     <StyledHeader>
     <BurgerButton isActive={active} onBurgerClick={handleActive}/>
     </StyledHeader>
-    {active && (<Sidebar/>)}
+    {active && (<Sidebar categories={categories}/>)}
     </>
   )
 }
