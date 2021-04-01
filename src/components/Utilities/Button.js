@@ -52,7 +52,7 @@ ${props => props.btnType === 'dropdownBtn' && {
 }}
 `
 
-function Button({ useDropdown, subCategories, btnType, children }) {
+function Button({ useDropdown, mainCategory, subCategories, btnType, children }) {
 const [renderDropdown, setRenderDropdown] = useState(false)
 const [dropdownPlacement, setDropdownPlacement] = useState({ left: '', top: '' })
 
@@ -72,8 +72,9 @@ console.log(e)
       onMouseEnter={handleHover}
       onMouseLeave={hideDropdown}
       btnType={btnType}>
+      {mainCategory}
       {children}
-      {useDropdown && <Dropdown position={dropdownPlacement} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
+      {useDropdown && <Dropdown position={dropdownPlacement} mainCategory={mainCategory} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
       </StyledButton>
   )
 }

@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import Button from './Button'
 import React from 'react'
+import slugify from 'slugify'
+import { Link } from 'react-router-dom'
 
 const StyledDropdown = styled.div`
 position: absolute;
@@ -15,12 +17,18 @@ display: ${props => props.display ? 'block' : 'none'};
 transform: translate(-40%, 5%);
 `
 
-function Dropdown({ position, toggleDisplay, children }) {
+function Dropdown({ position, mainCategory, toggleDisplay, children }) {
   return (
     <StyledDropdown placement={position} display={toggleDisplay}>
       {children.map(child => {
         return (
+          <Link to={'/'+
+          slugify(mainCategory, {lower: true})
+          + '/' +
+          slugify(child, {lower: true})
+          }>
           <Button btnType="dropdownBtn">{child}</Button>
+          </Link>
         )
       })}
     </StyledDropdown>

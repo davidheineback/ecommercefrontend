@@ -69,9 +69,9 @@ function Header( { size, onScroll } ) {
               <Button
                 useDropdown={true}
                 btnType="headerBtn"
+                mainCategory={category.name}
                 subCategories={category.subs}
                 key={index}>
-                  {category.name}
               </Button>
               </Link>
               </>
