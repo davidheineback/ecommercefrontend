@@ -20,10 +20,34 @@ padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
 `
 
-const categories = ["First", "Second", "Third"]
+const categories = [
+  {
+    name: 'First',
+    subs: [
+      'First ett', 'first två'
+    ]
+  },  {
+    name: 'Second',
+    subs: [
+      'Second ett', 'second två'
+    ]
+  },
+  {
+    name: 'Third',
+    subs: [
+      'third', 'third två'
+    ]
+  }
+
+]
+
 
 function Header( { size, onScroll } ) {
   const [active, setActive] = useState(false)
+  
+  function numberOfItemsInCart () {
+    return 0
+  }
 
   const handleActive = useCallback(
     (e) => {
@@ -33,24 +57,28 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
-
   if (size > 500) {
     return (
       <StyledHeader>
         {categories.map((category, index) => {
-            return (  
-              <Link to={'/'+ slugify(category, {
+            return (
+              <>
+              <Link to={'/'+ slugify(category.name, {
                 lower: true
               })} key={index}>
               <Button
+                useDropdown={true}
                 btnType="headerBtn"
+                subCategories={category.subs}
                 key={index}>
-                  {category}
+                  {category.name}
               </Button>
               </Link>
+              </>
             )
-      })}
-      <CartIcon itemsInCart="0"/>
+      })
+      }
+      <CartIcon itemsInCart={numberOfItemsInCart()}/>
       </StyledHeader> 
     )
   } else {
@@ -58,7 +86,7 @@ function Header( { size, onScroll } ) {
     <>
     <StyledHeader>
     <BurgerButton isActive={active} onBurgerClick={handleActive}/>
-    <CartIcon itemsInCart="0"/>
+    <CartIcon itemsInCart={numberOfItemsInCart()}/>
     </StyledHeader>
     {active && (<Sidebar categories={categories}/>)}
     </>

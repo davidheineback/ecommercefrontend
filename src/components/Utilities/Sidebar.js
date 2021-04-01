@@ -21,13 +21,13 @@ function SideBar({ categories }) {
     <StyledSideBar>
     {categories.map((category, index) => {
             return (  
-              <Link to={'/'+ slugify(category, {
+              <Link to={'/'+ slugify(category.name, {
                 lower: true
               })} key={index}>
               <Button
                 btnType="headerBtn"
                 key={index}>
-                  {category}
+                  {category.name}
               </Button>
               </Link>
             )
