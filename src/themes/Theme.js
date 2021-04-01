@@ -1,12 +1,16 @@
   const Theme = {
     colors: {
-      main: "red"
+      main: "teal",
+      mainHover: "black",
+      headerBackground: "#262626"
     },
-    headerColors: {
-      main: "#262626"
+    fontColors: {
+      main: "white",
+      mainHover: "white",
+      headerNav: "white"
     },
     elementAfterHeader: {
-      marginTop: "180px",
+      marginTop: "160px",
       marginLeft: "20px"
     } 
   }
