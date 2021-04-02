@@ -25,9 +25,9 @@ function Dropdown({ position, mainCategory, toggleDisplay, children }) {
           <Link to={'/'+
           slugify(mainCategory, {lower: true})
           + '/' +
-          slugify(child, {lower: true})
+          slugify(child.name, {lower: true})
           }>
-          <Button btnType="dropdownBtn">{child}</Button>
+          <Button btnType="dropdownBtn">{child.name}</Button>
           </Link>
         )
       })}
