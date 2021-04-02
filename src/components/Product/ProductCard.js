@@ -6,13 +6,12 @@ import ProductDetails from '../Utilities/ProductDetails.js'
 
 const StyledProduct = styled.div`
 width: 260px;
-height: 300px;
+height: 360px;
+display: block;
 background: ${props => props.theme.colors.cardColor};
-display: inline-block;
 margin: 20px;
 text-align: left;
 font-size: 10px;
-z-index: 0;
 border: 2px solid white;
 border-bottom: 4px solid ${props => props.theme.colors.main};
 &:hover{

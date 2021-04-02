@@ -9,7 +9,8 @@
     fontColors: {
       main: "white",
       mainHover: "white",
-      headerNav: "white"
+      headerNav: "white",
+      dark: "black"
     },
     elementAfterHeader: {
       marginTop: "160px",

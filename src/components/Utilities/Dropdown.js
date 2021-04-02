@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 
 const StyledDropdown = styled.div`
 position: absolute;
+display: flex;
+flex-direction: column;
 width: 20vw;
 min-height: 30vh;
 border-bottom: 5px solid ${props => props.theme.colors.main};

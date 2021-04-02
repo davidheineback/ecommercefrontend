@@ -1,7 +1,7 @@
 const products = [
   {
     name: 'productname',
-    description: 'card description',
+    description: 'Card description',
     detailedDescription: 'detailed description',
     price: 100,
     discount: '1 = fullprice',
@@ -18,7 +18,7 @@ const products = [
   {
     name: 'productname',
     description: 'description',
-    detailedDescription: 'detailed description',
+    detailedDescription: 'Detailed description',
     price: 150,
     discount: '1 = fullprice',
     productCategory: 2,
