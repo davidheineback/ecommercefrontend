@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import  { useState } from 'react'
 import Header from './components/Header/Header.js'
+import ProductCard from './components/Product/ProductCard.js'
+import products from './mockDB/mockProducts.js'
 
 const Wrapper = styled.div`
 font-size: 3rem;
@@ -20,6 +22,9 @@ function App() {
     <Router>
       <Wrapper>
         <Header key="header" size={windowSize}/>
+        {products.map(product => {
+          return <ProductCard>{product}</ProductCard>
+        })}
           <Switch>
             <Route exact path='/'>
             </Route>

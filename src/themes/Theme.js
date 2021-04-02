@@ -2,7 +2,9 @@
     colors: {
       main: "teal",
       mainHover: "black",
-      headerBackground: "#262626"
+      headerBackground: "#262626",
+      borderColor: "black",
+      cardColor: "white"
     },
     fontColors: {
       main: "white",
