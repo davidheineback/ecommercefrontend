@@ -6,15 +6,18 @@ import { Link } from 'react-router-dom'
 
 const StyledDropdown = styled.div`
 position: absolute;
+display: flex;
+flex-direction: column;
 width: 20vw;
 min-height: 30vh;
-border-bottom: 4px solid ${props => props.theme.colors.main};
+border-bottom: 5px solid ${props => props.theme.colors.main};
 left: ${props => props.placement.left};
 top: ${props => props.placement.top};
 background-color: ${props => props.theme.colors.headerBackground};
 color: ${props => props.theme.fontColors.main};
 display: ${props => props.display ? 'block' : 'none'};
 transform: translate(-40%, 5%);
+z-index: 100;
 `
 
 function Dropdown({ position, mainCategory, toggleDisplay, children }) {
@@ -25,9 +28,9 @@ function Dropdown({ position, mainCategory, toggleDisplay, children }) {
           <Link to={'/'+
           slugify(mainCategory, {lower: true})
           + '/' +
-          slugify(child, {lower: true})
+          slugify(child.name, {lower: true})
           }>
-          <Button btnType="dropdownBtn">{child}</Button>
+          <Button btnType="dropdownBtn">{child.name}</Button>
           </Link>
         )
       })}

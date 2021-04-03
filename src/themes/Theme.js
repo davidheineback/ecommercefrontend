@@ -2,12 +2,15 @@
     colors: {
       main: "teal",
       mainHover: "black",
-      headerBackground: "#262626"
+      headerBackground: "#262626",
+      borderColor: "black",
+      cardColor: "white"
     },
     fontColors: {
       main: "white",
       mainHover: "white",
-      headerNav: "white"
+      headerNav: "white",
+      dark: "black"
     },
     elementAfterHeader: {
       marginTop: "160px",

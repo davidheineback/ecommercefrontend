@@ -15,6 +15,7 @@ text-transform: uppercase;
 &:hover {
 background: ${props => props.theme.colors.mainHover};
 color: ${props => props.theme.fontColors.mainHover};
+z-index: 100;
 }
 
 

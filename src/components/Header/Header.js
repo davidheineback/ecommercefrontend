@@ -6,6 +6,7 @@ import Button from '../Utilities/Button.js'
 import BurgerButton from '../Utilities/BurgerButton.js'
 import Sidebar from '../Utilities/Sidebar.js'
 import CartIcon from '../Utilities/CartIcon.js'
+import categories from '../../mockDB/mockCategories.js'
 
 const StyledHeader = styled.div`
 position: fixed;
@@ -19,28 +20,6 @@ padding: 4rem 1rem;
 padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
 `
-
-const categories = [
-  {
-    name: 'First',
-    subs: [
-      'First ett', 'first två'
-    ]
-  },  {
-    name: 'Second',
-    subs: [
-      'Second ett', 'second två'
-    ]
-  },
-  {
-    name: 'Third',
-    subs: [
-      'third', 'third två'
-    ]
-  }
-
-]
-
 
 function Header( { size, onScroll } ) {
   const [active, setActive] = useState(false)
