@@ -13,6 +13,7 @@ margin-left: ${props => props.theme.elementAfterHeader.marginLeft};
 ${props => props.flex && {
 display: "flex",
 flexDirection: "row",
+
 }}
 
 

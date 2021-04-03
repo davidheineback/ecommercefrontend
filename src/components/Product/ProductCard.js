@@ -7,7 +7,6 @@ import ProductDetails from '../Utilities/ProductDetails.js'
 const StyledProduct = styled.div`
 width: 260px;
 height: 360px;
-display: block;
 background: ${props => props.theme.colors.cardColor};
 margin: 20px;
 text-align: left;
