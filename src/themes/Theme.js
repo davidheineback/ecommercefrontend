@@ -3,6 +3,7 @@
       main: "teal",
       mainHover: "black",
       headerBackground: "#262626",
+      footerBackground: "#262626",
       borderColor: "black",
       cardColor: "white"
     },

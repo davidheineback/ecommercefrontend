@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import  { useState } from 'react'
 import Header from './components/Header/Header.js'
 import ProductCard from './components/Product/ProductCard.js'
+import Footer from './components/Footer/Footer.js'
 import products from './mockDB/mockProducts.js'
 
 const Wrapper = styled.div`
@@ -41,6 +42,7 @@ function App() {
             <Route exact path='/'>
             </Route>
           </Switch>
+          <Footer/>
       </Wrapper>
     </Router>
   )
