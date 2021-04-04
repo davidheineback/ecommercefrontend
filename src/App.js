@@ -10,17 +10,19 @@ const Wrapper = styled.div`
 font-size: 3rem;
 margin-top: ${props => props.theme.elementAfterHeader.marginTop};
 margin-left: ${props => props.theme.elementAfterHeader.marginLeft};
+min-height: 100%;
+width: 100%;
+justify-content: center;
 
 ${props => props.flex && {
 display: "flex",
 flexDirection: "row",
-
+flexWrap: "wrap",
+width: "90vw",
+justifyContent: "center",
+textAlign: "center"
 }}
-
-
 `
-
-
 
 function App() {
   const [windowSize, setWindowSize] = useState(window.innerWidth)

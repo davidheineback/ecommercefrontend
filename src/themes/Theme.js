@@ -15,7 +15,7 @@
     },
     elementAfterHeader: {
       marginTop: "160px",
-      marginLeft: "20px"
+      marginLeft: "0px"
     } 
   }
 

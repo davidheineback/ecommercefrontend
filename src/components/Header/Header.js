@@ -11,7 +11,7 @@ import categories from '../../mockDB/mockCategories.js'
 const StyledHeader = styled.div`
 position: fixed;
 top: 0;
-width: 100%;
+width: 100vw;
 min-height: 65px;
 background-color: ${props => props.theme.colors.headerBackground};
 margin: 0;
