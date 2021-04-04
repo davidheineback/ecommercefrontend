@@ -13,6 +13,7 @@ margin-left: ${props => props.theme.elementAfterHeader.marginLeft};
 min-height: 100%;
 width: 100%;
 justify-content: center;
+overflow: hidden;
 
 ${props => props.flex && {
 display: "flex",

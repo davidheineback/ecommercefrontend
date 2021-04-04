@@ -14,7 +14,7 @@
       dark: "black"
     },
     elementAfterHeader: {
-      marginTop: "160px",
+      marginTop: "80px",
       marginLeft: "0px"
     } 
   }
