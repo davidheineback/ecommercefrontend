@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
-import  { useState } from 'react'
+import  { useState, useParams } from 'react'
 import Header from './components/Header/Header.js'
 import ProductCard from './components/Product/ProductCard.js'
 import Footer from './components/Footer/Footer.js'
@@ -19,9 +19,12 @@ ${props => props.flex && {
 display: "flex",
 flexDirection: "row",
 flexWrap: "wrap",
-width: "90vw",
+width: "70vw",
 justifyContent: "center",
-textAlign: "center"
+textAlign: "center",
+marginLeft: "15%",
+marginRight: "15%",
+gap: "40px"
 }}
 `
 
