@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import slugify from 'slugify'
-import { Link } from 'react-router-dom'
-import Button from '../Utilities/Button.js'
+import DivButton from '../Utilities/DivButton.js'
 import BurgerButton from '../Utilities/BurgerButton.js'
 import Sidebar from '../Utilities/Sidebar.js'
 import CartIcon from '../Utilities/CartIcon.js'
@@ -10,8 +8,12 @@ import categories from '../../mockDB/mockCategories.js'
 
 const StyledHeader = styled.div`
 position: fixed;
+display: flex;
+flex-direction: row;
+justify-content: center;
+text-decoration: none;
 top: 0;
-width: 100%;
+width: 100vw;
 min-height: 65px;
 background-color: ${props => props.theme.colors.headerBackground};
 margin: 0;
@@ -21,7 +23,8 @@ padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
 `
 
-function Header( { size, onScroll } ) {
+
+function Header( { size, setRouteToPath, onScroll } ) {
   const [active, setActive] = useState(false)
   
   function numberOfItemsInCart () {
@@ -36,38 +39,33 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
+
   if (size > 500) {
     return (
-      <StyledHeader>
+      <StyledHeader key='styledheader'>
         {categories.map((category, index) => {
             return (
-              <>
-              <Link to={'/'+ slugify(category.name, {
-                lower: true
-              })} key={index}>
-              <Button
+              <DivButton
                 useDropdown={true}
                 btnType="headerBtn"
                 mainCategory={category.name}
                 subCategories={category.subs}
-                key={index}>
-              </Button>
-              </Link>
-              </>
+                key={'headerbtn'+index}>
+              </DivButton>
             )
       })
       }
-      <CartIcon itemsInCart={numberOfItemsInCart()}/>
+      <CartIcon key='carticon' itemsInCart={numberOfItemsInCart()}/>
       </StyledHeader> 
     )
   } else {
   return (
     <>
-    <StyledHeader>
-    <BurgerButton isActive={active} onBurgerClick={handleActive}/>
-    <CartIcon itemsInCart={numberOfItemsInCart()}/>
+    <StyledHeader key='smallstyledheader'>
+    <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
+    <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart()}/>
     </StyledHeader>
-    {active && (<Sidebar categories={categories}/>)}
+    {active && (<Sidebar key='sidebar' categories={categories}/>)}
     </>
   )
 }
