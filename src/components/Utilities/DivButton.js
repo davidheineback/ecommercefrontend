@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import React, { useState } from 'react'
 import Dropdown from './Dropdown.js'
 
-export const StyledButton = styled.button`
+export const StyledDivButton = styled.div`
 appearance: none;
 border: 0;
 border-radius: 100px;
@@ -17,16 +17,6 @@ background: ${props => props.theme.colors.mainHover};
 color: ${props => props.theme.fontColors.mainHover};
 z-index: 100;
 }
-
-
-${props => props.btnType === 'primary' && {
-  background: props.theme.colors.main,
-  color: props.theme.fontColors.main,
-  ":hover": {
-    background: "white",
-    color: "red"
-  }
-}}
 
 ${props => props.btnType === 'headerBtn' && {
   background: 'none',
@@ -44,32 +34,16 @@ ${props => props.btnType === 'dropdownBtn' && {
   borderRadius: "none",
   fontSize: "14px",
   padding: "10px",
-  paddingLeft: "30px",
-  paddingRight: "30px",
-  ":hover": {
-    background: "none",
-    color: "grey"
-  }
-}}
-
-${props => props.btnType === 'dropdownMainBtn' && {
-  background: 'none',
-  color: props.theme.fontColors.headerNav,
-  borderRadius: "0",
-  fontSize: "12px",
-  padding: "5px",
   paddingLeft: "20px",
   paddingRight: "20px",
-  borderBottom: `3px solid ${props.theme.colors.main}`,
   ":hover": {
     background: "none",
     color: "grey"
   }
 }}
-
 `
 
-function Button({ useDropdown, mainCategory, subCategories, btnType, children }) {
+function DivButton({ useDropdown, mainCategory, subCategories, btnType, children }) {
 const [renderDropdown, setRenderDropdown] = useState(false)
 const [dropdownPlacement, setDropdownPlacement] = useState({ left: '', top: '' })
 
@@ -83,7 +57,7 @@ const hideDropdown = (e) => {
 }
 
   return (
-    <StyledButton
+    <StyledDivButton
       type="button"
       onMouseEnter={handleHover}
       onMouseLeave={hideDropdown}
@@ -91,9 +65,9 @@ const hideDropdown = (e) => {
       {mainCategory}
       {children}
       {useDropdown && <Dropdown position={dropdownPlacement} mainCategory={mainCategory} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
-      </StyledButton>
+      </StyledDivButton>
   )
 }
 
-export default Button
+export default DivButton
 

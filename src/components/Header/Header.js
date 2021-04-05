@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import slugify from 'slugify'
-import { Link } from 'react-router-dom'
-import Button from '../Utilities/Button.js'
+import DivButton from '../Utilities/DivButton.js'
 import BurgerButton from '../Utilities/BurgerButton.js'
 import Sidebar from '../Utilities/Sidebar.js'
 import CartIcon from '../Utilities/CartIcon.js'
@@ -10,6 +8,10 @@ import categories from '../../mockDB/mockCategories.js'
 
 const StyledHeader = styled.div`
 position: fixed;
+display: flex;
+flex-direction: row;
+justify-content: center;
+text-decoration: none;
 top: 0;
 width: 100vw;
 min-height: 65px;
@@ -20,6 +22,7 @@ padding: 4rem 1rem;
 padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
 `
+
 
 function Header( { size, setRouteToPath, onScroll } ) {
   const [active, setActive] = useState(false)
@@ -42,19 +45,13 @@ function Header( { size, setRouteToPath, onScroll } ) {
       <StyledHeader key='styledheader'>
         {categories.map((category, index) => {
             return (
-              <>
-              <Link key={'link' + index} to={'/'+ slugify(category.name, {
-                lower: true
-              })}>
-              <Button
+              <DivButton
                 useDropdown={true}
                 btnType="headerBtn"
                 mainCategory={category.name}
                 subCategories={category.subs}
                 key={'headerbtn'+index}>
-              </Button>
-              </Link>
-              </>
+              </DivButton>
             )
       })
       }
