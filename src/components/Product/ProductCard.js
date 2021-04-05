@@ -5,12 +5,14 @@ import ProductDetails from '../Utilities/ProductDetails.js'
 
 
 const StyledProduct = styled.div`
-min-width: 260px;
+width: 260px;
 min-height: 360px;
 background: ${props => props.theme.colors.cardColor};
-margin: 20px;
+/* margin: 20px; */
 text-align: left;
 font-size: 10px;
+/* flex-basis: 21%; */
+/* flex: none; */
 border: 2px solid white;
 border-bottom: 4px solid ${props => props.theme.colors.main};
 &:hover{
