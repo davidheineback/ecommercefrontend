@@ -15,22 +15,22 @@ left: ${props => props.placement.left};
 top: ${props => props.placement.top};
 background-color: ${props => props.theme.colors.headerBackground};
 color: ${props => props.theme.fontColors.main};
-display: ${props => props.display ? 'block' : 'none'};
+display: ${props => props.toggleDisplay ? 'block' : 'none'};
 transform: translate(-40%, 5%);
 z-index: 100;
 `
 
 function Dropdown({ position, mainCategory, toggleDisplay, children }) {
   return (
-    <StyledDropdown placement={position} display={toggleDisplay}>
-      {children.map(child => {
+    <StyledDropdown key='styleddropdown' placement={position} toggleDisplay={toggleDisplay}>
+      {children.map((child, index) => {
         return (
-          <Link to={'/'+
+          <Link key={'dropdownlink'+index} to={'/'+
           slugify(mainCategory, {lower: true})
           + '/' +
           slugify(child.name, {lower: true})
           }>
-          <Button btnType="dropdownBtn">{child.name}</Button>
+          <Button key={'dropdownbtn'+{index}} btnType="dropdownBtn">{child.name}</Button>
           </Link>
         )
       })}

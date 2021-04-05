@@ -63,7 +63,6 @@ const handleHover = (e) => {
 }
 
 const hideDropdown = (e) => {
-console.log(e)
   setRenderDropdown(false);
 }
 

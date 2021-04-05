@@ -27,22 +27,24 @@ textAlign: "center"
 
 function App() {
   const [windowSize, setWindowSize] = useState(window.innerWidth)
+  const [routeToPath, setRouteToPath] = useState('/')
 
     window.addEventListener("resize", () => {
       setWindowSize(window.innerWidth)
     })
+
     
   return (
     <Router>
       <Wrapper>
-        <Header key="header" size={windowSize}/>
-        <Wrapper flex>
-        {products.map(product => {
-          return <ProductCard>{product}</ProductCard>
-        })}
-        </Wrapper>
+        <Header key="header" setRouteToPath={setRouteToPath} size={windowSize}/>
           <Switch>
-            <Route exact path='/'>
+            <Route exact path={routeToPath}>
+              <Wrapper flex>
+                {products.map((product, index) => {
+                  return <ProductCard key={index}>{product}</ProductCard>
+                })}
+              </Wrapper>
             </Route>
           </Switch>
           <Footer/>

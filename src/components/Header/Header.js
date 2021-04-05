@@ -21,7 +21,7 @@ padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
 `
 
-function Header( { size, onScroll } ) {
+function Header( { size, setRouteToPath, onScroll } ) {
   const [active, setActive] = useState(false)
   
   function numberOfItemsInCart () {
@@ -36,38 +36,39 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
+
   if (size > 500) {
     return (
-      <StyledHeader>
+      <StyledHeader key='styledheader'>
         {categories.map((category, index) => {
             return (
               <>
-              <Link to={'/'+ slugify(category.name, {
+              <Link key={'link' + index} to={'/'+ slugify(category.name, {
                 lower: true
-              })} key={index}>
+              })}>
               <Button
                 useDropdown={true}
                 btnType="headerBtn"
                 mainCategory={category.name}
                 subCategories={category.subs}
-                key={index}>
+                key={'headerbtn'+index}>
               </Button>
               </Link>
               </>
             )
       })
       }
-      <CartIcon itemsInCart={numberOfItemsInCart()}/>
+      <CartIcon key='carticon' itemsInCart={numberOfItemsInCart()}/>
       </StyledHeader> 
     )
   } else {
   return (
     <>
-    <StyledHeader>
-    <BurgerButton isActive={active} onBurgerClick={handleActive}/>
-    <CartIcon itemsInCart={numberOfItemsInCart()}/>
+    <StyledHeader key='smallstyledheader'>
+    <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
+    <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart()}/>
     </StyledHeader>
-    {active && (<Sidebar categories={categories}/>)}
+    {active && (<Sidebar key='sidebar' categories={categories}/>)}
     </>
   )
 }

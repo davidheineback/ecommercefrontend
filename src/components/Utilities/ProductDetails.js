@@ -6,7 +6,7 @@ margin-left: 10px;
 margin-top: 10px;
 font-size: 15px;
 
-${props => props.name && {
+${props => props.productname && {
   color: props.theme.fontColors.dark,
   textTransform: "uppercase",
   fontWeight: "700"
@@ -41,7 +41,7 @@ ${props => props.price && {
 function ProductDetails({ children }) {
   return (
     <>
-    <StyledProductDetails name>{children.name}</StyledProductDetails>
+    <StyledProductDetails productname>{children.name}</StyledProductDetails>
     <StyledProductDetails brand>{children.brand}</StyledProductDetails>
     <StyledProductDetails decription>{children.description}</StyledProductDetails>
     <StyledProductDetails price>{children.price}kr</StyledProductDetails>
