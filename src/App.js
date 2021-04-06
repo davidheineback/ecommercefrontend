@@ -21,8 +21,10 @@ function App() {
           <Switch>
             <Route exact path='/' component={MainPage}/>
             <Route path='/:mainCategory/' exact component={MainCategoryPage}/>
+            <Route path='/product/:productId/' exact component={ProductPage}/>
             <Route path='/:mainCategory/:subCategory/' exact component={SubCategoryPage}/>
-            <Route path='/:mainCategory/:subCategory/:productId/' exact component={ProductPage}/>
+            <Route path='/:mainCategory/product/:productId/' exact component={ProductPage}/>
+            <Route path='/:mainCategory/:subCategory/product/:productId/' exact component={ProductPage}/>
             <Route path='*' component={PageNotFound}/>
           </Switch>
           <Footer/>

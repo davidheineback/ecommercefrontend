@@ -5,9 +5,6 @@ function ProductPage() {
   const { mainCategory, subCategory, productId } = useParams()
   return (
     <div>
-      {console.log(mainCategory)}
-      {console.log(subCategory)}
-      {console.log(productId)}
     </div>
   )
 }
