@@ -1,9 +1,10 @@
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import  { useState } from 'react'
-import Header from './components/Header/Header.js'
-import Footer from './components/Footer/Footer.js'
-import Wrapper from './components/Utilities/Wrapper.js'
-import MainPage from './components/Views/MainPage.js'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
+import Wrapper from './components/Utilities/Wrapper'
+import { MainPage, PageNotFound } from './components/Views/ViewsExporter'
+
 
 function App() {
   const [windowSize, setWindowSize] = useState(window.innerWidth)
@@ -22,7 +23,7 @@ function App() {
             <Route path='/:mainCategory' component='mainCategoryPage'/>
             <Route path='/:mainCategory/:subCategory' component='subCategoryPage'/>
             <Route path='/:mainCategory/:subCategory/:productId' component='productPage'/>
-            <Route path='*' component='PageNotFound'/>
+            <Route path='*' component={PageNotFound}/>
           </Switch>
           <Footer/>
       </Wrapper>
