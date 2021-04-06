@@ -5,7 +5,7 @@ const StyledWrapper = styled.div`
 font-size: 3rem;
 margin-top: ${props => props.theme.elementAfterHeader.marginTop};
 margin-left: ${props => props.theme.elementAfterHeader.marginLeft};
-min-height: 100%;
+min-height: 65vh;
 width: 100%;
 justify-content: center;
 overflow: hidden;
