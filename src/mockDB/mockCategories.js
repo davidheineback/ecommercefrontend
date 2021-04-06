@@ -59,8 +59,8 @@ const categories = [
       },
       {
         subid: 3,
-        name: 'second category',
-        searchurl: 'second-category',
+        name: 'third category',
+        searchurl: 'third-category',
         description: 'Subcategory description'
       }
     ]

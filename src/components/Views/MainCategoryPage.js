@@ -12,10 +12,10 @@ function MainCategoryPage() {
     const categoryId = [...categories]
     .filter(catName => catName.searchurl === mainCategory)
     .map(catId => catId.id)
-    console.log(categoryId[0])
-    const prod = [...products].filter(product => product.productCategory.includes(...categoryId))
-    console.log(prod)
-    setProductsByMainCategory(prod)
+
+    setProductsByMainCategory(
+      [...products]
+      .filter(product => product.productCategory.includes(...categoryId)))
   },[mainCategory])
 
   return (
