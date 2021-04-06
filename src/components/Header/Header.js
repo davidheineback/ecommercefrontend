@@ -21,7 +21,7 @@ text-align: ${props => props.align || "center"};
 `
 
 
-function Header( { size, setRouteToPath, onScroll } ) {
+function Header( { size, onScroll } ) {
   const [active, setActive] = useState(false)
   
   function numberOfItemsInCart () {
@@ -45,7 +45,7 @@ function Header( { size, setRouteToPath, onScroll } ) {
               <DivButton
                 useDropdown={true}
                 btnType="headerBtn"
-                mainCategory={category.name}
+                mainCategory={category}
                 subCategories={category.subs}
                 key={'headerbtn'+index}>
               </DivButton>

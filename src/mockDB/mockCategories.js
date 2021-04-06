@@ -1,50 +1,66 @@
 const categories = [
   {
     id: 1,
-    name: 'First',
+    name: 'Kategori ett',
+    searchurl: 'kategori-ett',
     description: 'Category description',
     subs: [
       {
         subid: 1,
-        name: 'First ett',
+        name: 'subcategory',
+        searchurl: 'subcategory',
         description: 'Subcategory description'
       },
       {
         subid: 2,
-        name: 'First två',
+        name: 'second category',
+        searchurl: 'second-category',
         description: 'Subcategory description'
       }
     ]
-  },  {
+  }, 
+  {
     id: 2,
-    name: 'Second',
+    name: 'Kategori två',
+    searchurl: 'kategori-två',
     description: 'Category description',
     subs: [
       {
         subid: 1,
-        name: 'Andra ett',
+        name: 'subcategory kategori',
+        searchurl: 'subcategory-kategori',
         description: 'Subcategory description'
       },
       {
         subid: 2,
-        name: 'Andra två',
+        name: 'second category',
+        searchurl: 'second-category',
         description: 'Subcategory description'
       }
     ]
   },
   {
     id: 3,
-    name: 'Third',
+    name: 'Kategori tre',
+    searchurl: 'kategori-tre',
     description: 'Category description',
     subs: [
       {
         subid: 1,
-        name: 'Tredje subett',
+        name: 'subcategory',
+        searchurl: 'subcategory',
         description: 'Subcategory description'
       },
       {
         subid: 2,
-        name: 'Third subtvå',
+        name: 'second category',
+        searchurl: 'second-category',
+        description: 'Subcategory description'
+      },
+      {
+        subid: 3,
+        name: 'second category',
+        searchurl: 'second-category',
         description: 'Subcategory description'
       }
     ]
