@@ -42,7 +42,7 @@ const products = [
     inStock: 0,
     image: 'image',
     brand: 'brandname',
-    itemNr: '',
+    itemNr: '123165165132',
     options: [{ types: '{size}, {colors}, {length},' }],
     reviews: [''],
     rating: 0,

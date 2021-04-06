@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 function ProductPage() {
-  const { mainCategory, subCategory, productId } = useParams();
+  const { mainCategory, subCategory, productId } = useParams()
   return (
     <div>
       {console.log(mainCategory)}
