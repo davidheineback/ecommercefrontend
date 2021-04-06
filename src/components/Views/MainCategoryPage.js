@@ -1,12 +1,13 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import { Wrapper } from '../Utilities/UtilitiesExporter'
 
 function MainCategoryPage() {
   const { mainCategory } = useParams()
   return (
-    <div>
+    <Wrapper flex>
       {console.log(mainCategory)}
-    </div>
+    </Wrapper>
   )
 }
 
