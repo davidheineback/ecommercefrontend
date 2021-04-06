@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import Button from '../Utilities/Button.js'
+import Button from './Button'
 import slugify from 'slugify'
 
 
