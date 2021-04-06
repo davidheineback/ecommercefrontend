@@ -1,9 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import styled from 'styled-components'
-import DivButton from '../Utilities/DivButton.js'
-import BurgerButton from '../Utilities/BurgerButton.js'
-import Sidebar from '../Utilities/Sidebar.js'
-import CartIcon from '../Utilities/CartIcon.js'
+import { DivButton, BurgerButton, Sidebar, CartIcon } from '../Utilities/UtilitiesExporter'
 import categories from '../../mockDB/mockCategories.js'
 
 const StyledHeader = styled.div`

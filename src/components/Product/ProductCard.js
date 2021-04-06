@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ProductImage from '../Utilities/ProductImage.js'
-import ProductDetails from '../Utilities/ProductDetails.js'
-
+import { ProductImage, ProductDetails } from '../Utilities/UtilitiesExporter'
 
 const StyledProduct = styled.div`
 width: 260px;

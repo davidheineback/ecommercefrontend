@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import React, { useState } from 'react'
-import Dropdown from './Dropdown.js'
+import Dropdown from './Dropdown'
 
 export const StyledDivButton = styled.div`
 appearance: none;
