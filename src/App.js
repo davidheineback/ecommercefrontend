@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
-import  { useState, useParams } from 'react'
+import  { useState } from 'react'
 import Header from './components/Header/Header.js'
 import ProductCard from './components/Product/ProductCard.js'
 import Footer from './components/Footer/Footer.js'
@@ -30,7 +30,6 @@ gap: "40px"
 
 function App() {
   const [windowSize, setWindowSize] = useState(window.innerWidth)
-  const [routeToPath, setRouteToPath] = useState('/')
 
     window.addEventListener("resize", () => {
       setWindowSize(window.innerWidth)
@@ -40,15 +39,19 @@ function App() {
   return (
     <Router>
       <Wrapper>
-        <Header key="header" setRouteToPath={setRouteToPath} size={windowSize}/>
+        <Header key="header" size={windowSize}/>
           <Switch>
-            <Route exact path={routeToPath}>
+            <Route exact path='/' component='mainPage'>
               <Wrapper flex>
                 {products.map((product, index) => {
                   return <ProductCard key={index}>{product}</ProductCard>
                 })}
               </Wrapper>
             </Route>
+            <Route path='/:mainCategory' component='mainCategoryPage'/>
+            <Route path='/:mainCategory/:subCategory' component='subCategoryPage'/>
+            <Route path='/:mainCategory/:subCategory/:productId' component='productPage'/>
+            <Route path='*' component='PageNotFound'/>
           </Switch>
           <Footer/>
       </Wrapper>
