@@ -20,9 +20,9 @@ function App() {
         <Header key="header" size={windowSize}/>
           <Switch>
             <Route exact path='/' component={MainPage}/>
-            <Route path='/:mainCategory' component={MainCategoryPage}/>
-            <Route path='/:mainCategory/:subCategory' component={SubCategoryPage}/>
-            <Route path='/:mainCategory/:subCategory/:productId' component={ProductPage}/>
+            <Route path='/:mainCategory/' exact component={MainCategoryPage}/>
+            <Route path='/:mainCategory/:subCategory/' exact component={SubCategoryPage}/>
+            <Route path='/:mainCategory/:subCategory/:productId/' exact component={ProductPage}/>
             <Route path='*' component={PageNotFound}/>
           </Switch>
           <Footer/>
