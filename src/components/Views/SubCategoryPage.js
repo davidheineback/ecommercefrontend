@@ -27,7 +27,10 @@ function SubCategoryPage() {
     <Wrapper flex>
     {productsBySubCategory.map((product, index) => {
       return (
-      <Link key={index} to={`/${mainCategory}/${subCategory}/product/${product.itemNr}`}>
+      <Link
+        key={index}
+        to={`/${mainCategory}/${subCategory}/product/${product.itemNr}`}
+        style={{ textDecoration: 'none' }}>
       <ProductCard item={product.itemNr} key={index}>{product}</ProductCard>
       </Link>)
     })}

@@ -24,12 +24,15 @@ function MainCategoryPage() {
     <Wrapper flex>
     {productsByMainCategory.map((product, index) => {
       return (
-      <Link key={index} to={`/${mainCategory}/product/${product.itemNr}`}>
-      <ProductCard
-      item={product.itemNr}
-      key={index}>
-        {product}
-      </ProductCard>
+      <Link
+      key={index}
+      to={`/${mainCategory}/product/${product.itemNr}`}
+      style={{ textDecoration: 'none' }}>
+        <ProductCard
+        item={product.itemNr}
+        key={index}>
+          {product}
+        </ProductCard>
       </Link>)
     })}
     </Wrapper>
