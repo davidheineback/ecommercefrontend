@@ -2,27 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Wrapper } from '../Utilities/UtilitiesExporter'
 import ProductCard from '../Product/ProductCard'
-import categories from '../../mockDB/mockCategories'
-import products from '../../mockDB/mockProducts'
+import { getProductsByCategory } from '../../fetch.js'
 
 function MainCategoryPage() {
   const { mainCategory } = useParams()
-  const [productsByMainCategory, setProductsByMainCategory] = useState([])
+  const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
   
   useEffect(() => {
-    const categoryId = [...categories]
-    .filter(catName => catName.searchurl === mainCategory)
-    .map(catId => catId.id)
-
-  setProductsByMainCategory(
-      [...products]
-      .filter(product => product.productCategory.includes(...categoryId)))
-  },[mainCategory])
-
+    setIsLoading(true)
+    getProductsByCategory(mainCategory, setProducts, setIsLoading) },[mainCategory])
+    if (isLoading) {
+      return <Wrapper flex/>
+    }
 
   return (
     <Wrapper flex>
-    {productsByMainCategory.map((product, index) => {
+    {products.map((product, index) => {
       return (
       <Link
       key={index}
