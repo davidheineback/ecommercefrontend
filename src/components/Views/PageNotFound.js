@@ -4,7 +4,7 @@ import Wrapper from '../Utilities/Wrapper.js'
 function PageNotFound() {
   return (
     <Wrapper>
-      Page not found
+      <p>Page not found</p>
     </Wrapper>
   )
 }

@@ -12,7 +12,6 @@ function App() {
     window.addEventListener("resize", () => {
       setWindowSize(window.innerWidth)
     })
-
     
   return (
     <Router>
