@@ -2,30 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Wrapper } from '../Utilities/UtilitiesExporter'
 import ProductCard from '../Product/ProductCard'
-import categories from '../../mockDB/mockCategories'
-import products from '../../mockDB/mockProducts'
+import { getProductsBySubCategory } from '../../fetch.js'
 
 function SubCategoryPage() {
   const { mainCategory, subCategory } = useParams()
-  const [productsBySubCategory, setProductsBySubCategory] = useState([])
+  const [products, setProducts] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const categoryId = [...categories]
-    .filter(catName => catName.searchurl === mainCategory)
-    .map(catId => catId.id)
-
-    const subCategoryId = [...categories]
-    .filter(catId => catId.id === categoryId[0]).map(subs => subs.subs)[0].filter(subId => subId.searchurl === subCategory)[0].subid
-
-    setProductsBySubCategory(
-      [...products]
-      .filter(product => product.productCategory.includes(...categoryId))
-      .filter(product => product.productSubCategory.includes(subCategoryId)))
-  },[mainCategory, subCategory])
+    setIsLoading(true)
+    getProductsBySubCategory(subCategory, setProducts, setIsLoading) },[subCategory])
+    if (isLoading) {
+      return <Wrapper flex/>
+    }
 
   return (
     <Wrapper flex>
-    {productsBySubCategory.map((product, index) => {
+    {products.map((product, index) => {
       return (
       <Link
         key={index}
