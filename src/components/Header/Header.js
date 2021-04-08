@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { DivButton, BurgerButton, Sidebar, CartIcon } from '../Utilities/UtilitiesExporter'
-import categories from '../../mockDB/mockCategories.js'
+import { getCategories } from '../../fetch.js'
+// import categories from '../../mockDB/mockCategories.js'
 
 const StyledHeader = styled.div`
 position: fixed;
@@ -20,9 +21,14 @@ padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
 `
 
-
 function Header( { size, onScroll } ) {
   const [active, setActive] = useState(false)
+  const [categories, setCategories] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  
+  useEffect(() => {
+    setIsLoading(true)
+    getCategories(setCategories, setIsLoading) },[])
   
   function numberOfItemsInCart () {
     return 0
@@ -36,7 +42,9 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
-
+  if(isLoading) {
+    return <StyledHeader/>
+  }
   if (size > 500) {
     return (
       <StyledHeader key='styledheader'>
