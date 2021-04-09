@@ -7,14 +7,11 @@ import { getAllProducts } from '../../fetch.js'
 
 function MainPage() {
   const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
   
-  useEffect(() => {
-    setIsLoading(true)
-    getAllProducts(setProducts, setIsLoading) },[])
-    if (isLoading) {
-      return <Wrapper flex/>
-    }
+  useEffect(() => {  
+    getAllProducts(setProducts) },[])
+
+
   return (
     <Wrapper flex>
     {products.map((product, index) => {

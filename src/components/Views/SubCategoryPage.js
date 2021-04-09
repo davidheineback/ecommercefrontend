@@ -7,14 +7,9 @@ import { getProductsBySubCategory } from '../../fetch.js'
 function SubCategoryPage() {
   const { mainCategory, subCategory } = useParams()
   const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(true)
-    getProductsBySubCategory(subCategory, setProducts, setIsLoading) },[subCategory])
-    if (isLoading) {
-      return <Wrapper flex/>
-    }
+    getProductsBySubCategory(subCategory, setProducts) },[subCategory])
 
   return (
     <Wrapper flex>

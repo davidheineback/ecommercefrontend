@@ -8,15 +8,9 @@ function ProductPage() {
   const { mainCategory, subCategory, productId } = useParams()
   console.log(mainCategory, subCategory, productId)
   const [product, setProduct] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(true)
-    getProductById(productId, setProduct, setIsLoading) },[productId])
-
-    if (isLoading) {
-      return <Wrapper flex/>
-    }
+    getProductById(productId, setProduct) },[productId])
 
   return (
     <Wrapper flex>

@@ -24,11 +24,9 @@ text-align: ${props => props.align || "center"};
 function Header( { size, onScroll } ) {
   const [active, setActive] = useState(false)
   const [categories, setCategories] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
   
   useEffect(() => {
-    setIsLoading(true)
-    getCategories(setCategories, setIsLoading) },[])
+    getCategories(setCategories) },[])
   
   function numberOfItemsInCart () {
     return 0
@@ -42,9 +40,9 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
-  if(isLoading) {
-    return <StyledHeader/>
-  }
+  // if(isLoading) {
+  //   return <StyledHeader/>
+  // }
   if (size > 500) {
     return (
       <StyledHeader key='styledheader'>

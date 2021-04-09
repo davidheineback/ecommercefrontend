@@ -7,14 +7,9 @@ import { getProductsByCategory } from '../../fetch.js'
 function MainCategoryPage() {
   const { mainCategory } = useParams()
   const [products, setProducts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
   
   useEffect(() => {
-    setIsLoading(true)
-    getProductsByCategory(mainCategory, setProducts, setIsLoading) },[mainCategory])
-    if (isLoading) {
-      return <Wrapper flex/>
-    }
+    getProductsByCategory(mainCategory, setProducts) },[mainCategory])
 
   return (
     <Wrapper flex>
