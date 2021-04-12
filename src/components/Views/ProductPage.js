@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Wrapper } from '../Utilities/UtilitiesExporter'
-import ProductCard from '../Product/ProductCard'
+import { Wrapper, ProductImage } from '../Utilities/UtilitiesExporter'
 import { getProductById } from '../../fetch.js'
 
 function ProductPage() {
@@ -13,8 +12,8 @@ function ProductPage() {
     getProductById(productId, setProduct) },[productId])
 
   return (
-    <Wrapper flex>
-      <ProductCard item={product.itemNr} key={product.itemNr}>{product}</ProductCard>
+    <Wrapper flex='bigFlex'>
+      <ProductImage url={product.image} description={product.description} type='productPage'/>
     </Wrapper>
   )
 }

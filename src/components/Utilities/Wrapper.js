@@ -21,6 +21,20 @@ marginLeft: "15%",
 marginRight: "15%",
 gap: "40px"
 }}
+
+${props => props.flex === 'bigFlex' && {
+display: "flex",
+flexDirection: "row",
+flexWrap: "wrap",
+width: "100vw",
+paddingTop: "3%",
+marginLeft:0,
+marginRight: 0,
+paddingLeft: "5%",
+paddingRight: "5%",
+justifyContent: "left",
+textAlign: "center"
+}}
 `
 
 function Wrapper({ flex, children }) {
