@@ -47,6 +47,8 @@ color: ${props => props.theme.fontColors.mainHover};
 
 
 function Breadcrumbs({ children }) {
+  const breadcrumbs = children.filter(child => child !== undefined)
+
   return (
     <StyledBreadcrumbsContainer>
       <StyledTilter>
@@ -57,12 +59,11 @@ function Breadcrumbs({ children }) {
         Start
         </StyledBreadcrumbs>
       </StyledTilter>
-      {children
-      .filter(child => child !== undefined)
-      .map((child, index) => {
+      {breadcrumbs
+      .map((breadcrumb, index) => {
         return (
-          <StyledTilter key={index} active={index === (children.length - 1)}>
-            <StyledBreadcrumbs key={index} to={`/${child}`}>{` > ${child}`}</StyledBreadcrumbs>
+          <StyledTilter key={index} active={index === (breadcrumbs.length - 1)}>
+            <StyledBreadcrumbs key={index} to={`/${breadcrumb}`}>{` > ${breadcrumb}`}</StyledBreadcrumbs>
             </StyledTilter>
         )
       })}

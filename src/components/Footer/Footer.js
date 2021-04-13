@@ -8,7 +8,6 @@ width: 100vw;
 margin-right: 0;
 background-color: ${props => props.theme.colors.footerBackground};
 border-top: 3px solid ${props => props.theme.colors.main};
-margin-top: 20px;
 padding: 2.5rem 1rem;
 text-align: ${props => props.align || "center"};
 `

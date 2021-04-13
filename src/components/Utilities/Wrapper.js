@@ -15,10 +15,13 @@ display: "flex",
 flexDirection: "row",
 flexWrap: "wrap",
 width: "70vw",
+overflowY: "scroll",
 justifyContent: "center",
 textAlign: "center",
 marginLeft: "15%",
 marginRight: "15%",
+marginBottom: "40px",
+paddingBottom: "20px",
 gap: "40px"
 }}
 
