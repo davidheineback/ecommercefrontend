@@ -40,9 +40,6 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
-  // if(isLoading) {
-  //   return <StyledHeader/>
-  // }
   if (size > 500) {
     return (
       <StyledHeader key='styledheader'>
