@@ -62,9 +62,9 @@ const hideDropdown = (e) => {
       onMouseEnter={handleHover}
       onMouseLeave={hideDropdown}
       btnType={btnType}>
-      {mainCategory}
+      {mainCategory.name}
       {children}
-      {useDropdown && <Dropdown position={dropdownPlacement} mainCategory={mainCategory} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
+      {useDropdown && <Dropdown position={dropdownPlacement} mainCategory={mainCategory.searchurl} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
       </StyledDivButton>
   )
 }

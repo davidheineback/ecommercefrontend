@@ -1,3 +1,4 @@
+import Breadcrumbs from './Breadcrumbs'
 import BurgerButton from './BurgerButton'
 import Button from './Button'
 import CartIcon from './CartIcon'
@@ -10,6 +11,7 @@ import ThemeDiv from './ThemeDiv'
 import Wrapper from './Wrapper'
 
 export {
+  Breadcrumbs,
   BurgerButton,
   Button,
   CartIcon,

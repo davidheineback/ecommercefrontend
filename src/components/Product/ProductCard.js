@@ -4,15 +4,13 @@ import { ProductImage, ProductDetails } from '../Utilities/UtilitiesExporter'
 
 const StyledProduct = styled.div`
 width: 260px;
-min-height: 360px;
+height: 360px;
 background: ${props => props.theme.colors.cardColor};
-/* margin: 20px; */
 text-align: left;
 font-size: 10px;
-/* flex-basis: 21%; */
-/* flex: none; */
 border: 2px solid white;
 border-bottom: 4px solid ${props => props.theme.colors.main};
+z-index: -10;
 &:hover{
   border: 2px solid ${props => props.theme.colors.main};
   border-bottom: 4px solid ${props => props.theme.colors.main};

@@ -9,12 +9,19 @@ appearance: none;
 border: 0;
 box-shadow: none;
 cursor: pointer;
+
+${props => props.type === 'productPage' && {
+  minWidth:"300px",
+  width: "30vw",
+  height: "40vh",
+  border: "1px solid black"
+}}
 `
 
 
-function ProductImage() {
+function ProductImage({ url, description, type }) {
   return (
-    <StyledProductImage/>
+    <StyledProductImage href={url} alt={description} type={type}/>
   )
 }
 

@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import Button from './Button'
-import slugify from 'slugify'
 
 
 const StyledSideBar = styled.div`
@@ -21,9 +20,7 @@ function SideBar({ categories }) {
     <StyledSideBar>
     {categories.map((category, index) => {
             return (  
-              <Link to={'/'+ slugify(category.name, {
-                lower: true
-              })} key={index}>
+              <Link to={`/${category.searchurl}`} key={index}>
               <Button
                 btnType="headerBtn"
                 key={index}>

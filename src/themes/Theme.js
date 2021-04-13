@@ -11,12 +11,15 @@
       main: "white",
       mainHover: "white",
       headerNav: "white",
-      dark: "black"
+      dark: "#262626"
     },
     elementAfterHeader: {
-      marginTop: "80px",
+      marginTop: "100px",
       marginLeft: "0px"
-    } 
+    },
+    breadcrumbs: {
+      marginTop: "50px"
+    }
   }
 
   export default Theme

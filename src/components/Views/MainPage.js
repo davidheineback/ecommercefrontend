@@ -1,15 +1,27 @@
-import React from 'react'
-// import styled from 'styled-components'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Wrapper from '../Utilities/Wrapper.js'
 import ProductCard from '../Product/ProductCard.js'
-import products from '../../mockDB/mockProducts.js'
+import { getAllProducts } from '../../fetch.js'
 
 
 function MainPage() {
+  const [products, setProducts] = useState([])
+  
+  useEffect(() => {  
+    getAllProducts(setProducts) },[])
+
+
   return (
     <Wrapper flex>
     {products.map((product, index) => {
-      return <ProductCard key={index}>{product}</ProductCard>
+      return (
+      <Link
+        key={index}
+        to={`/product/${product.itemNr}`}
+        style={{ textDecoration: 'none' }}>
+      <ProductCard key={index}>{product}</ProductCard>
+      </Link>)
     })}
   </Wrapper>
   )
