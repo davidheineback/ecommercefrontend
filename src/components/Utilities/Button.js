@@ -15,7 +15,6 @@ text-transform: uppercase;
 &:hover {
 background: ${props => props.theme.colors.mainHover};
 color: ${props => props.theme.fontColors.mainHover};
-z-index: 100;
 }
 
 
@@ -46,6 +45,7 @@ ${props => props.btnType === 'dropdownBtn' && {
   padding: "10px",
   paddingLeft: "30px",
   paddingRight: "30px",
+  zIndex: "100",
   ":hover": {
     background: "none",
     color: "grey"
@@ -61,6 +61,7 @@ ${props => props.btnType === 'dropdownMainBtn' && {
   paddingLeft: "20px",
   paddingRight: "20px",
   borderBottom: `3px solid ${props.theme.colors.main}`,
+  zIndex: "100",
   ":hover": {
     background: "none",
     color: "grey"
