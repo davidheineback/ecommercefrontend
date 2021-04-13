@@ -24,7 +24,7 @@ ${props => props.type === 'productPage' && {
 
 function ProductImage({ url, description, type }) {
   return (
-    <StyledProductImage href={url} alt={description} type={type}/>
+    <StyledProductImage src={url} alt={description} type={type}/>
   )
 }
 

@@ -19,7 +19,7 @@ z-index: -10;
 function ProductCard({ children }) {
   return (
     <StyledProduct>
-      <ProductImage/>
+      <ProductImage url={children.image}/>
       <ProductDetails>{children}</ProductDetails>
     </StyledProduct>
   )
