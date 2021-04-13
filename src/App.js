@@ -2,13 +2,12 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import  { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import { Breadcrumbs, Wrapper } from './components/Utilities/UtilitiesExporter'
+import { Wrapper } from './components/Utilities/UtilitiesExporter'
 import { MainPage, MainCategoryPage, SubCategoryPage, ProductPage, PageNotFound } from './components/Views/ViewsExporter'
 
 
 function App() {
   const [windowSize, setWindowSize] = useState(window.innerWidth)
-  const [breadcrumbs, setBreadcrumbs] = useState(['start', 'nästa', 'tredje'])
     window.addEventListener("resize", () => {
       setWindowSize(window.innerWidth)
     })
@@ -17,7 +16,6 @@ function App() {
     <Router>
       <Wrapper>
         <Header key="header" size={windowSize}/>
-        <Breadcrumbs>{breadcrumbs}</Breadcrumbs>
           <Switch>
             <Route exact path='/' component={MainPage}/>
             <Route path='/:mainCategory/' exact component={MainCategoryPage}/>

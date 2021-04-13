@@ -14,11 +14,8 @@
       dark: "#262626"
     },
     elementAfterHeader: {
-      marginTop: "100px",
+      marginTop: "60px",
       marginLeft: "0px"
-    },
-    breadcrumbs: {
-      marginTop: "50px"
     }
   }
 

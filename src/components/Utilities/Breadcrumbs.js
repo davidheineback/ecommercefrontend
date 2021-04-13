@@ -1,29 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const StyledBreadcrumbsContainer = styled.div`
-position: fixed;
-margin-top: ${props => props.theme.breadcrumbs.marginTop};
-margin-left: ${props => props.theme.breadcrumbs.marginLeft};
-height: 25px;
 width: 100%;
 display: flex;
-justify-content: center;
+justify-content: left;
 background-color: white;
-overflow: hidden;
-padding: 20px;
-z-index: -1;
+height: 15px;
+
 `
-const StyledBreadcrumbs = styled.div`
-font-size: 12px;
+const StyledBreadcrumbs = styled(Link)`
+font-size: 10px;
 margin-left: 10px;
+text-decoration: none;
+color: ${props => props.theme.fontColors.dark};
+cursor: pointer;
+display: inline-block;
+font-weight: 700;
+text-transform: uppercase;
 `
 
 
 function Breadcrumbs({ children }) {
   return (
     <StyledBreadcrumbsContainer>
-      {children.map(child => <StyledBreadcrumbs> {`> ${child}`}</StyledBreadcrumbs>)}
+      <StyledBreadcrumbs
+      key={'start'}
+      to='/'
+      style={{ textDecoration: 'none' }}>Start</StyledBreadcrumbs>
+      {children
+      .filter(child => child !== undefined)
+      .map((child, index) => <StyledBreadcrumbs key={index} to={`/${child}`}>{` > ${child}`}</StyledBreadcrumbs>)}
+     
     </StyledBreadcrumbsContainer>
   )
 }

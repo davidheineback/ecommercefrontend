@@ -14,7 +14,10 @@ ${props => props.type === 'productPage' && {
   minWidth:"300px",
   width: "30vw",
   height: "40vh",
-  border: "1px solid black"
+  boxShadow: `2px 2px 2px ${props.theme.colors.main}`,
+  ":hover": {
+    boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
+  }
 }}
 `
 

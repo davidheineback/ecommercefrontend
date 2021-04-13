@@ -6,14 +6,13 @@ const StyledProduct = styled.div`
 width: 260px;
 height: 360px;
 background: ${props => props.theme.colors.cardColor};
+border-left: 1px solid ${props => props.theme.colors.cardColor};
 text-align: left;
 font-size: 10px;
-border: 2px solid white;
-border-bottom: 4px solid ${props => props.theme.colors.main};
 z-index: -10;
 &:hover{
-  border: 2px solid ${props => props.theme.colors.main};
-  border-bottom: 4px solid ${props => props.theme.colors.main};
+  border-left: 1px solid ${props => props.theme.colors.main};
+  box-shadow: 4px 4px 4px ${props => props.theme.colors.main};
 }
 `
 
