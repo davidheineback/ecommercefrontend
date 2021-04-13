@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import Wrapper from '../Utilities/Wrapper.js'
+import { Breadcrumbs, Wrapper } from '../Utilities/UtilitiesExporter'
 import ProductCard from '../Product/ProductCard.js'
 import { getAllProducts } from '../../fetch.js'
 
@@ -14,6 +14,7 @@ function MainPage() {
 
   return (
     <Wrapper flex>
+    <Breadcrumbs/>
     {products.map((product, index) => {
       return (
       <Link

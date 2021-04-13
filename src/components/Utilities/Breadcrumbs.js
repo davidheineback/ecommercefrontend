@@ -8,6 +8,7 @@ display: flex;
 justify-content: left;
 background-color: white;
 height: 15px;
+margin-left: 15px;
 `
 
 const StyledTilter = styled.div`
@@ -47,7 +48,7 @@ color: ${props => props.theme.fontColors.mainHover};
 
 
 function Breadcrumbs({ itemNr, children }) {
-  const breadcrumbs = [...children]
+  const breadcrumbs = children ? ([...children]
   .map((child, index) => {
     switch(index) {
       case 0:
@@ -61,11 +62,12 @@ function Breadcrumbs({ itemNr, children }) {
     }
   })
   .filter(child => {
-    return(child !== undefined)})
+    return(child !== undefined)}))
+    : []
 
   return (
     <StyledBreadcrumbsContainer>
-      <StyledTilter>
+      <StyledTilter active={children ? false : true}>
         <StyledBreadcrumbs
       key={'start'}
       to='/'

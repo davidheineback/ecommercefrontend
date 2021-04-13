@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Wrapper } from '../Utilities/UtilitiesExporter'
+import { Breadcrumbs, Wrapper } from '../Utilities/UtilitiesExporter'
 import ProductCard from '../Product/ProductCard'
 import { getProductsBySubCategory } from '../../fetch.js'
 
@@ -13,6 +13,7 @@ function SubCategoryPage() {
 
   return (
     <Wrapper flex>
+    <Breadcrumbs>{[mainCategory, subCategory]}</Breadcrumbs>
     {products.map((product, index) => {
       return (
       <Link

@@ -1,9 +1,10 @@
 import React from 'react'
-import Wrapper from '../Utilities/Wrapper.js'
+import { Breadcrumbs, Wrapper } from '../Utilities/UtilitiesExporter'
 
 function PageNotFound() {
   return (
-    <Wrapper>
+    <Wrapper flex>
+    <Breadcrumbs/>
       <p>Page not found</p>
     </Wrapper>
   )
