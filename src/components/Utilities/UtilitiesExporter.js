@@ -4,6 +4,7 @@ import Button from './Button'
 import CartIcon from './CartIcon'
 import DivButton from './DivButton'
 import Dropdown from './Dropdown'
+import ProductPageDetails from './ProductPageDetails'
 import ProductDetails from './ProductDetails'
 import ProductImage from './ProductImage'
 import Sidebar from './Sidebar'
@@ -17,6 +18,7 @@ export {
   CartIcon,
   DivButton,
   Dropdown,
+  ProductPageDetails,
   ProductDetails,
   ProductImage,
   Sidebar,

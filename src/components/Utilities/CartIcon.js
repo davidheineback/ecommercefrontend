@@ -30,7 +30,6 @@ position: absolute;
 top: 45%;
 z-index: 10;
 right: 115px;
-
 `
 
 function CartIcon({ itemsInCart }) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledProductDetails = styled.div`
+export const StyledProductDetails = styled.div`
 margin-left: 10px;
 margin-top: 10px;
 font-size: 15px;
@@ -45,9 +45,8 @@ function ProductDetails({ productPage, children }) {
       <StyledProductDetails productname>{children.name}</StyledProductDetails>
       <StyledProductDetails brand>{children.brand}</StyledProductDetails>
       <StyledProductDetails decription>{children.description}</StyledProductDetails>
-      {!productPage && <StyledProductDetails productPage={productPage} price>{children.price}kr
-      </StyledProductDetails>}
-
+      <StyledProductDetails productPage={productPage} price>{children.price}kr
+      </StyledProductDetails>
       </>
   )
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Breadcrumbs, Wrapper, ProductImage, ProductDetails } from '../Utilities/UtilitiesExporter'
+import { Breadcrumbs, Wrapper, ProductImage, ProductPageDetails } from '../Utilities/UtilitiesExporter'
+import ProductActions from '../Product/ProductActions'
 import { getProductById } from '../../fetch.js'
 
 function ProductPage() {
@@ -15,9 +16,9 @@ function ProductPage() {
       <Breadcrumbs itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
       <ProductImage url={product.image} description={product.description} type='productPage'/>
       <Wrapper productDetails>
-      <ProductDetails productPage>{product}</ProductDetails>
+      <ProductPageDetails>{product}</ProductPageDetails>
+      <ProductActions>{product}</ProductActions>
       </Wrapper>
-      
     </Wrapper>
   )
 }

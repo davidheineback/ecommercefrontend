@@ -18,8 +18,8 @@ width: "70vw",
 overflowY: "scroll",
 justifyContent: "center",
 textAlign: "center",
-marginLeft: "15%",
-marginRight: "15%",
+paddingLeft: "15%",
+paddingRight: "15%",
 marginBottom: "40px",
 paddingBottom: "20px",
 gap: "40px"
@@ -30,20 +30,27 @@ display: "flex",
 flexDirection: "row",
 flexWrap: "wrap",
 width: "100vw",
+minHeight: "65vh",
+maxHeight: "80vh",
+
 margonTop: "0",
 marginLeft:"0",
 marginRight: "0",
 paddingLeft: "15%",
 paddingRight: "15%",
 justifyContent: "left",
-textAlign: "center"
+textAlign: "center",
+gap: "20",
 }}
 
 ${props => props.productDetails && {
 marginTop: "0",
 justifyContent: "left",
 textAlign: "left",
-transform: "translateY(-30px)"
+transform: "translateY(-7vh)",
+minHeight: "80px",
+width: "40vw",
+border: "2px solid black"
 }}
 `
 

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const StyledFooter = styled.div`
 bottom: 0;
-height: 50px;
+max-height: 40px;
 width: 100vw;
 margin-right: 0;
 background-color: ${props => props.theme.colors.footerBackground};
