@@ -18,6 +18,7 @@ left: 0;
 padding: 4rem 1rem;
 padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
+z-index: 200;
 `
 
 function Header( { size, onScroll } ) {
