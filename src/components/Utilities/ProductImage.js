@@ -11,12 +11,16 @@ box-shadow: none;
 cursor: pointer;
 
 ${props => props.type === 'productPage' && {
-  minWidth:"300px",
+  minWidth:"350px",
   width: "30vw",
   height: "40vh",
-  boxShadow: `2px 2px 2px ${props.theme.colors.main}`,
+  transform: "translateY(-10px)",
+  transition: "transform .4s",
+  boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
   ":hover": {
     boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
+    transform: "scale(1.1) translateY(-10px)",
+    transition: "transform .4s"
   }
 }}
 `

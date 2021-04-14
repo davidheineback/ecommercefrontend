@@ -17,6 +17,7 @@ function ProductPage() {
       <Wrapper productDetails>
       <ProductDetails productPage>{product}</ProductDetails>
       </Wrapper>
+      
     </Wrapper>
   )
 }
