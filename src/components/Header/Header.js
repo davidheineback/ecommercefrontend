@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { DivButton, BurgerButton, Sidebar, CartIcon } from '../Utilities/UtilitiesExporter'
 import { getCategories } from '../../fetch.js'
-// import categories from '../../mockDB/mockCategories.js'
 
 const StyledHeader = styled.div`
 position: fixed;

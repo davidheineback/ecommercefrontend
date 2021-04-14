@@ -18,11 +18,11 @@ transform: translate(-40%, 5%);
 z-index: 100;
 `
 
-function Dropdown({ position, mainCategory, toggleDisplay, children }) {
+function Dropdown({ position, mainCategoryName, mainCategory, toggleDisplay, children }) {
   return (
     <StyledDropdown key='styleddropdown' placement={position} toggleDisplay={toggleDisplay}>
         <Link key={'mainLink'} to={`/${mainCategory}`}>
-          <Button key={'dropdownMainbtn'} btnType="dropdownMainBtn">{mainCategory}</Button>
+          <Button key={'dropdownMainbtn'} btnType="dropdownMainBtn">{mainCategoryName}</Button>
         </Link>
       {children.map((child, index) => {
         return (

@@ -64,7 +64,7 @@ const hideDropdown = (e) => {
       btnType={btnType}>
       {mainCategory.name}
       {children}
-      {useDropdown && <Dropdown position={dropdownPlacement} mainCategory={mainCategory.searchurl} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
+      {useDropdown && <Dropdown position={dropdownPlacement} mainCategoryName={mainCategory.name} mainCategory={mainCategory.searchurl} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
       </StyledDivButton>
   )
 }
