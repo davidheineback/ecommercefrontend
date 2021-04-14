@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Breadcrumbs, Wrapper, ProductImage } from '../Utilities/UtilitiesExporter'
+import { Breadcrumbs, Wrapper, ProductImage, ProductDetails } from '../Utilities/UtilitiesExporter'
 import { getProductById } from '../../fetch.js'
 
 function ProductPage() {
@@ -14,6 +14,9 @@ function ProductPage() {
     <Wrapper flex='bigFlex'>
       <Breadcrumbs itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
       <ProductImage url={product.image} description={product.description} type='productPage'/>
+      <Wrapper productDetails>
+      <ProductDetails productPage>{product}</ProductDetails>
+      </Wrapper>
     </Wrapper>
   )
 }

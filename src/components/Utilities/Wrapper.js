@@ -31,18 +31,25 @@ flexDirection: "row",
 flexWrap: "wrap",
 width: "100vw",
 margonTop: "0",
-marginLeft:0,
-marginRight: 0,
+marginLeft:"0",
+marginRight: "0",
 paddingLeft: "5%",
 paddingRight: "5%",
 justifyContent: "left",
 textAlign: "center"
 }}
+
+${props => props.productDetails && {
+marginTop: "0",
+justifyContent: "left",
+textAlign: "left",
+transform: "translateY(-35px)"
+}}
 `
 
-function Wrapper({ flex, children }) {
-  return (
-    <StyledWrapper flex={flex}>
+function Wrapper({ productDetails, flex, children }) {
+  return ( 
+    <StyledWrapper productDetails={productDetails} flex={flex}>
       {children}
     </StyledWrapper>
   )

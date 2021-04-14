@@ -6,6 +6,7 @@ margin-left: 10px;
 margin-top: 10px;
 font-size: 15px;
 
+
 ${props => props.productname && {
   color: props.theme.fontColors.dark,
   textTransform: "uppercase",
@@ -38,14 +39,16 @@ ${props => props.price && {
 }}
 `
 
-function ProductDetails({ children }) {
+function ProductDetails({ productPage, children }) {
   return (
-    <>
-    <StyledProductDetails productname>{children.name}</StyledProductDetails>
-    <StyledProductDetails brand>{children.brand}</StyledProductDetails>
-    <StyledProductDetails decription>{children.description}</StyledProductDetails>
-    <StyledProductDetails price>{children.price}kr</StyledProductDetails>
-    </>
+      <>
+      <StyledProductDetails productname>{children.name}</StyledProductDetails>
+      <StyledProductDetails brand>{children.brand}</StyledProductDetails>
+      <StyledProductDetails decription>{children.description}</StyledProductDetails>
+      {!productPage && <StyledProductDetails productPage={productPage} price>{children.price}kr
+      </StyledProductDetails>}
+
+      </>
   )
 }
 
