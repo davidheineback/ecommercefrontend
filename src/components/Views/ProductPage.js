@@ -17,8 +17,9 @@ function ProductPage() {
       <ProductImage url={product.image} description={product.description} type='productPage'/>
       <Wrapper productDetails>
       <ProductDetails productPage>{product}</ProductDetails>
+      <ProductActions></ProductActions>
       </Wrapper>
-   
+      
     </Wrapper>
   )
 }

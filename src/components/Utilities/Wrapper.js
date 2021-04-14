@@ -30,24 +30,26 @@ display: "flex",
 flexDirection: "row",
 flexWrap: "wrap",
 width: "100vw",
-height: "20vh",
+minHeight: "65vh",
+maxHeight: "80vh",
+
 margonTop: "0",
 marginLeft:"0",
 marginRight: "0",
 paddingLeft: "15%",
 paddingRight: "15%",
 justifyContent: "left",
-textAlign: "center"
+textAlign: "center",
+gap: "20",
 }}
 
 ${props => props.productDetails && {
 marginTop: "0",
 justifyContent: "left",
 textAlign: "left",
-transform: "translateY(-35px)",
+transform: "translateY(-7vh)",
 minHeight: "80px",
-maxHeight: "100px",
-width: "70vw",
+width: "40vw",
 border: "2px solid black"
 }}
 `

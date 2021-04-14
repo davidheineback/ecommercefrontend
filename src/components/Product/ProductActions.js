@@ -3,23 +3,23 @@ import styled from 'styled-components'
 import { Button } from '../Utilities/UtilitiesExporter'
 
 const StyledProductAction = styled.div`
-transform: translate(-35vw, -45.4vh);
 border: 2px solid black;
-width: 26vw;
-height: 40vh;
+padding: 10px;
+margin: 10px;
+text-align: center;
 `
 
 
 function ProductActions({ children }) {
   return (
     <StyledProductAction>
-      {children.options.length > 0 && 
+      {children && children.options.length > 0 && 
       <select>
       {children.options.map(child => <option>{child}</option>
       )}
       </select>
       }
-      <Button primary>Buy me now!</Button>
+      <Button btnType={'primary'}>Buy me now!</Button>
     </StyledProductAction>
   )
 }

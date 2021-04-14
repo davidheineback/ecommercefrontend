@@ -12,14 +12,14 @@ cursor: pointer;
 
 ${props => props.type === 'productPage' && {
   minWidth:"350px",
-  width: "30vw",
-  height: "40vh",
-  transform: "translateY(-10px)",
+  width: "35vw",
+  height: "45vh",
+  transform: "translateY(-7vh)",
   transition: "transform .4s",
   boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
   ":hover": {
     boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
-    transform: "scale(1.1) translateY(-10px)",
+    transform: "scale(1.1) translateY(-7vh)",
     transition: "transform .4s"
   }
 }}

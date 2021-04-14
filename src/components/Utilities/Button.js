@@ -22,8 +22,8 @@ ${props => props.btnType === 'primary' && {
   background: props.theme.colors.main,
   color: props.theme.fontColors.main,
   ":hover": {
-    background: "white",
-    color: "red"
+    background: props.theme.colors.mainHover,
+    color: props.theme.fontColors.mainHover,
   }
 }}
 
