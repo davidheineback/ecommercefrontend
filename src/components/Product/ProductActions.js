@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from '../Utilities/UtilitiesExporter'
+import { Dot, Button } from '../Utilities/UtilitiesExporter'
 
 const StyledProductAction = styled.div`
-display: block;
-border: 2px solid black;
-padding: 10px;
-margin: 10px;
-width: 80%;
+display: flex;
+flex-direction: column;
+padding: 20px;
+width: 60%;
 text-align: center;
 `
 
 const StyledSelect = styled.select`
+appearance: none;
 border: 0;
 border-bottom: 2px solid ${props => props.theme.colors.main};
 cursor: pointer;
@@ -19,6 +19,7 @@ font-weight: 700;
 letter-spacing: 2px;
 min-width: 40%;
 padding: 0.5rem 0.5rem;
+margin: 20px;
 `
 
 const StyledOption = styled.option`
@@ -30,11 +31,12 @@ function ProductActions({ children }) {
     <StyledProductAction>
       {children.options && children.options.length > 0 && 
       <StyledSelect>
+        <Dot>v</Dot>
       {children.options.map((child, index) => <StyledOption val={index}>{child}</StyledOption>
       )}
       </StyledSelect>
       }
-      <Button btnType={'primary'}>Buy me now!</Button>
+      <Button btnType={'primary'}>Add to cart</Button>
     </StyledProductAction>
   )
 }

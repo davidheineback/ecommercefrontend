@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Dot } from './UtilitiesExporter'
 
 
 export const StyledProductDetails = styled.div`
@@ -32,8 +33,17 @@ ${props => props.decription && {
 }}
 
 ${props => props.toggleDetailedDescription && {
-  border: "2px solid black",
-  padding: "1rem"
+  position: "relative",
+  border: "2px solid transparent",
+  padding: "1rem",
+  width: "fit-content",
+  minHeight: "50px",
+  backgroundColor: "rgba(255,255,255,0.1)",
+  backdropFilter: "blur(15px)",
+  backgroundClip: "padding-box",
+  boxShadow: "rgba(0,0,0, 0.2) 0px 20px 30px",
+  zIndex: "100000",
+  color: "black",
 }}
 
 ${props => props.price && {
@@ -44,23 +54,6 @@ ${props => props.price && {
 }}
 `
 
-const StyledInfoBtn = styled.div`
-border: 0;
-border-radius: 50%;
-box-shadow: none;
-cursor: pointer;
-font-weight: 700;
-padding: 2px;
-font-size: 15px;
-background: ${props => props.theme.colors.main};
-color: ${props => props.theme.fontColors.main};
-width: 15px;
-height: 15px;
-z-index: 10;
-justify-content: center;
-text-align: center;
-text-transform: lowercase;
-`
 
 function ProductPageDetails({ children }) {
   const [toggleDetailedDescription, setToggleDetailedDescription] = useState(false)
@@ -75,10 +68,9 @@ function ProductPageDetails({ children }) {
       onMouseLeave={() => setToggleDetailedDescription(false)}
       decription
       toggleDetailedDescription={toggleDetailedDescription}>
-      {toggleDetailedDescription ? children.detailedDescription 
-      :<>{children.description} <StyledInfoBtn>i</StyledInfoBtn></>}
+      {toggleDetailedDescription ? children.detailedDescription
+      :<>{children.description} <Dot info>i</Dot></>}
       </StyledProductDetails>
-
       <StyledProductDetails price>{children.price}kr
       </StyledProductDetails>
     </>
