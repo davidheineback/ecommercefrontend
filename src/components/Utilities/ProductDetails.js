@@ -31,7 +31,7 @@ ${props => props.decription && {
 ${props => props.price && {
   color: props.theme.fontColors.dark,
   position: "relative",
-  transform: "translate(75%)",
+  transform: "translate(70%)",
   fontWeight: "700",
   fontSize: "20px",
   marginTop: "0",
