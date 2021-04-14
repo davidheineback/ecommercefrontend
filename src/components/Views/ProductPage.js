@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Breadcrumbs, Wrapper, ProductImage, ProductDetails } from '../Utilities/UtilitiesExporter'
+import ProductActions from '../Product/ProductActions'
 import { getProductById } from '../../fetch.js'
 
 function ProductPage() {
@@ -17,6 +18,7 @@ function ProductPage() {
       <Wrapper productDetails>
       <ProductDetails productPage>{product}</ProductDetails>
       </Wrapper>
+   
     </Wrapper>
   )
 }
