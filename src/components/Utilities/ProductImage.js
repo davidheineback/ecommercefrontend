@@ -12,8 +12,8 @@ cursor: pointer;
 
 ${props => props.type === 'productPage' && {
   minWidth:"350px",
-  width: "35vw",
-  height: "45vh",
+  maxWidth: "35vw",
+  maxHeight: "45vh",
   transform: "translateY(-7vh)",
   transition: "transform .4s",
   boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
