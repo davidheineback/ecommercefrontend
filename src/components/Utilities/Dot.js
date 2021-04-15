@@ -19,10 +19,18 @@ z-index: 10;
 justify-content: center;
 text-align: center;
 text-transform: lowercase;
+
+${props => props.arrowDirection === 'down' && {
+  transform: "translate(210px, -10px) rotate(-90deg)",
+}}
+
+${props => props.arrowDirection === 'up' && {
+  transform: "translate(210px, -10px) rotate(90deg)",
+}}
 `
-function Dot({ children }) {
+function Dot({ onClick, arrowDirection, children }) {
   return (
-    <StyledDot>
+    <StyledDot onClick={onClick} arrowDirection={arrowDirection}>
       {children}
     </StyledDot>
   )
