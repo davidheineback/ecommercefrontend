@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Dot, Button } from '../Utilities/UtilitiesExporter'
 
+
 const StyledProductAction = styled.div`
 display: flex;
 flex-direction: column;
@@ -115,6 +116,8 @@ function ProductActions({ children }) {
       </StyledSelect>}
       </>
       }
+      {children.inStock ? 
+      <>
       <StyledCounter>
       <Dot
       onClick={() => setNumberOfItems(numberOfItems - 1)}
@@ -124,7 +127,7 @@ function ProductActions({ children }) {
       onClick={() => setNumberOfItems(numberOfItems + 1)}
       btnType={'counterBtn'}>+</Dot>
       </StyledCounter>
-      {children.inStock ? <Button btnType={'primary'}>Add to cart</Button> :
+      <Button btnType={'primary'}>Add to cart</Button></> :
       <Button btnType={'disabled'}>Sold out!</Button>
       }
     </StyledProductAction>

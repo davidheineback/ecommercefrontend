@@ -24,13 +24,11 @@ z-index: 200;
 function Header( { size, onScroll } ) {
   const [active, setActive] = useState(false)
   const [categories, setCategories] = useState([])
+  const [numberOfItemsInCart] = useState(0)
   
   useEffect(() => {
     getCategories(setCategories) },[])
-  
-  function numberOfItemsInCart () {
-    return 0
-  }
+
 
   const handleActive = useCallback(
     (e) => {
@@ -40,7 +38,7 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
-  if (size > 500) {
+  if (size > 600) {
     return (
       <StyledHeader key='styledheader'>
         {categories.map((category, index) => {
@@ -55,7 +53,7 @@ function Header( { size, onScroll } ) {
             )
       })
       }
-      <CartIcon key='carticon' itemsInCart={numberOfItemsInCart()}/>
+      <CartIcon key='carticon' itemsInCart={numberOfItemsInCart}/>
       </StyledHeader> 
     )
   } else {
@@ -63,7 +61,7 @@ function Header( { size, onScroll } ) {
     <>
     <StyledHeader key='smallstyledheader'>
     <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
-    <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart()}/>
+    <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart}/>
     </StyledHeader>
     {active && (<Sidebar key='sidebar' categories={categories}/>)}
     </>
