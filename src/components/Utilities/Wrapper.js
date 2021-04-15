@@ -50,7 +50,6 @@ textAlign: "left",
 transform: "translateY(-7vh)",
 minHeight: "80px",
 width: "40vw",
-border: "2px solid black"
 }}
 `
 
