@@ -41,14 +41,13 @@ ${props => props.glassbox && {
   padding: "1rem",
   maxWidth: "300px",
   minHeight: "80px",
-  background: "linear-gradient(90deg, rgba(180,180,180,0.60) 0%, rgba(172,172,172,0.53) 51%, rgba(167,165,165,0.57) 63%)",
+  background: "linear-gradient(90deg, rgba(180,180,180,0.60) 0%, rgba(172,172,172,0.53) 43%, rgba(167,165,165,0.57) 61%)",
   backdropFilter: "brightness(150%) saturate(150%) blur(5px)",
   backgroundClip: "padding-box",
   boxShadow: "rgba(0,0,0, 0.3) 0px 20px 30px",
-  overflow: "auto",
   zIndex: "100000",
   color: "black",
-  fontWeight: "600",
+  fontWeight: "900",
   fontSize: "16px",
   transform: "translateY(-50px)"
 }}
