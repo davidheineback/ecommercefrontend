@@ -32,7 +32,6 @@ flexWrap: "wrap",
 width: "100vw",
 minHeight: "65vh",
 maxHeight: "80vh",
-
 margonTop: "0",
 marginLeft:"0",
 marginRight: "0",
@@ -50,7 +49,7 @@ textAlign: "left",
 transform: "translateY(-7vh)",
 minHeight: "80px",
 width: "40vw",
-border: "2px solid black"
+minWidth: "400px"
 }}
 `
 

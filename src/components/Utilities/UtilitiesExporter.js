@@ -3,6 +3,7 @@ import BurgerButton from './BurgerButton'
 import Button from './Button'
 import CartIcon from './CartIcon'
 import DivButton from './DivButton'
+import Dot from './Dot'
 import Dropdown from './Dropdown'
 import ProductPageDetails from './ProductPageDetails'
 import ProductDetails from './ProductDetails'
@@ -17,6 +18,7 @@ export {
   Button,
   CartIcon,
   DivButton,
+  Dot,
   Dropdown,
   ProductPageDetails,
   ProductDetails,

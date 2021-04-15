@@ -19,7 +19,30 @@ color: ${props => props.theme.fontColors.mainHover};
 
 
 ${props => props.btnType === 'primary' && {
+  width: "250px",
   background: props.theme.colors.main,
+  color: props.theme.fontColors.main,
+  ":hover": {
+    background: props.theme.colors.mainHover,
+    color: props.theme.fontColors.mainHover,
+  }
+}}
+
+${props => props.btnType === 'disabled' && {
+  background: "grey",
+  color: props.theme.fontColors.main,
+  ":disabled": true,
+  ":hover": {
+    background: "grey",
+    color: props.theme.fontColors.main,
+  }
+}}
+
+${props => props.btnType === 'counterBtn' && {
+  background: props.theme.colors.main,
+  width: "40px",
+  height: "40px",
+  margin: "5px",
   color: props.theme.fontColors.main,
   ":hover": {
     background: props.theme.colors.mainHover,
@@ -70,7 +93,7 @@ ${props => props.btnType === 'dropdownMainBtn' && {
 
 `
 
-function Button({ useDropdown, mainCategory, subCategories, btnType, children }) {
+function Button({ useDropdown, mainCategory, subCategories, btnType, onClick, children }) {
 const [renderDropdown, setRenderDropdown] = useState(false)
 const [dropdownPlacement, setDropdownPlacement] = useState({ left: '', top: '' })
 
@@ -86,6 +109,7 @@ const hideDropdown = (e) => {
   return (
     <StyledButton
       type="button"
+      onClick={onClick}
       onMouseEnter={handleHover}
       onMouseLeave={hideDropdown}
       btnType={btnType}>

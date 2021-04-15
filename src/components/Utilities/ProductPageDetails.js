@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Dot } from './UtilitiesExporter'
 
 
 export const StyledProductDetails = styled.div`
@@ -22,63 +23,68 @@ ${props => props.brand && {
   marginTop: "0"
 }}
 
-${props => props.decription && {
-  color: props.theme.fontColors.dark,
+${props => props.description && {
   fontWeight: "500",
   fontSize: "14px",
+  maxWidth: "fit-content",
   textTransform: "uppercase",
   marginTop: "0",
   cursor: "pointer"
 }}
 
 ${props => props.toggleDetailedDescription && {
-  border: "2px solid black",
-  padding: "1rem"
+  visibility: "hidden"
+}}
+
+${props => props.glassbox && {
+  position: "absolute",
+  padding: "1rem",
+  maxWidth: "300px",
+  minHeight: "80px",
+  background: "linear-gradient(90deg, rgba(180,180,180,0.60) 0%, rgba(172,172,172,0.53) 43%, rgba(167,165,165,0.57) 61%)",
+  backdropFilter: "brightness(150%) saturate(150%) blur(5px)",
+  backgroundClip: "padding-box",
+  boxShadow: "rgba(0,0,0, 0.3) 0px 20px 30px",
+  zIndex: "100000",
+  color: "black",
+  fontWeight: "900",
+  fontSize: "16px",
+  transform: "translateY(-50px)"
 }}
 
 ${props => props.price && {
   color: props.theme.fontColors.dark,
   fontWeight: "600",
   fontSize: "24px",
-  marginTop: "10px",
 }}
 `
 
-const StyledInfoBtn = styled.div`
-border: 0;
-border-radius: 50%;
-box-shadow: none;
-cursor: pointer;
-font-weight: 700;
-padding: 2px;
-font-size: 15px;
-background: ${props => props.theme.colors.main};
-color: ${props => props.theme.fontColors.main};
-width: 15px;
-height: 15px;
-z-index: 10;
-justify-content: center;
-text-align: center;
-text-transform: lowercase;
-`
 
 function ProductPageDetails({ children }) {
   const [toggleDetailedDescription, setToggleDetailedDescription] = useState(false)
 
+  const displaySettings = {
+    display: !toggleDetailedDescription && 'none'
+  }
 
+  
   return (
     <>
       <StyledProductDetails productname>{children.name}</StyledProductDetails>
       <StyledProductDetails brand>{children.brand}</StyledProductDetails>
       <StyledProductDetails
-      onMouseEnter={() => setToggleDetailedDescription(true)}
-      onMouseLeave={() => setToggleDetailedDescription(false)}
-      decription
-      toggleDetailedDescription={toggleDetailedDescription}>
-      {toggleDetailedDescription ? children.detailedDescription 
-      :<>{children.description} <StyledInfoBtn>i</StyledInfoBtn></>}
+        description
+        onMouseEnter={() => setToggleDetailedDescription(true)}
+        toggleDetailedDescription={toggleDetailedDescription}
+        >
+          <>{children.description} <Dot info>i</Dot></>
       </StyledProductDetails>
-
+      <StyledProductDetails
+        style={displaySettings}
+        glassbox
+        onMouseLeave={() => setToggleDetailedDescription(false)}>
+          {children.detailedDescription}
+      </StyledProductDetails>
       <StyledProductDetails price>{children.price}kr
       </StyledProductDetails>
     </>
