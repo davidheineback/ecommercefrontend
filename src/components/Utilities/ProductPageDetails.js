@@ -23,34 +23,40 @@ ${props => props.brand && {
   marginTop: "0"
 }}
 
-${props => props.decription && {
-  color: props.theme.fontColors.dark,
+${props => props.description && {
   fontWeight: "500",
   fontSize: "14px",
+  maxWidth: "fit-content",
   textTransform: "uppercase",
   marginTop: "0",
   cursor: "pointer"
 }}
 
 ${props => props.toggleDetailedDescription && {
-  position: "relative",
-  border: "2px solid transparent",
+  visibility: "hidden"
+}}
+
+${props => props.glassbox && {
+  position: "absolute",
   padding: "1rem",
-  width: "fit-content",
-  minHeight: "50px",
-  backgroundColor: "rgba(255,255,255,0.1)",
-  backdropFilter: "blur(15px)",
+  maxWidth: "300px",
+  minHeight: "80px",
+  background: "linear-gradient(90deg, rgba(180,180,180,0.60) 0%, rgba(172,172,172,0.53) 51%, rgba(167,165,165,0.57) 63%)",
+  backdropFilter: "brightness(150%) saturate(150%) blur(5px)",
   backgroundClip: "padding-box",
-  boxShadow: "rgba(0,0,0, 0.2) 0px 20px 30px",
+  boxShadow: "rgba(0,0,0, 0.3) 0px 20px 30px",
+  overflow: "auto",
   zIndex: "100000",
   color: "black",
+  fontWeight: "600",
+  fontSize: "16px",
+  transform: "translateY(-50px)"
 }}
 
 ${props => props.price && {
   color: props.theme.fontColors.dark,
   fontWeight: "600",
   fontSize: "24px",
-  marginTop: "10px",
 }}
 `
 
@@ -58,18 +64,27 @@ ${props => props.price && {
 function ProductPageDetails({ children }) {
   const [toggleDetailedDescription, setToggleDetailedDescription] = useState(false)
 
+  const displaySettings = {
+    display: !toggleDetailedDescription && 'none'
+  }
 
+  
   return (
     <>
       <StyledProductDetails productname>{children.name}</StyledProductDetails>
       <StyledProductDetails brand>{children.brand}</StyledProductDetails>
       <StyledProductDetails
-      onMouseEnter={() => setToggleDetailedDescription(true)}
-      onMouseLeave={() => setToggleDetailedDescription(false)}
-      decription
-      toggleDetailedDescription={toggleDetailedDescription}>
-      {toggleDetailedDescription ? children.detailedDescription
-      :<>{children.description} <Dot info>i</Dot></>}
+        description
+        onMouseEnter={() => setToggleDetailedDescription(true)}
+        toggleDetailedDescription={toggleDetailedDescription}
+        >
+          <>{children.description} <Dot info>i</Dot></>
+      </StyledProductDetails>
+      <StyledProductDetails
+        style={displaySettings}
+        glassbox
+        onMouseLeave={() => setToggleDetailedDescription(false)}>
+          {children.detailedDescription}
       </StyledProductDetails>
       <StyledProductDetails price>{children.price}kr
       </StyledProductDetails>
