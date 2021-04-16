@@ -1,5 +1,4 @@
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
-import  { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import { Wrapper } from './components/Utilities/UtilitiesExporter'
