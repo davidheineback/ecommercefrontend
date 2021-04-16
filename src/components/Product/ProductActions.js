@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Dot, Button } from '../Utilities/UtilitiesExporter'
+import { GlobalStateContext } from '../GlobalState/GlobalState'
 
 
 const StyledProductAction = styled.div`
@@ -73,6 +74,7 @@ color: rgba(0, 0, 0, 0.7);
 
 
 function ProductActions({ children }) {
+  const { setItemsInCart } = React.useContext(GlobalStateContext)
   const [arrowDirection, setArrowDirection] = useState('down')
   const [arrowToggle, setArrowToggle] = useState(false)
   const [option, setOption] = useState('Choose type')
@@ -127,7 +129,11 @@ function ProductActions({ children }) {
       onClick={() => setNumberOfItems(numberOfItems + 1)}
       btnType={'counterBtn'}>+</Dot>
       </StyledCounter>
-      <Button btnType={'primary'}>Add to cart</Button></> :
+      <Button onClick={() => {
+        for(let i = 0; i < numberOfItems; i++) {
+          setItemsInCart(prev => prev.length ? [...prev, children] : [children])
+        }
+      }} btnType={'primary'}>Add to cart</Button></> :
       <Button btnType={'disabled'}>Sold out!</Button>
       }
     </StyledProductAction>

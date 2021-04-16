@@ -1,6 +1,7 @@
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import GlobalState from './components/GlobalState/GlobalState'
 import { Wrapper } from './components/Utilities/UtilitiesExporter'
 import { MainPage, MainCategoryPage, SubCategoryPage, ProductPage, PageNotFound } from './components/Views/ViewsExporter'
 
@@ -8,6 +9,7 @@ import { MainPage, MainCategoryPage, SubCategoryPage, ProductPage, PageNotFound 
 function App() {
     
   return (
+  <GlobalState>
     <Router>
       <Wrapper>
         <Header key="header"/>
@@ -23,6 +25,7 @@ function App() {
           <Footer/>
       </Wrapper>
     </Router>
+  </GlobalState>
   )
 }
 

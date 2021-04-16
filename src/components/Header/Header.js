@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { DivButton, BurgerButton, Sidebar, CartIcon } from '../Utilities/UtilitiesExporter'
 import { getCategories } from '../../fetch.js'
+import { GlobalStateContext } from '../GlobalState/GlobalState'
 
 const StyledHeader = styled.div`
 position: fixed;
@@ -42,9 +43,10 @@ z-index: 800;
 `
 
 function Header( { size, onScroll } ) {
+  const { itemsInCart } = React.useContext(GlobalStateContext)
   const [active, setActive] = useState(false)
   const [categories, setCategories] = useState([])
-  const [numberOfItemsInCart] = useState(0)
+  // const [numberOfItemsInCart] = useState(0)
   
   useEffect(() => {
     getCategories(setCategories) },[])
@@ -73,11 +75,11 @@ function Header( { size, onScroll } ) {
             )
       })
       }
-      <CartIcon key='carticon' itemsInCart={numberOfItemsInCart}/>
+      <CartIcon key='carticon' itemsInCart={itemsInCart.length || 0}/>
       </StyledHeader> 
     <StyledHeader small key='smallstyledheader'>
     <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
-    <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart}/>
+    <CartIcon key='smallcarticon' itemsInCart={itemsInCart.length || 0}/>
     </StyledHeader>
     {active && (<Sidebar key='sidebar' categories={categories}/>)}
     </>
