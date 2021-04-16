@@ -10,9 +10,12 @@ width: 100%;
 justify-content: center;
 overflow: hidden;
 
-${props => props.size < props.theme.sizeToggle.size && {
-marginTop: "45px",
+
+@media screen and (min-width: ${props => props.theme.sizeToggle.size}) {
+  ${props => props.small && {
+  marginTop: "45px",
 }}
+}
 
 ${props => props.flex && {
 display: "flex",
@@ -55,21 +58,11 @@ minHeight: "80px",
 width: "40vw",
 minWidth: "400px"
 }}
-
-${props => props.productDetails &&  {
-marginTop: "0",
-justifyContent: "left",
-textAlign: "left",
-transform: "translateY(-7vh)",
-minHeight: "80px",
-width: "40vw",
-minWidth: "400px"
-}}
 `
 
-function Wrapper({ size, productDetails, flex, children }) {
+function Wrapper({ productDetails, flex, children }) {
   return ( 
-    <StyledWrapper size={size} productDetails={productDetails} flex={flex}>
+    <StyledWrapper productDetails={productDetails} flex={flex}>
       {children}
     </StyledWrapper>
   )

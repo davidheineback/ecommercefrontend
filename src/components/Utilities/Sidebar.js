@@ -16,11 +16,17 @@ const StyledSideBar = styled.div`
   top: 108px;
   z-index: 500;
   text-align: center;
+
+  @media screen and (min-width: 600px) {
+  ${props => props.small && {
+  display: "none"
+}}
+}
 `
 
 function SideBar({ categories }) {
   return (
-    <StyledSideBar>
+    <StyledSideBar small>
     {categories.map((category, index) => {
             return (  
             <DivButton

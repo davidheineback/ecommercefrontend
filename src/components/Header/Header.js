@@ -20,10 +20,24 @@ padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
 z-index: 800;
 
-${props => props.small && {
+
+@media screen and (max-width: 599px) {
+  ${props => props.big && {
+  display: "none"
+}}
+}
+
+@media screen and (min-width: 600px) {
+  ${props => props.small && {
+  display: "none"
+}}
+}
+  ${props => props.small && {
   minHeight: "2vh",
   paddingBottom: "20px"
 }}
+
+
 
 `
 
@@ -44,9 +58,9 @@ function Header( { size, onScroll } ) {
     [active, setActive],
   )
 
-  if (size > 600) {
     return (
-      <StyledHeader key='styledheader'>
+      <>
+      <StyledHeader big key='styledheader'>
         {categories.map((category, index) => {
             return (
               <DivButton
@@ -61,10 +75,6 @@ function Header( { size, onScroll } ) {
       }
       <CartIcon key='carticon' itemsInCart={numberOfItemsInCart}/>
       </StyledHeader> 
-    )
-  } else {
-  return (
-    <>
     <StyledHeader small key='smallstyledheader'>
     <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
     <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart}/>
@@ -72,7 +82,6 @@ function Header( { size, onScroll } ) {
     {active && (<Sidebar key='sidebar' categories={categories}/>)}
     </>
   )
-}
 }
 
 export default Header
