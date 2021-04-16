@@ -11,7 +11,7 @@ box-shadow: none;
 cursor: pointer;
 
 ${props => props.type === 'productPage' && {
-  minWidth:"350px",
+  minWidth:"280px",
   maxWidth: "35vw",
   maxHeight: "45vh",
   transform: "translateY(-7vh)",

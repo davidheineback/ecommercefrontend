@@ -1,18 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
-import Button from './Button'
+// import { Link } from 'react-router-dom'
+// import Button from './Button'
+import { DivButton } from './UtilitiesExporter'
 
 
 const StyledSideBar = styled.div`
   background: black;
   height: 100vh;
-  width: 35vw;
+  width: 30vw;
   margin: 0;
   padding: 0;
   position: fixed;
   left: 0;
-  top: 150px;
+  top: 108px;
+  z-index: 500;
+  text-align: center;
 `
 
 function SideBar({ categories }) {
@@ -20,13 +23,14 @@ function SideBar({ categories }) {
     <StyledSideBar>
     {categories.map((category, index) => {
             return (  
-              <Link to={`/${category.searchurl}`} key={index}>
-              <Button
-                btnType="headerBtn"
-                key={index}>
-                  {category.name}
-              </Button>
-              </Link>
+            <DivButton
+            sideBar={true}
+            useDropdown={true}
+            btnType="headerBtn"
+            mainCategory={category}
+            subCategories={category.subs}
+            key={'headerbtn'+index}>
+            </DivButton>
             )
       })}
     </StyledSideBar>

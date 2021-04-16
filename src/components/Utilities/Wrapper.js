@@ -10,6 +10,10 @@ width: 100%;
 justify-content: center;
 overflow: hidden;
 
+${props => props.size < props.theme.sizeToggle.size && {
+marginTop: "45px"
+}}
+
 ${props => props.flex && {
 display: "flex",
 flexDirection: "row",
@@ -53,9 +57,9 @@ minWidth: "400px"
 }}
 `
 
-function Wrapper({ productDetails, flex, children }) {
+function Wrapper({ size, productDetails, flex, children }) {
   return ( 
-    <StyledWrapper productDetails={productDetails} flex={flex}>
+    <StyledWrapper size={size} productDetails={productDetails} flex={flex}>
       {children}
     </StyledWrapper>
   )
