@@ -15,7 +15,6 @@ function MainPage() {
 
   useEffect(() => {
     const timeId = setTimeout(() => {
-      // After 3 seconds set the show value to false
       setEmptyCartFlash(false)
     }, 3000)
 
