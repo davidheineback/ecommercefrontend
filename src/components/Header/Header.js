@@ -18,7 +18,13 @@ left: 0;
 padding: 4rem 1rem;
 padding-bottom: 5px;
 text-align: ${props => props.align || "center"};
-z-index: 200;
+z-index: 800;
+
+${props => props.small && {
+  minHeight: "2vh",
+  paddingBottom: "20px"
+}}
+
 `
 
 function Header( { size, onScroll } ) {
@@ -59,7 +65,7 @@ function Header( { size, onScroll } ) {
   } else {
   return (
     <>
-    <StyledHeader key='smallstyledheader'>
+    <StyledHeader small key='smallstyledheader'>
     <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
     <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart}/>
     </StyledHeader>

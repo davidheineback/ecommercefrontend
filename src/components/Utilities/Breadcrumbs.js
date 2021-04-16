@@ -9,6 +9,8 @@ justify-content: left;
 background-color: white;
 height: 15px;
 margin-left: 15px;
+z-index: 400;
+margin-bottom: 50px;
 `
 
 const StyledTilter = styled.div`
@@ -47,7 +49,7 @@ color: ${props => props.theme.fontColors.mainHover};
 `
 
 
-function Breadcrumbs({ itemNr, children }) {
+function Breadcrumbs({ size, itemNr, children }) {
   const breadcrumbs = children ? ([...children]
   .map((child, index) => {
     switch(index) {

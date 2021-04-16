@@ -4,7 +4,7 @@ import { Breadcrumbs, Wrapper, ProductImage, ProductPageDetails } from '../Utili
 import ProductActions from '../Product/ProductActions'
 import { getProductById } from '../../fetch.js'
 
-function ProductPage() {
+function ProductPage({ size }) {
   const { mainCategory, subCategory, productId } = useParams()
   const [product, setProduct] = useState([])
 
@@ -13,7 +13,7 @@ function ProductPage() {
 
   return (
     <Wrapper flex='bigFlex'>
-      <Breadcrumbs itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
+      <Breadcrumbs size={size} itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
       <ProductImage url={product.image} description={product.description} type='productPage'/>
       <Wrapper productDetails>
       <ProductPageDetails>{product}</ProductPageDetails>

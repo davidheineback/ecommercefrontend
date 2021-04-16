@@ -16,6 +16,9 @@
     elementAfterHeader: {
       marginTop: "80px",
       marginLeft: "0px"
+    },
+    sizeToggle: {
+      size: 600
     }
   }
 

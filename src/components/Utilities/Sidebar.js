@@ -7,12 +7,14 @@ import Button from './Button'
 const StyledSideBar = styled.div`
   background: black;
   height: 100vh;
-  width: 35vw;
+  width: 30vw;
   margin: 0;
   padding: 0;
   position: fixed;
   left: 0;
-  top: 150px;
+  top: 108px;
+  z-index: 500;
+  text-align: center;
 `
 
 function SideBar({ categories }) {
