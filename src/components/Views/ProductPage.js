@@ -13,9 +13,9 @@ function ProductPage({ size }) {
 
   return (
     <Wrapper flex='bigFlex'>
-      <Breadcrumbs size={size} itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
+      <Breadcrumbs itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
       <ProductImage url={product.image} description={product.description} type='productPage'/>
-      <Wrapper productDetails>
+      <Wrapper size={size} productDetails>
       <ProductPageDetails>{product}</ProductPageDetails>
       <ProductActions>{product}</ProductActions>
       </Wrapper>
