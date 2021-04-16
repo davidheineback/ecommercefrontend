@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import cart from '../../img/shopping-cart-128x128.png'
 
@@ -34,10 +35,10 @@ right: 115px;
 
 function CartIcon({ itemsInCart }) {
   return (
-    <>
+    <Link key={'CartLink'} to={'/cart'}>
     <StyledCounter>{itemsInCart}</StyledCounter>
     <StyledCart src={cart} alt="ShoppingCart"/>
-    </>
+    </Link>
   )
 }
 

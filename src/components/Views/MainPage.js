@@ -3,18 +3,30 @@ import { Link } from 'react-router-dom'
 import { Breadcrumbs, Wrapper } from '../Utilities/UtilitiesExporter'
 import ProductCard from '../Product/ProductCard.js'
 import { getAllProducts } from '../../fetch.js'
+import { GlobalStateContext } from '../GlobalState/GlobalState'
 
 
 function MainPage() {
   const [products, setProducts] = useState([])
+  const { emptyCartFlash, setEmptyCartFlash, cartFlashMessage } = React.useContext(GlobalStateContext)
   
   useEffect(() => {  
     getAllProducts(setProducts) },[])
 
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setEmptyCartFlash(false)
+    }, 3000)
+
+    return () => {
+      clearTimeout(timeId)
+    }   
+  },[emptyCartFlash, setEmptyCartFlash])
 
   return (
     <Wrapper flex>
     <Breadcrumbs/>
+    {emptyCartFlash && <Wrapper flex={'flash'}>{cartFlashMessage}</Wrapper>}
     {products.map((product, index) => {
       return (
       <Link
