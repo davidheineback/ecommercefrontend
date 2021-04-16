@@ -46,7 +46,6 @@ function Header( { size, onScroll } ) {
   const { itemsInCart } = React.useContext(GlobalStateContext)
   const [active, setActive] = useState(false)
   const [categories, setCategories] = useState([])
-  // const [numberOfItemsInCart] = useState(0)
   
   useEffect(() => {
     getCategories(setCategories) },[])
