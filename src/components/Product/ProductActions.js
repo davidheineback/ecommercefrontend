@@ -131,7 +131,7 @@ function ProductActions({ children }) {
       </StyledCounter>
       <Button onClick={() => {
         for(let i = 0; i < numberOfItems; i++) {
-          setItemsInCart(prev => prev.length ? [...prev, children] : [children])
+          setItemsInCart(prev => [...prev, children])
         }
       }} btnType={'primary'}>Add to cart</Button></> :
       <Button btnType={'disabled'}>Sold out!</Button>

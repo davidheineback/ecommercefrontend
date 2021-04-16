@@ -3,7 +3,8 @@ import React from 'react'
 export const GlobalStateContext = React.createContext(null)
 
 export default function GlobalState({ children }) {
-  const [itemsInCart, setItemsInCart] = React.useState(0)
+  const [itemsInCart, setItemsInCart] = React.useState([])
+
 
   const state = {
     setItemsInCart: setItemsInCart,

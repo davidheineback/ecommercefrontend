@@ -75,11 +75,11 @@ function Header( { size, onScroll } ) {
             )
       })
       }
-      <CartIcon key='carticon' itemsInCart={itemsInCart.length || 0}/>
+      <CartIcon key='carticon' itemsInCart={itemsInCart.length}/>
       </StyledHeader> 
     <StyledHeader small key='smallstyledheader'>
     <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
-    <CartIcon key='smallcarticon' itemsInCart={itemsInCart.length || 0}/>
+    <CartIcon key='smallcarticon' itemsInCart={itemsInCart.length}/>
     </StyledHeader>
     {active && (<Sidebar key='sidebar' categories={categories}/>)}
     </>
