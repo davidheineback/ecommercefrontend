@@ -4,11 +4,16 @@ export const GlobalStateContext = React.createContext(null)
 
 export default function GlobalState({ children }) {
   const [itemsInCart, setItemsInCart] = React.useState([])
+  const [emptyCartFlash, setEmptyCartFlash] = React.useState(false)
+  const [cartFlashMessage] = React.useState('No items in cart')
 
 
   const state = {
     setItemsInCart: setItemsInCart,
     itemsInCart: itemsInCart,
+    setEmptyCartFlash: setEmptyCartFlash,
+    emptyCartFlash: emptyCartFlash,
+    cartFlashMessage: cartFlashMessage
   }
 
   React.useEffect(() => {
