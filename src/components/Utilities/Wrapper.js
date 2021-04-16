@@ -11,7 +11,7 @@ justify-content: center;
 overflow: hidden;
 
 ${props => props.size < props.theme.sizeToggle.size && {
-marginTop: "45px"
+marginTop: "45px",
 }}
 
 ${props => props.flex && {
@@ -47,6 +47,16 @@ gap: "20",
 }}
 
 ${props => props.productDetails && {
+marginTop: "0",
+justifyContent: "left",
+textAlign: "left",
+transform: "translateY(-7vh)",
+minHeight: "80px",
+width: "40vw",
+minWidth: "400px"
+}}
+
+${props => props.productDetails &&  {
 marginTop: "0",
 justifyContent: "left",
 textAlign: "left",

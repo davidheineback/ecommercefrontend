@@ -49,7 +49,7 @@ color: ${props => props.theme.fontColors.mainHover};
 `
 
 
-function Breadcrumbs({ size, itemNr, children }) {
+function Breadcrumbs({ itemNr, children }) {
   const breadcrumbs = children ? ([...children]
   .map((child, index) => {
     switch(index) {

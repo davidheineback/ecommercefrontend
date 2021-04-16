@@ -9,6 +9,11 @@ appearance: none;
 border: 0;
 box-shadow: none;
 cursor: pointer;
+@supports (-webkit-touch-callout: none) {
+  ${props => props.type === 'productPage' && { 
+    marginTop: "30px",
+  }}
+}
 
 ${props => props.type === 'productPage' && {
   minWidth:"280px",
