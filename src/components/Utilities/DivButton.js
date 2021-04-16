@@ -43,7 +43,7 @@ ${props => props.btnType === 'dropdownBtn' && {
 }}
 `
 
-function DivButton({ useDropdown, mainCategory, subCategories, btnType, children }) {
+function DivButton({ sideBar, useDropdown, mainCategory, subCategories, btnType, children }) {
 const [renderDropdown, setRenderDropdown] = useState(false)
 const [dropdownPlacement, setDropdownPlacement] = useState({ left: '', top: '' })
 
@@ -64,7 +64,7 @@ const hideDropdown = (e) => {
       btnType={btnType}>
       {mainCategory.name}
       {children}
-      {useDropdown && <Dropdown position={dropdownPlacement} mainCategoryName={mainCategory.name} mainCategory={mainCategory.searchurl} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
+      {useDropdown && <Dropdown position={dropdownPlacement} sideBar={sideBar} mainCategoryName={mainCategory.name} mainCategory={mainCategory.searchurl} toggleDisplay={renderDropdown}>{subCategories}</Dropdown>} 
       </StyledDivButton>
   )
 }

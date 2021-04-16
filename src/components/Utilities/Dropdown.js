@@ -16,11 +16,18 @@ display: ${props => props.toggleDisplay ? 'flex' : 'none'};
 flex-direction: column;
 transform: translate(-37%, 5%);
 z-index: 100;
+
+${props => props.sideBar && {
+  width: "300px",
+  left: "0",
+  transform: "translate(40%, -25%)",
+  textAlign: "center"
+}}
 `
 
-function Dropdown({ position, mainCategoryName, mainCategory, toggleDisplay, children }) {
+function Dropdown({ sideBar, position, mainCategoryName, mainCategory, toggleDisplay, children }) {
   return (
-    <StyledDropdown key='styleddropdown' placement={position} toggleDisplay={toggleDisplay}>
+    <StyledDropdown sideBar={sideBar} key='styleddropdown' placement={position} toggleDisplay={toggleDisplay}>
         <Link key={'mainLink'} to={`/${mainCategory}`}>
           <Button key={'dropdownMainbtn'} btnType="dropdownMainBtn">{mainCategoryName}</Button>
         </Link>
