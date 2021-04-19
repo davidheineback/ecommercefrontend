@@ -4,8 +4,7 @@ import styled from 'styled-components'
 const StyledProductImage = styled.img`
 background: white;
 width: 100%;
-min-height: 75%;
-height: auto;
+height: 75%;
 overflow: hidden;
 appearance: none;
 border: 0;
