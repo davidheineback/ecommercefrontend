@@ -74,7 +74,7 @@ color: rgba(0, 0, 0, 0.7);
 
 
 function ProductActions({ children }) {
-  const { setItemsInCart } = React.useContext(GlobalStateContext)
+  const { setItemsInCart, setProductAddedToCart, productAddedToCart } = React.useContext(GlobalStateContext)
   const [arrowDirection, setArrowDirection] = useState('down')
   const [arrowToggle, setArrowToggle] = useState(false)
   const [option, setOption] = useState('Choose type')
@@ -130,10 +130,11 @@ function ProductActions({ children }) {
       btnType={'counterBtn'}>+</Dot>
       </StyledCounter>
       <Button onClick={() => {
+        setProductAddedToCart(true)
         for(let i = 0; i < numberOfItems; i++) {
           setItemsInCart(prev => [...prev, children])
         }
-      }} btnType={'primary'}>Add to cart</Button></> :
+      }} btnType={productAddedToCart ? 'addedProduct' : 'primary'}>{productAddedToCart ? 'Product added!' : 'Add to cart'}</Button></> :
       <Button btnType={'disabled'}>Sold out!</Button>
       }
     </StyledProductAction>

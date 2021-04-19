@@ -7,7 +7,18 @@ export default function GlobalState({ children }) {
   const [emptyCartFlash, setEmptyCartFlash] = useState(false)
   const [cartFlashMessage] = useState('No items in cart')
   const [currentSlug, setCurrentSlug] = useState('/')
+  const [productAddedToCart, setProductAddedToCart] = useState(false)
 
+
+  useEffect(() => {
+    const timeId = setTimeout(() => {
+      setProductAddedToCart(false)
+    }, 2000)
+  
+    return () => {
+      clearTimeout(timeId)
+    }   
+  },[productAddedToCart, setProductAddedToCart])
 
   const state = {
     setItemsInCart: setItemsInCart,
@@ -16,12 +27,10 @@ export default function GlobalState({ children }) {
     emptyCartFlash: emptyCartFlash,
     cartFlashMessage: cartFlashMessage,
     setCurrentSlug: setCurrentSlug,
-    currentSlug: currentSlug
+    currentSlug: currentSlug,
+    productAddedToCart: productAddedToCart,
+    setProductAddedToCart: setProductAddedToCart
   }
-
-  useEffect(() => {
-  }, [itemsInCart])
-
 
   return (
     <GlobalStateContext.Provider value={state}>

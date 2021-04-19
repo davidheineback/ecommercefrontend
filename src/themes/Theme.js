@@ -5,7 +5,8 @@
       headerBackground: "#262626",
       footerBackground: "#262626",
       borderColor: "black",
-      cardColor: "white"
+      cardColor: "white",
+      addToCart: "#198908"
     },
     fontColors: {
       main: "white",

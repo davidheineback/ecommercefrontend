@@ -19,11 +19,23 @@ color: ${props => props.theme.fontColors.mainHover};
 
 
 ${props => props.btnType === 'primary' && {
-  width: "250px",
+  minWidth: "280px",
+  width: "fit-content",
   background: props.theme.colors.main,
   color: props.theme.fontColors.main,
   ":hover": {
     background: props.theme.colors.mainHover,
+    color: props.theme.fontColors.mainHover,
+  }
+}}
+
+${props => props.btnType === 'addedProduct' && {
+  minWidth: "280px",
+  width: "fit-content",
+  background: props.theme.colors.addToCart,
+  color: props.theme.fontColors.main,
+  ":hover": {
+    background: props.theme.colors.addToCart,
     color: props.theme.fontColors.mainHover,
   }
 }}
