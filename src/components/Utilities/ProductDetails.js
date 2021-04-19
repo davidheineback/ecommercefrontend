@@ -39,6 +39,7 @@ ${props => props.price && {
 }}
 `
 
+
 function ProductDetails({ productPage, children }) {
   return (
       <>

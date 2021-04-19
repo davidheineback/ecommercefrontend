@@ -4,7 +4,9 @@ import styled from 'styled-components'
 const StyledProductImage = styled.img`
 background: white;
 width: 100%;
-height: 75%;
+min-height: 75%;
+height: auto;
+overflow: hidden;
 appearance: none;
 border: 0;
 box-shadow: none;
@@ -19,6 +21,8 @@ ${props => props.type === 'productPage' && {
   minWidth:"280px",
   maxWidth: "35vw",
   maxHeight: "45vh",
+  width: "auto",
+  height: "auto",
   transform: "translateY(-7vh)",
   transition: "transform .4s",
   boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
@@ -30,13 +34,13 @@ ${props => props.type === 'productPage' && {
 }}
 
 ${props => props.type === 'smallCart' && {
-  minWidth:"80px",
-  maxWidth: "100px",
+  minWidth:"100px",
+  maxWidth: "120px",
+  minHeight: "85px",
   maxHeight: "90px",
-  boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
-  ":hover": {
-    boxShadow: `4px 4px 4px ${props.theme.colors.main}`
-  }
+  width: "auto",
+  height: "auto",
+  boxShadow: `2px 2px 2px grey`
 }}
 
 `
