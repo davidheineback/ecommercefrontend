@@ -17,7 +17,7 @@ function ProductPage({ size }) {
     <Wrapper flex='bigFlex'>
       <Breadcrumbs itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
       <Flash/>
-      <ProductImage url={product.image} description={product.description} type='productPage'/>
+      <ProductImage src={product.image} description={product.description} type='productPage'/>
       <Wrapper size={size} productDetails>
       <ProductPageDetails>{product}</ProductPageDetails>
       <ProductActions>{product}</ProductActions>

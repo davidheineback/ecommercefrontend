@@ -28,12 +28,23 @@ ${props => props.type === 'productPage' && {
     transition: "transform .4s"
   }
 }}
+
+${props => props.type === 'smallCart' && {
+  minWidth:"80px",
+  maxWidth: "100px",
+  maxHeight: "90px",
+  boxShadow: `4px 4px 4px ${props.theme.colors.main}`,
+  ":hover": {
+    boxShadow: `4px 4px 4px ${props.theme.colors.main}`
+  }
+}}
+
 `
 
 
-function ProductImage({ url, description, type }) {
+function ProductImage({ src, description, type }) {
   return (
-    <StyledProductImage src={url} alt={description} type={type}/>
+    <StyledProductImage src={src} alt={description} type={type}/>
   )
 }
 

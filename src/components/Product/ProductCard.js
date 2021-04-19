@@ -23,7 +23,7 @@ font-size: 10px;
 function ProductCard({ children }) {
   return (
     <StyledProduct>
-      <ProductImage url={children.image}/>
+      <ProductImage src={children.image}/>
       <ProductDetails>{children}</ProductDetails>
     </StyledProduct>
   )
