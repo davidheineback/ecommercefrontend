@@ -21,7 +21,7 @@ text-align: left;
 `
 
 const StyledCartGrid = styled.div`
-${props => props.name && {
+${props => props.itemName && {
   gridArea: 'productName'
 }}
 ${props => props.numberOfItems && {
@@ -38,12 +38,12 @@ const { currentSlug, itemsInCart, setEmptyCartFlash } = React.useContext(GlobalS
     <Wrapper flex='bigFlex'>
     <StyledCartContainer>
       <StyledCartHeaders>
-        <StyledCartGrid name>Name:</StyledCartGrid>
+        <StyledCartGrid itemName>Name:</StyledCartGrid>
         <StyledCartGrid numberOfItems>Amount of item:</StyledCartGrid>
         <StyledCartGrid totalPrice>Total price:</StyledCartGrid>
       </StyledCartHeaders>
       {itemsInCart.length > 0 ?
-      itemsInCart.map(item => <ProductInCart>{item}</ProductInCart>)
+      itemsInCart.map((item, index) => <ProductInCart key={index}>{item}</ProductInCart>)
       : (
         setEmptyCartFlash(true),
         <Redirect to={currentSlug}/>
