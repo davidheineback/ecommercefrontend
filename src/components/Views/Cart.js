@@ -10,11 +10,38 @@ border: 2px solid black;
 width: 70%;
 `
 
+const StyledCartHeaders = styled.div`
+padding-top: 40px;
+width: 100%;
+display: grid;
+grid-template-columns: "0.2fr 1fr 1fr 1fr";
+grid-template-areas:
+". productName numberOfItems totalPrice";
+text-align: left;
+`
+
+const StyledCartGrid = styled.div`
+${props => props.name && {
+  gridArea: 'productName'
+}}
+${props => props.numberOfItems && {
+  gridArea: 'numberOfItems'
+}}
+${props => props.totalPrice && {
+  gridArea: 'totalPrice'
+}}
+`
+
 function Cart() {
 const { currentSlug, itemsInCart, setEmptyCartFlash } = React.useContext(GlobalStateContext)
   return (
     <Wrapper flex='bigFlex'>
     <StyledCartContainer>
+      <StyledCartHeaders>
+        <StyledCartGrid name>Name:</StyledCartGrid>
+        <StyledCartGrid numberOfItems>Amount of item:</StyledCartGrid>
+        <StyledCartGrid totalPrice>Total price:</StyledCartGrid>
+      </StyledCartHeaders>
       {itemsInCart.length > 0 ?
       itemsInCart.map(item => <ProductInCart>{item}</ProductInCart>)
       : (

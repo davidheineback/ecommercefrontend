@@ -38,7 +38,7 @@ ${props => props.type === 'smallCart' && {
   minHeight: "85px",
   maxHeight: "90px",
   width: "auto",
-  height: "auto",
+  height: "100%",
   boxShadow: `2px 2px 2px grey`
 }}
 
