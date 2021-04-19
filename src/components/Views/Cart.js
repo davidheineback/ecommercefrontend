@@ -10,14 +10,14 @@ width: 70%;
 `
 
 function Cart() {
-const { itemsInCart, setEmptyCartFlash } = React.useContext(GlobalStateContext)
+const { currentSlug, itemsInCart, setEmptyCartFlash } = React.useContext(GlobalStateContext)
   return (
     <Wrapper flex='bigFlex'>
     <StyledCartContainer>
       {itemsInCart.length > 0 ? <div>KÖP</div>
       : (
         setEmptyCartFlash(true),
-        <Redirect to="/"/>
+        <Redirect to={currentSlug}/>
         )}
     </StyledCartContainer>
     </Wrapper>
