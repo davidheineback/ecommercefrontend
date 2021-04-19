@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { GlobalStateContext } from '../GlobalState/GlobalState'
+
 
 const StyledBreadcrumbsContainer = styled.div`
 width: 100%;
@@ -50,6 +52,13 @@ color: ${props => props.theme.fontColors.mainHover};
 
 
 function Breadcrumbs({ itemNr, children }) {
+  const { setCurrentSlug } = React.useContext(GlobalStateContext)
+  const location = useLocation()
+  React.useEffect(() => {
+    setCurrentSlug(location.pathname)
+  },[location, setCurrentSlug])
+  
+
   const breadcrumbs = children ? ([...children]
   .map((child, index) => {
     switch(index) {
