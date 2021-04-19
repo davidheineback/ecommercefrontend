@@ -42,7 +42,7 @@ z-index: 800;
 
 `
 
-function Header( { size, onScroll } ) {
+function Header() {
   const { itemsInCart } = React.useContext(GlobalStateContext)
   const [active, setActive] = useState(false)
   const [categories, setCategories] = useState([])

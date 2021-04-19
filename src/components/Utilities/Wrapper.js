@@ -61,6 +61,7 @@ minWidth: "400px"
 
 ${props => props.flex === 'flash' && {
 position: "absolute",
+left:0,
 background: "linear-gradient(90deg, rgba(180,180,180,0.60) 0%, rgba(172,172,172,0.53) 43%, rgba(167,165,165,0.57) 61%)",
 backdropFilter: "brightness(150%) saturate(150%) blur(5px)",
 backgroundClip: "padding-box",

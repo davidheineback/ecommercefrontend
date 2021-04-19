@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { Breadcrumbs, Wrapper } from '../Utilities/UtilitiesExporter'
+import { Flash } from './ViewsExporter'
 import ProductCard from '../Product/ProductCard'
 import { getProductsBySubCategory } from '../../fetch.js'
 
@@ -14,6 +15,7 @@ function SubCategoryPage() {
   return (
     <Wrapper flex>
     <Breadcrumbs>{[mainCategory, subCategory]}</Breadcrumbs>
+    <Flash/>
     {products.map((product, index) => {
       return (
       <Link

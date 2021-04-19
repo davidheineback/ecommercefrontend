@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export const GlobalStateContext = React.createContext(null)
 
 export default function GlobalState({ children }) {
-  const [itemsInCart, setItemsInCart] = React.useState([])
-  const [emptyCartFlash, setEmptyCartFlash] = React.useState(false)
-  const [cartFlashMessage] = React.useState('No items in cart')
+  const [itemsInCart, setItemsInCart] = useState([])
+  const [emptyCartFlash, setEmptyCartFlash] = useState(false)
+  const [cartFlashMessage] = useState('No items in cart')
+  const [currentSlug, setCurrentSlug] = useState('/')
 
 
   const state = {
@@ -13,10 +14,12 @@ export default function GlobalState({ children }) {
     itemsInCart: itemsInCart,
     setEmptyCartFlash: setEmptyCartFlash,
     emptyCartFlash: emptyCartFlash,
-    cartFlashMessage: cartFlashMessage
+    cartFlashMessage: cartFlashMessage,
+    setCurrentSlug: setCurrentSlug,
+    currentSlug: currentSlug
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
   }, [itemsInCart])
 
 

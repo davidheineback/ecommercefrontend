@@ -23,7 +23,7 @@ function App() {
             <Route path='/:mainCategory/:subCategory/product/:productId/' exact component={ProductPage}/>
             <Route path='*' component={PageNotFound}/>
           </Switch>
-          <Footer/>
+          <Footer>Design and implementation by David Heinebäck.</Footer>
       </Wrapper>
     </Router>
   </GlobalState>
