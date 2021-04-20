@@ -16,7 +16,10 @@ text-transform: uppercase;
 background: ${props => props.theme.colors.mainHover};
 color: ${props => props.theme.fontColors.mainHover};
 }
-
+@media screen and (max-width: 800px) {
+  padding: 0.5rem 0.3rem;
+  min-width: 200px;
+}
 
 ${props => props.btnType === 'primary' && {
   minWidth: "280px",

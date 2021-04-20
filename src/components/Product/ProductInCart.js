@@ -12,6 +12,14 @@ display: inline-flex;
 &:hover {
   box-shadow: 2px 2px 2px grey;
 }
+@media screen and (max-width: 800px) {
+  ${props => props.big && {
+    display: "inline-block",
+    height: "fit-content",
+    marginBottom: "5px"
+}}
+}
+
 `
 
 const StyledDetailsContainer = styled.div`
@@ -20,6 +28,15 @@ width: 100%;
 display: grid;
 grid-template-areas:
 "name numberOfItems price";
+
+@media screen and (max-width: 800px) {
+  ${props => props.big && {
+    display: "inline-block",
+    paddingTop: "5px",
+    marginLeft: "0px"
+}}
+}
+
 `
 
 const StyledDetails = styled.div`
@@ -30,6 +47,10 @@ font-weight: 600;
 justify-content: center;
 align-content: center;
 grid-auto-flow: column;
+
+@media screen and (max-width: 800px) {
+  margin-left: 0;
+}
 
 
 ${props => props.itemName && {
@@ -73,9 +94,9 @@ color: rgba(0, 0, 0, 0.7);
 function ProductInCart({ children }) {
   const { itemsInCart, setItemsInCart } = React.useContext(GlobalStateContext)
   return (
-    <StyledItemContainer>
+    <StyledItemContainer big>
       <ProductImage src={children.product.image} description={children.description} type='smallCart'/>
-      <StyledDetailsContainer>
+      <StyledDetailsContainer big>
         <StyledDetails itemName>{children.product.name}</StyledDetails>
         <StyledDetails numberOfItems>
         <StyledCounter>

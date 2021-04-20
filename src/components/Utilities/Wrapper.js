@@ -36,7 +36,6 @@ ${props => props.flex === 'bigFlex' && {
 display: "flex",
 flexDirection: "row",
 flexWrap: "wrap",
-width: "100vw",
 minHeight: "65vh",
 maxHeight: "80vh",
 margonTop: "0",

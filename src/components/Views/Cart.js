@@ -7,9 +7,23 @@ import { Redirect, Link } from 'react-router-dom'
 
 const StyledCartContainer = styled.div`
 box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-width: 70%;
+width: 100%;
 `
+const StyledCartHeaders = styled.div`
+padding-top: 40px;
+width: 100%;
+display: grid;
+grid-template-columns: "1fr 1fr 1fr";
+grid-template-areas:
+"productName numberOfItems totalPrice";
+text-align: center;
 
+@media screen and (max-width: 800px) {
+  ${props => props.big && {
+  display: "none"
+}}
+}
+`
 const StyledCartFooter = styled.div`
 padding-top: 40px;
 width: 100%;
@@ -20,16 +34,12 @@ grid-template-columns: "1fr 1fr 1fr";
 grid-template-areas:
 "productName numberOfItems totalPrice";
 text-align: center;
-`
 
-const StyledCartHeaders = styled.div`
-padding-top: 40px;
-width: 100%;
-display: grid;
-grid-template-columns: "1fr 1fr 1fr";
-grid-template-areas:
-"productName numberOfItems totalPrice";
-text-align: center;
+@media screen and (max-width: 800px) {
+  ${props => props.big && {
+  display: "none"
+}}
+}
 `
 
 const StyledCartGrid = styled.div`
@@ -63,7 +73,7 @@ const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.prod
   return (
     <Wrapper flex='bigFlex'>
     <StyledCartContainer>
-      <StyledCartHeaders>
+      <StyledCartHeaders big>
         <StyledCartGrid itemName>Name:</StyledCartGrid>
         <StyledCartGrid numberOfItems>Amount of item:</StyledCartGrid>
         <StyledCartGrid totalPrice>Total price:</StyledCartGrid>
@@ -74,7 +84,7 @@ const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.prod
         setEmptyCartFlash(true),
         <Redirect to={currentSlug}/>
         )}
-    <StyledCartFooter>
+    <StyledCartFooter big>
       <StyledCartGrid itemName>Grand Total:</StyledCartGrid>
       <StyledCartGrid numberOfItems>{numberOfItemsInCart}</StyledCartGrid>
       <StyledCartGrid totalPrice>{totalPriceOfItemsInCart}kr</StyledCartGrid>
