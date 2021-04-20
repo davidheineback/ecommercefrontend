@@ -59,6 +59,9 @@ function Header() {
     [active, setActive],
   )
 
+  console.log(itemsInCart)
+  const numberOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.numberInCart + total,0)
+
     return (
       <>
       <StyledHeader big key='styledheader'>
@@ -74,11 +77,11 @@ function Header() {
             )
       })
       }
-      <CartIcon key='carticon' itemsInCart={itemsInCart.length}/>
+      <CartIcon key='carticon' itemsInCart={numberOfItemsInCart}/>
       </StyledHeader> 
     <StyledHeader small key='smallstyledheader'>
     <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
-    <CartIcon key='smallcarticon' itemsInCart={itemsInCart.length}/>
+    <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart}/>
     </StyledHeader>
     {active && (<Sidebar key='sidebar' categories={categories}/>)}
     </>
