@@ -6,7 +6,7 @@ import { Wrapper, Button } from '../Utilities/UtilitiesExporter'
 import { Redirect, Link } from 'react-router-dom'
 
 const StyledCartContainer = styled.div`
-border: 2px solid black;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 width: 70%;
 `
 
@@ -14,21 +14,30 @@ const StyledCartHeaders = styled.div`
 padding-top: 40px;
 width: 100%;
 display: grid;
-grid-template-columns: "0.2fr 1fr 1fr 1fr";
+box-shadow: 1px solid lightgray;
+grid-template-columns: "1fr 1fr 1fr";
 grid-template-areas:
-". productName numberOfItems totalPrice";
-text-align: left;
+"productName numberOfItems totalPrice";
+text-align: center;
 `
 
 const StyledCartGrid = styled.div`
+text-transform: uppercase;
+font-size: 16px;
+font-weight: 700;
+
+
 ${props => props.itemName && {
-  gridArea: 'productName'
+  gridArea: 'productName',
+  transform: "translateX(120px)"
 }}
 ${props => props.numberOfItems && {
-  gridArea: 'numberOfItems'
+  gridArea: 'numberOfItems',
+  transform: "translateX(120px)"
 }}
 ${props => props.totalPrice && {
-  gridArea: 'totalPrice'
+  gridArea: 'totalPrice',
+  transform: "translateX(80px)"
 }}
 `
 
