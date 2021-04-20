@@ -12,7 +12,7 @@ background-color: white;
 height: 15px;
 margin-left: 15px;
 z-index: 400;
-margin-bottom: 50px;
+margin-bottom: 60px;
 `
 
 const StyledTilter = styled.div`

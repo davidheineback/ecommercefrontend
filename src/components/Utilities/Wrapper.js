@@ -11,12 +11,6 @@ justify-content: center;
 overflow: hidden;
 
 
-@media screen and (min-width: ${props => props.theme.sizeToggle.size}) {
-  ${props => props.small && {
-  marginTop: "45px",
-}}
-}
-
 ${props => props.flex && {
 display: "flex",
 flexDirection: "row",
