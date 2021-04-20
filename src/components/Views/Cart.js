@@ -10,11 +10,22 @@ box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
 width: 70%;
 `
 
+const StyledCartFooter = styled.div`
+padding-top: 40px;
+width: 100%;
+display: grid;
+padding-bottom: 10px;
+border-bottom: 1px solid lightgray;
+grid-template-columns: "1fr 1fr 1fr";
+grid-template-areas:
+"productName numberOfItems totalPrice";
+text-align: center;
+`
+
 const StyledCartHeaders = styled.div`
 padding-top: 40px;
 width: 100%;
 display: grid;
-box-shadow: 1px solid lightgray;
 grid-template-columns: "1fr 1fr 1fr";
 grid-template-areas:
 "productName numberOfItems totalPrice";
@@ -29,20 +40,26 @@ font-weight: 700;
 
 ${props => props.itemName && {
   gridArea: 'productName',
-  transform: "translateX(120px)"
+  transform: "translateX(100px)"
 }}
 ${props => props.numberOfItems && {
   gridArea: 'numberOfItems',
-  transform: "translateX(120px)"
+  transform: "translateX(65px)"
 }}
 ${props => props.totalPrice && {
   gridArea: 'totalPrice',
-  transform: "translateX(80px)"
+  transform: "translateX(45px)"
 }}
 `
 
+
+
 function Cart() {
 const { currentSlug, itemsInCart, setEmptyCartFlash } = React.useContext(GlobalStateContext)
+
+const numberOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.numberInCart + total,0)
+const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.product.price * obj.numberInCart + total,0)
+
   return (
     <Wrapper flex='bigFlex'>
     <StyledCartContainer>
@@ -57,6 +74,11 @@ const { currentSlug, itemsInCart, setEmptyCartFlash } = React.useContext(GlobalS
         setEmptyCartFlash(true),
         <Redirect to={currentSlug}/>
         )}
+    <StyledCartFooter>
+      <StyledCartGrid itemName>Grand Total:</StyledCartGrid>
+      <StyledCartGrid numberOfItems>{numberOfItemsInCart}</StyledCartGrid>
+      <StyledCartGrid totalPrice>{totalPriceOfItemsInCart}kr</StyledCartGrid>
+    </StyledCartFooter>
     <Link to={currentSlug}>    
     <Button btnType="primary">Back to shop</Button>
     </Link>

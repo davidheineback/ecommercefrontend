@@ -58,8 +58,7 @@ function Header() {
     },
     [active, setActive],
   )
-
-  console.log(itemsInCart)
+  
   const numberOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.numberInCart + total,0)
 
     return (
