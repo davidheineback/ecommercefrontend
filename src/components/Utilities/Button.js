@@ -25,6 +25,8 @@ ${props => props.btnType === 'primary' && {
   minWidth: "280px",
   width: "fit-content",
   marginTop: "10px",
+  marginLeft: "5px",
+  marginRight: "5px",
   background: props.theme.colors.main,
   color: props.theme.fontColors.main,
   ":hover": {

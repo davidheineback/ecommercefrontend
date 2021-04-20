@@ -38,7 +38,7 @@ flexDirection: "row",
 flexWrap: "wrap",
 minHeight: "65vh",
 maxHeight: "80vh",
-margonTop: "0",
+marginTop: "80px",
 marginLeft:"0",
 marginRight: "0",
 paddingLeft: "15%",
@@ -54,7 +54,7 @@ justifyContent: "left",
 textAlign: "left",
 transform: "translateY(-7vh)",
 minHeight: "80px",
-width: "40vw",
+width: "20vw",
 minWidth: "400px"
 }}
 

@@ -37,14 +37,12 @@ ${props => props.type === 'smallCart' && {
   maxWidth: "120px",
   minHeight: "85px",
   maxHeight: "90px",
+  marginLeft: "2px",
   width: "auto",
   height: "100%",
   boxShadow: `2px 2px 2px grey`
 }}
-
 `
-
-
 function ProductImage({ src, description, type }) {
   return (
     <StyledProductImage src={src} alt={description} type={type}/>

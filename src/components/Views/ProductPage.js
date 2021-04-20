@@ -6,7 +6,7 @@ import ProductActions from '../Product/ProductActions'
 import { getProductById } from '../../fetch.js'
 
 
-function ProductPage({ size }) {
+function ProductPage() {
   const { mainCategory, subCategory, productId } = useParams()
   const [product, setProduct] = useState([])
 
@@ -18,7 +18,7 @@ function ProductPage({ size }) {
       <Breadcrumbs itemNr={productId}>{[mainCategory, subCategory, product.name]}</Breadcrumbs>
       <Flash/>
       <ProductImage src={product.image} description={product.description} type='productPage'/>
-      <Wrapper size={size} productDetails>
+      <Wrapper productDetails>
       <ProductPageDetails>{product}</ProductPageDetails>
       <ProductActions>{product}</ProductActions>
       </Wrapper>

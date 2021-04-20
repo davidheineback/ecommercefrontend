@@ -36,7 +36,6 @@ grid-template-areas:
     marginLeft: "0px"
 }}
 }
-
 `
 
 const StyledDetails = styled.div`
@@ -85,11 +84,6 @@ backdrop-filter: brightness(150%) saturate(150%) blur(5px);
 background-clip: padding-box;
 color: rgba(0, 0, 0, 0.7);
 `
-// [Bild] , [Namn + ev. Typ], [ - Antal + ], [Pris]
-//                                          [Totalt pris för samtliga]
-
-
-
 
 function ProductInCart({ children }) {
   const { itemsInCart, setItemsInCart } = React.useContext(GlobalStateContext)

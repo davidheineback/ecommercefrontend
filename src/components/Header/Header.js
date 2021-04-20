@@ -37,9 +37,6 @@ z-index: 800;
   minHeight: "2vh",
   paddingBottom: "20px"
 }}
-
-
-
 `
 
 function Header() {
