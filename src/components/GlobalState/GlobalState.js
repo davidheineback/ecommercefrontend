@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react'
 export const GlobalStateContext = React.createContext(null)
 
 export default function GlobalState({ children }) {
-  const [itemsInCart, setItemsInCart] = useState([])
+  const itemsInCartFromLocalStorage = localStorage.getItem('itemsInCart') ? JSON.parse(localStorage.getItem('itemsInCart')) : []
+  const [itemsInCart, setItemsInCart] = useState(itemsInCartFromLocalStorage)
   const [emptyCartFlash, setEmptyCartFlash] = useState(false)
   const [cartFlashMessage] = useState('No items in cart')
   const [currentSlug, setCurrentSlug] = useState('/')
@@ -19,6 +20,11 @@ export default function GlobalState({ children }) {
       clearTimeout(timeId)
     }   
   },[productAddedToCart, setProductAddedToCart])
+
+
+  useEffect(() => {
+    localStorage.setItem('itemsInCart', JSON.stringify(itemsInCart))
+  },[itemsInCart])
 
   const state = {
     setItemsInCart: setItemsInCart,
