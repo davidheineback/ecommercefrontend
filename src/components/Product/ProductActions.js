@@ -131,17 +131,15 @@ function ProductActions({ children }) {
       </StyledCounter>
       <Button onClick={() => {
         setProductAddedToCart(true)
-        for(let i = 0; i < numberOfItems; i++) {
           const currentIndex  = itemsInCart.findIndex(product => product.product.itemNr === children.itemNr)
             if (currentIndex >= 0) {
               const newArray = [...itemsInCart]
-              newArray[currentIndex].numberInCart += 1
+              newArray[currentIndex].numberInCart += numberOfItems
               setItemsInCart(newArray)
             } else {
-              const newProduct = {product: children, numberInCart: 1}
+              const newProduct = {product: children, numberInCart: numberOfItems}
               setItemsInCart(prev => [...prev, newProduct])
             }
-        }
       }} btnType={productAddedToCart ? 'addedProduct' : 'primary'}>{productAddedToCart ? 'Product added!' : 'Add to cart'}</Button></>
       : <Button btnType={'disabled'}>Sold out!</Button>
       }
