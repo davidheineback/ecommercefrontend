@@ -74,7 +74,7 @@ color: rgba(0, 0, 0, 0.7);
 
 
 function ProductActions({ children }) {
-  const { setItemsInCart, setProductAddedToCart, productAddedToCart } = React.useContext(GlobalStateContext)
+  const { itemsInCart, setItemsInCart, setProductAddedToCart, productAddedToCart } = React.useContext(GlobalStateContext)
   const [arrowDirection, setArrowDirection] = useState('down')
   const [arrowToggle, setArrowToggle] = useState(false)
   const [option, setOption] = useState('Choose type')
@@ -132,13 +132,37 @@ function ProductActions({ children }) {
       <Button onClick={() => {
         setProductAddedToCart(true)
         for(let i = 0; i < numberOfItems; i++) {
-          setItemsInCart(prev => [...prev, children])
+          const currentIndex  = itemsInCart.findIndex(product => product.product.itemNr === children.itemNr)
+            if (currentIndex >= 0) {
+              const newArray = [...itemsInCart]
+              newArray[currentIndex].numberInCart += 1
+              setItemsInCart(newArray)
+            } else {
+              const newProduct = {product: children, numberInCart: 1}
+              setItemsInCart(prev => [...prev, newProduct])
+            }
         }
-      }} btnType={productAddedToCart ? 'addedProduct' : 'primary'}>{productAddedToCart ? 'Product added!' : 'Add to cart'}</Button></> :
-      <Button btnType={'disabled'}>Sold out!</Button>
+      }} btnType={productAddedToCart ? 'addedProduct' : 'primary'}>{productAddedToCart ? 'Product added!' : 'Add to cart'}</Button></>
+      : <Button btnType={'disabled'}>Sold out!</Button>
       }
     </StyledProductAction>
   )
 }
 
 export default ProductActions
+
+
+// [
+//   {
+//     product: {name: product1
+                  // itemNr: 1
+                  // }
+//     numberInCart: 2
+//   },
+//   {
+//     product: {name: product2,
+                  // itemNr: 2
+                  // },
+//     numberInCart: 3
+//   }
+// ]
