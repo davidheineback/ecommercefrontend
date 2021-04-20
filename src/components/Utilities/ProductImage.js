@@ -33,7 +33,7 @@ ${props => props.type === 'productPage' && {
 }}
 
 ${props => props.type === 'smallCart' && {
-  minWidth:"100px",
+  minWidth:"120px",
   maxWidth: "120px",
   minHeight: "85px",
   maxHeight: "90px",
