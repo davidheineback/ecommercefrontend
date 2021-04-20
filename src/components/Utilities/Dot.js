@@ -27,10 +27,15 @@ ${props => props.arrowDirection === 'down' && {
 ${props => props.arrowDirection === 'up' && {
   transform: "translate(210px, -10px) rotate(90deg)",
 }}
+
+${props => props.btnType === 'dangerBtn' && {
+  backgroundColor: "grey",
+  fontWeight: "400"
+}}
 `
-function Dot({ onClick, arrowDirection, children }) {
+function Dot({ btnType, onClick, arrowDirection, children }) {
   return (
-    <StyledDot onClick={onClick} arrowDirection={arrowDirection}>
+    <StyledDot btnType={btnType} onClick={onClick} arrowDirection={arrowDirection}>
       {children}
     </StyledDot>
   )
