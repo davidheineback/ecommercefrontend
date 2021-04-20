@@ -80,6 +80,19 @@ function ProductActions({ children }) {
   const [option, setOption] = useState('Choose type')
   const [numberOfItems, setNumberOfItems] = useState(1)
 
+  function handleItemsInCart() {
+    setProductAddedToCart(true)
+    const currentIndex  = itemsInCart.findIndex(product => product.product.itemNr === children.itemNr)
+      if (currentIndex >= 0) {
+        const newArray = [...itemsInCart]
+        newArray[currentIndex].numberInCart += numberOfItems
+        setItemsInCart(newArray)
+      } else {
+        const newProduct = {product: children, numberInCart: numberOfItems}
+        setItemsInCart(prev => [...prev, newProduct])
+      }
+  }
+
   useEffect(() => {
     arrowToggle ? setArrowDirection('up') : setArrowDirection('down')
   }, [arrowToggle])
@@ -130,16 +143,7 @@ function ProductActions({ children }) {
       btnType={'counterBtn'}>+</Dot>
       </StyledCounter>
       <Button onClick={() => {
-        setProductAddedToCart(true)
-          const currentIndex  = itemsInCart.findIndex(product => product.product.itemNr === children.itemNr)
-            if (currentIndex >= 0) {
-              const newArray = [...itemsInCart]
-              newArray[currentIndex].numberInCart += numberOfItems
-              setItemsInCart(newArray)
-            } else {
-              const newProduct = {product: children, numberInCart: numberOfItems}
-              setItemsInCart(prev => [...prev, newProduct])
-            }
+        handleItemsInCart()
       }} btnType={productAddedToCart ? 'addedProduct' : 'primary'}>{productAddedToCart ? 'Product added!' : 'Add to cart'}</Button></>
       : <Button btnType={'disabled'}>Sold out!</Button>
       }
@@ -148,19 +152,3 @@ function ProductActions({ children }) {
 }
 
 export default ProductActions
-
-
-// [
-//   {
-//     product: {name: product1
-                  // itemNr: 1
-                  // }
-//     numberInCart: 2
-//   },
-//   {
-//     product: {name: product2,
-                  // itemNr: 2
-                  // },
-//     numberInCart: 3
-//   }
-// ]
