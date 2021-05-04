@@ -72,12 +72,27 @@ zIndex: "300",
 fontSize: "30px",
 fontWeight: "700"
 }}
+
+${props => props.adminLogin && {
+  justifyContent: "center",
+  textAlign: "center",
+  margin: "auto",
+  minHeight: "80px",
+  width: "20vw",
+  minWidth: "400px",
+  borderTop: "4px solid",
+  boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
+  }}
 `
 
-function Wrapper({ productDetails, flex, children }) {
+function Wrapper({ adminLogin, productDetails, flex, children }) {
   return ( 
-    <StyledWrapper productDetails={productDetails} flex={flex}>
-      {children}
+    <StyledWrapper
+    adminLogin={adminLogin}
+    productDetails={productDetails}
+      flex={flex}
+      >
+        {children}
     </StyledWrapper>
   )
 }
