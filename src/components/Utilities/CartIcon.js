@@ -21,7 +21,7 @@ cursor: pointer;
 font-weight: 700;
 padding: 7px;
 font-size: 15px;
-background: ${props => props.theme.colors.main};
+background: ${props => props.theme.colors.borderGradient};
 color: ${props => props.theme.fontColors.main};
 width: 15px;
 height: 15px;
