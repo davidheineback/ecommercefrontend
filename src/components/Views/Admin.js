@@ -6,9 +6,11 @@ import { Wrapper } from '../Utilities/UtilitiesExporter'
 // import { getAllProducts } from '../../fetch.js'
 function Admin() {
   return (
-    <Wrapper flex='bigFlex'>
-      LOGGA IN
-    </Wrapper>
+      <Wrapper>
+        <Wrapper adminLogin>
+          Hello
+        </Wrapper>
+      </Wrapper>
   )
 }
 
