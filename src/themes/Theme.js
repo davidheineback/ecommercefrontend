@@ -6,7 +6,8 @@
       footerBackground: "#262626",
       borderColor: "black",
       cardColor: "white",
-      addToCart: "#198908"
+      addToCart: "#198908",
+      borderGradient: "linear-gradient(193deg, rgba(255,192,203,0.81) 0%, rgba(0,128,128,0.74) 67%)"
     },
     fontColors: {
       main: "white",
