@@ -109,6 +109,21 @@ ${props => props.btnType === 'dropdownMainBtn' && {
   }
 }}
 
+${props => props.btnType === 'login' && {
+  minWidth: "265px",
+  width: "fit-content",
+  marginTop: "10px",
+  marginLeft: "5px",
+  marginRight: "5px",
+  padding: "0.5rem",
+  background: props.theme.colors.borderGradient,
+  color: props.theme.fontColors.main,
+  ":hover": {
+    background: props.theme.colors.borderGradientHover,
+    color: props.theme.fontColors.mainHover,
+  }
+}}
+
 `
 
 function Button({ useDropdown, mainCategory, subCategories, btnType, onClick, children }) {
