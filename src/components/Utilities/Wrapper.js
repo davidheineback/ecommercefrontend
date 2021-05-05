@@ -77,6 +77,7 @@ ${props => props.adminLogin && {
   justifyContent: "center",
   textAlign: "center",
   margin: "auto",
+  marginTop: "30px",
   minHeight: "80px",
   width: "20vw",
   minWidth: "400px",
