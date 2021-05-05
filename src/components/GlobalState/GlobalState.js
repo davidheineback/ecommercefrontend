@@ -9,6 +9,7 @@ export default function GlobalState({ children }) {
   const [cartFlashMessage] = useState('No items in cart')
   const [currentSlug, setCurrentSlug] = useState('/')
   const [productAddedToCart, setProductAddedToCart] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false)
 
 
   useEffect(() => {
@@ -35,7 +36,9 @@ export default function GlobalState({ children }) {
     setCurrentSlug: setCurrentSlug,
     currentSlug: currentSlug,
     productAddedToCart: productAddedToCart,
-    setProductAddedToCart: setProductAddedToCart
+    setProductAddedToCart: setProductAddedToCart,
+    loggedIn: loggedIn,
+    setLoggedIn: setLoggedIn
   }
 
   return (
