@@ -5,6 +5,7 @@ import CartIcon from './CartIcon'
 import DivButton from './DivButton'
 import Dot from './Dot'
 import Dropdown from './Dropdown'
+import GradientBorder from './GradientBorder'
 import ProductPageDetails from './ProductPageDetails'
 import ProductDetails from './ProductDetails'
 import ProductImage from './ProductImage'
@@ -20,6 +21,7 @@ export {
   DivButton,
   Dot,
   Dropdown,
+  GradientBorder,
   ProductPageDetails,
   ProductDetails,
   ProductImage,

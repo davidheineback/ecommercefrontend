@@ -72,12 +72,29 @@ zIndex: "300",
 fontSize: "30px",
 fontWeight: "700"
 }}
+
+${props => props.adminLogin && {
+  justifyContent: "center",
+  textAlign: "center",
+  margin: "auto",
+  marginTop: "30px",
+  minHeight: "80px",
+  width: "20vw",
+  minWidth: "400px",
+  borderRadius: "5px",
+  boxShadow: "rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px",
+  background: "linear-gradient(257deg, rgba(255,192,203,0.39537821964723385) 0%, rgba(0,128,128,0.1516807406556373) 37%)"
+  }}
 `
 
-function Wrapper({ productDetails, flex, children }) {
+function Wrapper({ adminLogin, productDetails, flex, children }) {
   return ( 
-    <StyledWrapper productDetails={productDetails} flex={flex}>
-      {children}
+    <StyledWrapper
+    adminLogin={adminLogin}
+    productDetails={productDetails}
+      flex={flex}
+      >
+        {children}
     </StyledWrapper>
   )
 }
