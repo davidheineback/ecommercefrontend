@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { GradientBorder, Wrapper, Button } from '../Utilities/UtilitiesExporter'
 import { GlobalStateContext } from '../GlobalState/GlobalState'
 // import ProductCard from '../Product/ProductCard.js'
-// import { getAllProducts } from '../../fetch.js'
+import { getAllProducts, userLogin } from '../../fetch.js'
 
 const StyledLogInContainer = styled.div`
   position: relative;
@@ -49,11 +49,10 @@ function Admin() {
     setPassword(target.value)
   }
 
+
   // Den här funktionen ska göra ett POST call till backen för att verifiera användaren och sedan setLoggedIn(true) om det är ok.
   function handleLogin () {
-    console.log(username)
-    console.log(password)
-    setLoggedIn(false)
+    setLoggedIn(userLogin({username, password}))
   }
 
   return (
