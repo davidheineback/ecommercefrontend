@@ -3,7 +3,7 @@ import { StyledProductImage } from './ProductImageStyles'
 
 function ProductImage({ src, description, type }) {
   return (
-    <StyledProductImage src={src} alt={description} type={type}/>
+    <StyledProductImage src={src} alt={`img, ${description}`} type={type}/>
   )
 }
 

@@ -5,7 +5,7 @@ import { StyledProduct } from './ProductStyles'
 function ProductCard({ children }) {
   return (
     <StyledProduct>
-      <ProductImage src={children.image}/>
+      <ProductImage src={children.image} description={children.description}/>
       <ProductDetails>{children}</ProductDetails>
     </StyledProduct>
   )
