@@ -65,9 +65,8 @@ export async function userLogin(user) {
     console.log(response)
 
     return (
-      login.status === 200
-      // login.status === 200 &&
-      // localStorage.setItem('tokens', {})
+      login.status === 200 &&
+      localStorage.setItem('tokens', JSON.stringify(response))
     )
 
   } catch (error) {
