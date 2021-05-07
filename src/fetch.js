@@ -49,3 +49,28 @@ export async function getProductById(productId, setProduct) {
     throw new Error(error)
   }
 }
+
+// 
+export async function userLogin(user) {
+  try {
+    const login = await fetch(`${process.env.REACT_APP_URL}/admin/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    }
+    )
+    const response = await login.json()
+    console.log(response)
+
+    return (
+      login.status === 200 &&
+      localStorage.setItem('tokens', JSON.stringify(response))
+    )
+
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+

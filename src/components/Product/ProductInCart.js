@@ -1,92 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
 import { Dot, ProductImage } from '../Utilities/UtilitiesExporter'
 import { GlobalStateContext } from '../GlobalState/GlobalState'
-
-const StyledItemContainer = styled.div`
-border-bottom: 1px solid lightgray;
-width: 100%;
-height: 90px;
-text-align:center;
-display: inline-flex;
-&:hover {
-  box-shadow: 2px 2px 2px grey;
-}
-@media screen and (max-width: 800px) {
-  ${props => props.big && {
-    display: "inline-block",
-    height: "fit-content",
-    marginBottom: "5px"
-}}
-}
-
-`
-
-const StyledDetailsContainer = styled.div`
-padding-top: 40px;
-width: 100%;
-display: grid;
-grid-template-areas:
-"name numberOfItems price";
-
-@media screen and (max-width: 800px) {
-  ${props => props.big && {
-    display: "inline-block",
-    paddingTop: "5px",
-    marginLeft: "0px"
-}}
-}
-`
-
-const StyledDetails = styled.div`
-margin-left: 30px;
-font-size: 16px;
-text-transform: uppercase;
-font-weight: 600;
-justify-content: center;
-align-content: center;
-grid-auto-flow: column;
-
-@media screen and (max-width: 800px) {
-  margin-left: 0;
-}
-
-
-${props => props.itemName && {
-  gridArea: "name"
-}}
-
-${props => props.price && {
-  textTransform: "lowercase",
-  gridArea: "price"
-}}
-
-${props => props.numberOfItems && {
-  fontWeight: "500",
-  gridArea: "numberOfItems"
-}}
-`
-
-const StyledCounter = styled.div`
-  padding: 10px;
-  margin-bottom: 10px;
-`
-const StyledNumber = styled.div`
-display: inline-flex;
-position: relative;
-z-index: -1;
-margin-left: 8px;
-width: 30px;
-justify-content: center;
-box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-background: linear-gradient(90deg, rgba(180,180,180,0.60) 0%, rgba(172,172,172,0.53) 43%, rgba(167,165,165,0.57) 61%);
-backdrop-filter: brightness(150%) saturate(150%) blur(5px);
-background-clip: padding-box;
-color: rgba(0, 0, 0, 0.7);
-`
+import { StyledItemContainer, StyledDetails, StyledDetailsContainer, StyledCounter, StyledNumber } from './ProductStyles'
 
 function ProductInCart({ children }) {
   const { itemsInCart, setItemsInCart } = React.useContext(GlobalStateContext)
+  const price = children.product.price * children.numberInCart
+
   return (
     <StyledItemContainer big>
       <ProductImage src={children.product.image} description={children.description} type='smallCart'/>
@@ -117,7 +37,7 @@ function ProductInCart({ children }) {
               }}>+</Dot>
               </StyledCounter>
           </StyledDetails>
-        <StyledDetails price>{children.product.price * children.numberInCart}kr</StyledDetails>
+        <StyledDetails price>{price}kr</StyledDetails>
         </StyledDetailsContainer>
     </StyledItemContainer>
   )

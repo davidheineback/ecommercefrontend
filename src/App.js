@@ -3,7 +3,7 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import GlobalState from './components/GlobalState/GlobalState'
 import { Wrapper } from './components/Utilities/UtilitiesExporter'
-import { Admin, Cart, MainPage, MainCategoryPage, SubCategoryPage, ProductPage, PageNotFound } from './components/Views/ViewsExporter'
+import { Admin, AdminDashboard, Cart, MainPage, MainCategoryPage, SubCategoryPage, ProductPage, PageNotFound } from './components/Views/ViewsExporter'
 
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
             <Route exact path='/' component={MainPage}/>
             <Route path='/cart' exact component={Cart}/>
             <Route path='/admin' exact component={Admin}/>
+            <Route path='/dashboard' exact component={AdminDashboard}/>
             <Route path='/:mainCategory/' exact component={MainCategoryPage}/>
             <Route path='/product/:productId/' exact component={ProductPage}/>
             <Route path='/:mainCategory/:subCategory/' exact component={SubCategoryPage}/>
