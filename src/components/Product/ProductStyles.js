@@ -166,7 +166,7 @@ export const StyledProductManager = styled.div`
   flex-flow: row wrap;
   border: 1px solid lightgrey;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  width: 30vw;
+  width: 35vw;
   margin-left: 5px;
   margin-top: 100px;
   min-height: 100px;
@@ -197,13 +197,14 @@ export const StyledFlexGridContent = styled.div`
   padding-top: 3px;
   font-size: 16px;
   font-weight: 700;
+  border-bottom: 1px solid grey;
+  word-wrap: break-word;
   width: 30%;
   @media screen and (max-width: 800px) {
     width:100%;
   }
 
   ${props => props.editBtn && {
-    color: "white",
-    
+    color: "black"
   }}
 `

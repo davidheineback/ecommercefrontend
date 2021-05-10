@@ -10,7 +10,20 @@ export default function GlobalState({ children }) {
   const [currentSlug, setCurrentSlug] = useState('/')
   const [productAddedToCart, setProductAddedToCart] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
+  const [editableAttributes] = useState(setEditableAttributes)
 
+  
+  function setEditableAttributes () {
+    return [
+      'name',
+      'price',
+      'number in stock',
+      'brand',
+      'description',
+      'detailedDescription',
+      'image'
+    ]
+  }
 
   useEffect(() => {
     const timeId = setTimeout(() => {
@@ -28,17 +41,18 @@ export default function GlobalState({ children }) {
   },[itemsInCart])
 
   const state = {
-    setItemsInCart: setItemsInCart,
-    itemsInCart: itemsInCart,
-    setEmptyCartFlash: setEmptyCartFlash,
-    emptyCartFlash: emptyCartFlash,
-    cartFlashMessage: cartFlashMessage,
-    setCurrentSlug: setCurrentSlug,
-    currentSlug: currentSlug,
-    productAddedToCart: productAddedToCart,
-    setProductAddedToCart: setProductAddedToCart,
-    loggedIn: loggedIn,
-    setLoggedIn: setLoggedIn
+    setItemsInCart,
+    itemsInCart,
+    setEmptyCartFlash,
+    emptyCartFlash,
+    cartFlashMessage,
+    setCurrentSlug,
+    currentSlug,
+    productAddedToCart,
+    setProductAddedToCart,
+    loggedIn,
+    setLoggedIn,
+    editableAttributes
   }
 
   return (

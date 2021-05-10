@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import { ProductImage } from '../Utilities/UtilitiesExporter'
+import { GlobalStateContext } from '../GlobalState/GlobalState'
 import ProductEditor from './ProductEditor'
 import { StyledItemContainer, StyledDetails, StyledDetailsContainer } from './ProductStyles'
+import { Redirect } from 'react-router-dom'
 
 function ProductInDashboard({ children }) {
+  const { loggedIn } = React.useContext(GlobalStateContext)
   const product = children
   const [focus, setFocus] = useState(false)
 
@@ -11,7 +14,7 @@ function ProductInDashboard({ children }) {
     setFocus(!focus)
   }
 
-
+  if (!loggedIn) return <Redirect to='./admin'/>
   return (
     <StyledItemContainer big dashboard>
       <StyledItemContainer onClick={handleFocus}>
