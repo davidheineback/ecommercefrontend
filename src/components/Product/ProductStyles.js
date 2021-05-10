@@ -29,6 +29,7 @@ display: inline-flex;
 }
 
 ${props => props.dashboard && {
+  maxWidth: "30vw",
   marginBottom: "20px",
   padding: "10px",
   boxShadow: "2px 2px 2px grey"
