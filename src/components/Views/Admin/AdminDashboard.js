@@ -14,7 +14,8 @@ function AdminDashboard() {
     <Wrapper flex>
       <GradientBorder>Dashboard</GradientBorder>
       {products && products.map((product, index) => {
-      return (<ProductInDashboard key={index}>{product}</ProductInDashboard>)
+      return (
+        <ProductInDashboard key={index}>{product}</ProductInDashboard>)
     })}
     </Wrapper>
   )
