@@ -64,11 +64,11 @@ export async function userLogin(user) {
     const response = await login.json()
     console.log(response)
 
-    return (
-      login.status === 200 &&
+    if (login.status === 200) {
       localStorage.setItem('tokens', JSON.stringify(response))
-    )
-
+      return (true)} else {
+        return (false)
+      }
   } catch (error) {
     throw new Error(error)
   }

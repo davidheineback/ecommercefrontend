@@ -4,6 +4,8 @@ export const GlobalStateContext = React.createContext(null)
 
 export default function GlobalState({ children }) {
   const itemsInCartFromLocalStorage = localStorage.getItem('itemsInCart') ? JSON.parse(localStorage.getItem('itemsInCart')) : []
+  const currentStoredUser = localStorage.getItem('tokens') ? JSON.parse(localStorage.getItem('tokens')) : []
+  const [currentUser, setCurrentUser] = useState(currentStoredUser)
   const [itemsInCart, setItemsInCart] = useState(itemsInCartFromLocalStorage)
   const [emptyCartFlash, setEmptyCartFlash] = useState(false)
   const [cartFlashMessage] = useState('No items in cart')
@@ -52,7 +54,9 @@ export default function GlobalState({ children }) {
     setProductAddedToCart,
     loggedIn,
     setLoggedIn,
-    editableAttributes
+    editableAttributes,
+    currentUser,
+    setCurrentUser
   }
 
   return (

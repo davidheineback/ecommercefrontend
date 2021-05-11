@@ -18,9 +18,8 @@ function Admin() {
     setPassword(target.value)
   }
 
-  function handleLogin () {
-    setLoggedIn(userLogin({username, password}))
-      
+  async function handleLogin () {
+    setLoggedIn(await userLogin({username, password}))   
   }
 
   return (
