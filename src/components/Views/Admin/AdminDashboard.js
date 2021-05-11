@@ -9,6 +9,11 @@ function AdminDashboard() {
   const { loggedIn } = React.useContext(GlobalStateContext)
   const [products, setProducts] = useState()
 
+
+  useEffect(() => {
+    loggedIn && getAllProducts(setProducts)
+  },[loggedIn])
+
   useEffect(() => {
     loggedIn && getAllProducts(setProducts)
   },[loggedIn])

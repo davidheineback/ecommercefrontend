@@ -3,10 +3,11 @@ import { Redirect } from 'react-router-dom'
 import { GradientBorder, Wrapper, Button } from '../../Utilities/UtilitiesExporter'
 import { GlobalStateContext } from '../../GlobalState/GlobalState'
 import { userLogin } from '../../../fetch.js'
+import LoginFlash from '../Flash/LoginFlash'
 import { StyledLogInContainer, StyledInput } from './AdminStyles'
 
 function Admin() {
-  const { loggedIn, setLoggedIn } = React.useContext(GlobalStateContext)
+  const { loggedIn, setLoggedIn, setLoginFlash } = React.useContext(GlobalStateContext)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -20,11 +21,13 @@ function Admin() {
 
   async function handleLogin () {
     setLoggedIn(await userLogin({username, password}))   
+    if (!loggedIn) {setLoginFlash(true)}
   }
 
   return (
       !loggedIn ?
       <Wrapper flex="bigFlex">
+        <LoginFlash/>
         <Wrapper adminLogin>
           <GradientBorder/>
          <StyledLogInContainer>

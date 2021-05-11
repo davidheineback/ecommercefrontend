@@ -8,11 +8,14 @@ export default function GlobalState({ children }) {
   const [currentUser, setCurrentUser] = useState(currentStoredUser)
   const [itemsInCart, setItemsInCart] = useState(itemsInCartFromLocalStorage)
   const [emptyCartFlash, setEmptyCartFlash] = useState(false)
-  const [cartFlashMessage] = useState('No items in cart')
+  const cartFlashMessage = 'No items in cart'
   const [currentSlug, setCurrentSlug] = useState('/')
   const [productAddedToCart, setProductAddedToCart] = useState(false)
   const [loggedIn, setLoggedIn] = useState(false)
   const [editableAttributes] = useState(setEditableAttributes)
+  const [loginFlash, setLoginFlash] = useState(false)
+  const loginFlashMessage = 'Invalid username or password'
+
 
   
   function setEditableAttributes () {
@@ -56,7 +59,10 @@ export default function GlobalState({ children }) {
     setLoggedIn,
     editableAttributes,
     currentUser,
-    setCurrentUser
+    setCurrentUser,
+    loginFlash,
+    setLoginFlash,
+    loginFlashMessage
   }
 
   return (
