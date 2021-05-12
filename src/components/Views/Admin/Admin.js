@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import { GradientBorder, Wrapper, Button } from '../../Utilities/UtilitiesExporter'
 import { GlobalStateContext } from '../../GlobalState/GlobalState'
@@ -7,9 +7,16 @@ import LoginFlash from '../Flash/LoginFlash'
 import { StyledLogInContainer, StyledInput } from './AdminStyles'
 
 function Admin() {
-  const { loggedIn, setLoggedIn, setLoginFlash } = React.useContext(GlobalStateContext)
+  const { loggedIn, setLoggedIn, setLoginFlash, checkUserLoginStatus } = React.useContext(GlobalStateContext)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  useEffect(() => {
+    async function loadLogin() {
+      await checkUserLoginStatus()
+    }
+    loadLogin()
+  },[checkUserLoginStatus])
 
   function handleUsernameInput ({ target }) {
     setUsername(target.value)
