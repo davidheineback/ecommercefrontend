@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import * as API from '../../fetch'
 export const GlobalStateContext = React.createContext(null)
 
 export default function GlobalState({ children }) {
@@ -14,9 +14,24 @@ export default function GlobalState({ children }) {
   const [loggedIn, setLoggedIn] = useState(false)
   const [editableAttributes] = useState(setEditableAttributes)
   const [loginFlash, setLoginFlash] = useState(false)
-  const loginFlashMessage = 'Invalid username or password'
+  const [loginFlashMessage, setLoginFlashMessage] = useState('Invalid username or password')
 
 
+  async function handleLogOut() {
+    await API.userLogout(currentStoredUser.user.sub)
+    setLoggedIn(false)
+    setLoginFlashMessage('User Logged out')
+    setCurrentUser('')
+    setLoginFlashMessage('Invalid username or password')
+  }
+
+  async function checkUserLoginStatus () {
+    if (currentUser.length < 1) {
+      return false
+    } else {
+      setLoggedIn(await API.authUser(currentUser))
+    }
+  }
   
   function setEditableAttributes () {
     return [
@@ -62,7 +77,9 @@ export default function GlobalState({ children }) {
     setCurrentUser,
     loginFlash,
     setLoginFlash,
-    loginFlashMessage
+    loginFlashMessage,
+    handleLogOut,
+    checkUserLoginStatus
   }
 
   return (
