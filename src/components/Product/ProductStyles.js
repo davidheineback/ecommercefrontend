@@ -32,7 +32,8 @@ ${props => props.dashboard && {
   maxWidth: "30vw",
   marginBottom: "20px",
   padding: "10px",
-  boxShadow: "2px 2px 2px grey"
+  boxShadow: "2px 2px 2px grey",
+  cursor: "pointer"
   }}
 
 @media screen and (max-width: 800px) {
@@ -155,4 +156,55 @@ export const StyledActionCounter = styled.div`
   padding: 10px;
   width: 120px;
   margin-bottom: 10px;
+  
+`
+
+export const StyledProductManager = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  border: 1px solid lightgrey;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 35vw;
+  margin-left: 5px;
+  margin-top: 100px;
+  min-height: 100px;
+  background: linear-gradient(90deg, rgba(180,180,180,0.60) 0%, rgba(172,172,172,0.53) 43%, rgba(167,165,165,0.57) 61%);
+  backdrop-filter: brightness(150%) saturate(150%) blur(5px);
+  background-clip: padding-box;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 800px) {
+    margin-top: 30px;
+    flex-direction: column;
+    flex-flow: column wrap;
+    transform: translateX(-100%)
+  }
+`
+
+export const StyledFlexGridHeader = styled.div`
+  padding-top: 3px;
+  text-decoration: underline;
+  font-size: 16px;
+  font-weight: 700;
+  width: 30%;
+  @media screen and (max-width: 800px) {
+    width:100%;
+  }
+`
+export const StyledFlexGridContent = styled.div`
+  padding-top: 3px;
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid grey;
+  word-wrap: break-word;
+  width: 30%;
+  @media screen and (max-width: 800px) {
+    width:100%;
+  }
+
+  ${props => props.editBtn && {
+    color: "black"
+  }}
 `

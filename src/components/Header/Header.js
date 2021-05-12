@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import { DivButton, BurgerButton, Sidebar, CartIcon } from '../Utilities/UtilitiesExporter'
+import { Button, DivButton, BurgerButton, Sidebar, CartIcon } from '../Utilities/UtilitiesExporter'
 import { getCategories } from '../../fetch.js'
 import { GlobalStateContext } from '../GlobalState/GlobalState'
 import { StyledHeader } from './StyledHeader'
 
 function Header() {
-  const { itemsInCart } = React.useContext(GlobalStateContext)
+  const { itemsInCart, loggedIn, handleLogOut } = React.useContext(GlobalStateContext)
   const [active, setActive] = useState(false)
   const [categories, setCategories] = useState([])
   
@@ -38,6 +38,7 @@ function Header() {
             )
       })
       }
+      {loggedIn && <Button onClick={handleLogOut}>Logout</Button>}
       <CartIcon key='carticon' itemsInCart={numberOfItemsInCart}/>
       </StyledHeader> 
     <StyledHeader small key='smallstyledheader'>
