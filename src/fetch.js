@@ -50,6 +50,27 @@ export async function getProductById(productId, setProduct) {
   }
 }
 
+export async function userLogout(user) {
+  try {
+    const logout = await fetch(`${process.env.REACT_APP_URL}/admin/logout`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({username: user})
+    }
+    )
+
+    if (logout.status === 204) {
+      localStorage.removeItem('tokens')
+      return (true)} else {
+        return (false)
+      }
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
 // 
 export async function userLogin(user) {
   try {
@@ -62,13 +83,37 @@ export async function userLogin(user) {
     }
     )
     const response = await login.json()
-    console.log(response)
-
     if (login.status === 200) {
       localStorage.setItem('tokens', JSON.stringify(response))
-      return (true)} else {
+      return (true)
+    } else {
         return (false)
       }
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+export async function authUser(user) {
+  console.log(user)
+  try {
+    const auth = await fetch(`${process.env.REACT_APP_URLTEST}/admin/auth`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    }
+    )
+    const response = await auth.json()
+    user.access_token = response
+
+    if (auth.status === 200) {
+      localStorage.setItem('tokens', JSON.stringify(user))
+      return (true)
+    } else {
+      return (false)
+    }
   } catch (error) {
     throw new Error(error)
   }
