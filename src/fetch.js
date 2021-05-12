@@ -97,7 +97,7 @@ export async function userLogin(user) {
 export async function authUser(user) {
   console.log(user)
   try {
-    const auth = await fetch(`${process.env.REACT_APP_URLTEST}/admin/auth`, {
+    const auth = await fetch(`${process.env.REACT_APP_URL}/admin/auth`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
