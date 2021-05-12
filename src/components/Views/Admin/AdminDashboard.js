@@ -14,10 +14,6 @@ function AdminDashboard() {
     loggedIn && getAllProducts(setProducts)
   },[loggedIn])
 
-  useEffect(() => {
-    loggedIn && getAllProducts(setProducts)
-  },[loggedIn])
-
   if (!loggedIn) {return (<Redirect to="./admin"/>)}
   return (
     <Wrapper flex>
