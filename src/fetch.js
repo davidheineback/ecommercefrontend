@@ -94,7 +94,7 @@ export async function userLogin(user) {
   }
 }
 
-// `${process.env.REACT_APP_URL}/admin/auth`
+// 
 // 'http://localhost:8080/api/v1/admin/auth'
 // 'Authorization': `Bearer ${user.access_token}`
 export async function authUser(user) {
@@ -102,8 +102,7 @@ export async function authUser(user) {
     const auth = await fetch(`${process.env.REACT_APP_URL}/admin/auth`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${user.access_token}`
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(user)
     }
