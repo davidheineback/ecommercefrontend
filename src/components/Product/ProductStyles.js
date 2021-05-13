@@ -205,12 +205,21 @@ export const StyledFlexGridContent = styled.div`
   }
 
   ${props => props.editBtn && {
-    color: "black"
+    color: "black",
+    width: "14%"
   }}
+
+${props => props.deleteBtn && {
+    color: "red",
+    width: "80%"
+  }}
+
+
 `
 
 export const StyledEditorInput = styled.input`
   width: 30%;
+  font-size: 16px;
   @media screen and (max-width: 800px) {
     width:100%;
   }

@@ -8,8 +8,10 @@ function ProductEditor({ focus, product }) {
   const [edit, setEdit] = useState(false)
   const [editIndex, setEditIndex]  = useState()
   const [newValue, setNewValue] = useState()
+  const [deleteQuestion, setDeleteQuestion] = useState(false)
 
-  function handleEdit (index) {
+  function handleEdit (index, currentValue) {
+    setNewValue(currentValue)
     setEdit(true)
     setEditIndex(index)
   }
@@ -28,31 +30,49 @@ function ProductEditor({ focus, product }) {
     setNewValue(target.value)
   }
 
+  function handleDelete () {
+    
+  }
+
+  function checkDelete () {
+    setDeleteQuestion(!deleteQuestion)
+  }
+
 
   return (
     focus && 
-      <StyledProductManager key={product.name + 'manager'}>
-        <StyledFlexGridHeader key={product.name + 'headerattribute'}>Attribute:</StyledFlexGridHeader>
-        <StyledFlexGridHeader key={product.name + 'headercurrent'}>Current:</StyledFlexGridHeader>
+      <StyledProductManager>
+        <StyledFlexGridHeader>Attribute:</StyledFlexGridHeader>
+        <StyledFlexGridHeader>Current:</StyledFlexGridHeader>
         <StyledFlexGridHeader/>
         {editableAttributes.map((attribute, index) => {
           return (
             edit && editIndex === index ?
            ( <>
             <StyledFlexGridContent>{attribute.displayname}</StyledFlexGridContent>
-            <StyledEditorInput onChange={handleNewValue} placeholder='Edit'/>
+            <StyledEditorInput onChange={handleNewValue} value={newValue} placeholder='Edit'/>
             <StyledFlexGridContent onClick={handleSave} editBtn>Save</StyledFlexGridContent>
             </>)
             : (
               <>
               <StyledFlexGridContent >{attribute.displayname}</StyledFlexGridContent>
               <StyledFlexGridContent >{product[attribute.name]}</StyledFlexGridContent>
-              <StyledFlexGridContent onClick={() => handleEdit(index)} editBtn>Edit</StyledFlexGridContent>
+              <StyledFlexGridContent onClick={() => handleEdit(index, product[attribute.name])} editBtn>Edit</StyledFlexGridContent>
             </>
             )
           )
             
         })}
+        {!deleteQuestion ? 
+        (<StyledFlexGridContent onClick={checkDelete} deleteBtn>Delete</StyledFlexGridContent>)
+        : 
+        <>
+        <StyledFlexGridContent>Are you sure?</StyledFlexGridContent>
+        <StyledFlexGridContent onClick={handleDelete} deleteBtn>Yes</StyledFlexGridContent>
+        <StyledFlexGridContent onClick={checkDelete} deleteBtn>No</StyledFlexGridContent>
+        </>
+        }
+      
       </StyledProductManager>
   )
 }
