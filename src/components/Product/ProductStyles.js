@@ -208,3 +208,10 @@ export const StyledFlexGridContent = styled.div`
     color: "black"
   }}
 `
+
+export const StyledEditorInput = styled.input`
+  width: 30%;
+  @media screen and (max-width: 800px) {
+    width:100%;
+  }
+`

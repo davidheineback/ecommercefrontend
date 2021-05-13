@@ -121,3 +121,45 @@ export async function authUser(user) {
   }
 }
 
+// `${process.env.REACT_APP_URL}/admin/patch`
+export async function patchNewValue(editObject) {
+  try {
+    const edit = await fetch('http://localhost:8080/api/v1/admin/patch', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(editObject)
+    }
+    )
+    if (edit.status === 200) {
+      return true
+    } else {
+      throw new Error(edit.status)
+    }
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+
+// `${process.env.REACT_APP_URL}/admin/patch`
+export async function deleteProduct(editObject) {
+  try {
+    const edit = await fetch('http://localhost:8080/api/v1/admin/delete', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(editObject)
+    }
+    )
+    if (edit.status === 200) {
+      return true
+    } else {
+      throw new Error(edit.status)
+    }
+  } catch (error) {
+    throw new Error(error)
+  }
+}
+

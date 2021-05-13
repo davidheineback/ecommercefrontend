@@ -35,13 +35,13 @@ export default function GlobalState({ children }) {
   
   function setEditableAttributes () {
     return [
-      'name',
-      'price',
-      'number in stock',
-      'brand',
-      'description',
-      'detailedDescription',
-      'image'
+      {name: 'name', displayname: 'Name'},
+      {name: 'price', displayname: 'Price'},
+      {name: 'inStock', displayname: 'Number in stock'},
+      {name: 'brand', displayname: 'Brand'},
+      {name: 'description', displayname: 'Description'},
+      {name: 'detailedDescription', displayname: 'Detailed description'},
+      {name: 'image', displayname: 'Image'},
     ]
   }
 

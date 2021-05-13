@@ -1,40 +1,53 @@
 import React, { useState } from 'react'
 import { GlobalStateContext } from '../GlobalState/GlobalState'
-import { StyledProductManager, StyledFlexGridHeader, StyledFlexGridContent } from './ProductStyles'
+import { StyledProductManager, StyledFlexGridHeader, StyledFlexGridContent, StyledEditorInput } from './ProductStyles'
+import * as API from '../../fetch'
 
 function ProductEditor({ focus, product }) {
   const { editableAttributes } = React.useContext(GlobalStateContext)
   const [edit, setEdit] = useState(false)
+  const [editIndex, setEditIndex]  = useState()
+  const [newValue, setNewValue] = useState()
 
-  function handleEdit () {
+  function handleEdit (index) {
     setEdit(true)
+    setEditIndex(index)
   }
 
   function handleSave () {
-
+    const editObject = {newValue, product, changeAttribute: editableAttributes[editIndex].name}
+    const patcher = API.patchNewValue(editObject)
+    if (patcher) {
+      product[editableAttributes[editIndex].name] = newValue
+    }
+    setEdit(false)
+    setEditIndex(null)
   }
 
+  function handleNewValue ({ target }) {
+    setNewValue(target.value)
+  }
 
 
   return (
     focus && 
-      <StyledProductManager>
-        <StyledFlexGridHeader>Attribute:</StyledFlexGridHeader>
-        <StyledFlexGridHeader>Current:</StyledFlexGridHeader>
+      <StyledProductManager key={product.name + 'manager'}>
+        <StyledFlexGridHeader key={product.name + 'headerattribute'}>Attribute:</StyledFlexGridHeader>
+        <StyledFlexGridHeader key={product.name + 'headercurrent'}>Current:</StyledFlexGridHeader>
         <StyledFlexGridHeader/>
-        {editableAttributes.map(attribute => {
+        {editableAttributes.map((attribute, index) => {
           return (
-            edit ?
+            edit && editIndex === index ?
            ( <>
-            <StyledFlexGridContent>{attribute}</StyledFlexGridContent>
-            <input placeholder='Edit'/>
+            <StyledFlexGridContent>{attribute.displayname}</StyledFlexGridContent>
+            <StyledEditorInput onChange={handleNewValue} placeholder='Edit'/>
             <StyledFlexGridContent onClick={handleSave} editBtn>Save</StyledFlexGridContent>
             </>)
             : (
               <>
-              <StyledFlexGridContent>{attribute}</StyledFlexGridContent>
-              <StyledFlexGridContent>{product[attribute]}</StyledFlexGridContent>
-            <StyledFlexGridContent onClick={handleEdit} editBtn>Edit</StyledFlexGridContent>
+              <StyledFlexGridContent >{attribute.displayname}</StyledFlexGridContent>
+              <StyledFlexGridContent >{product[attribute.name]}</StyledFlexGridContent>
+              <StyledFlexGridContent onClick={() => handleEdit(index)} editBtn>Edit</StyledFlexGridContent>
             </>
             )
           )
