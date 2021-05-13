@@ -6,14 +6,30 @@ import { getAllProducts } from '../../../fetch'
 import { Redirect } from 'react-router-dom'
 
 function AdminDashboard() {
-  const { loggedIn } = React.useContext(GlobalStateContext)
+  const { loggedIn, checkUserLoginStatus } = React.useContext(GlobalStateContext)
   const [products, setProducts] = useState()
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadLogin() {
+      await checkUserLoginStatus()
+      setIsLoading(false)
+    }
+    loadLogin()
+  },[checkUserLoginStatus])
 
 
   useEffect(() => {
     loggedIn && getAllProducts(setProducts)
   },[loggedIn])
 
+  while (isLoading) {
+    return (
+      <Wrapper flex>
+        <div>Loading...</div>
+      </Wrapper>
+    )
+  }
   if (!loggedIn) {return (<Redirect to="./admin"/>)}
   return (
     <Wrapper flex>
