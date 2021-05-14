@@ -10,6 +10,7 @@ import ProductPageDetails from './ProductPageDetails/ProductPageDetails'
 import ProductDetails from './ProductDetails/ProductDetails'
 import ProductImage from './ProductImage/ProductImage'
 import Sidebar from './Sidebar/Sidebar'
+import TabSelect from './TabSelect/TabSelect'
 import ThemeDiv from './ThemeDiv/ThemeDiv'
 import Wrapper from './Wrapper/Wrapper'
 
@@ -26,6 +27,7 @@ export {
   ProductDetails,
   ProductImage,
   Sidebar,
+  TabSelect,
   ThemeDiv,
   Wrapper
 }
