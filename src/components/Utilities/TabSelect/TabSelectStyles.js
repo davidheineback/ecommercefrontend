@@ -11,8 +11,8 @@ height: 30px;
 `
 
 export const StyledTabSelect = styled.div`
-border: 2px solid black;
 width: 50%;
 margin: auto;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `
 

@@ -24,15 +24,13 @@ function AdminDashboard() {
     loggedIn && getAllProducts(setProducts)
   },[loggedIn])
 
-  while (isLoading) {
-    return (
-      <Wrapper flex>
-        <div>Loading...</div>
-      </Wrapper>
-    )
-  }
-  if (!loggedIn) {return (<Redirect to="./admin"/>)}
   return (
+    isLoading ?
+    <Wrapper flex>
+    <div>Loading...</div>
+  </Wrapper>
+  :
+    loggedIn ?
     <Wrapper flex>
       <GradientBorder>Dashboard</GradientBorder>
       <TabSelect onClick={setActiveTab} tabNames={['Edit', 'New']}/>
@@ -41,9 +39,11 @@ function AdminDashboard() {
       return (
         <ProductInDashboard key={index}>{product}</ProductInDashboard>)
     })
-    : <div>New</div>
+    :
+    <div>New</div>
   }
     </Wrapper>
+    :<Redirect to="./admin"/>
   )
 }
 
