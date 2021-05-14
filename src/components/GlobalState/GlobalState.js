@@ -45,6 +45,18 @@ export default function GlobalState({ children }) {
     ]
   }
 
+  const setNewProductAttributes = [
+    {name: 'name', displayname: 'Name'},
+    {name: 'price', displayname: 'Price'},
+    {name: 'brand', displayname: 'Brand'},
+    {name: 'description', displayname: 'Description'},
+    {name: 'detailedDescription', displayname: 'Detailed description'},
+    {name: 'image', displayname: 'Image'},
+    {name: 'inStock', displayname: 'Number in stock'},
+    {name: 'productCategory', displayname: 'Product category'},
+    {name: 'productSubCategory', displayname: 'Product Subcategory'}
+  ]
+
   useEffect(() => {
     const timeId = setTimeout(() => {
       setProductAddedToCart(false)
@@ -79,7 +91,8 @@ export default function GlobalState({ children }) {
     setLoginFlash,
     loginFlashMessage,
     handleLogOut,
-    checkUserLoginStatus
+    checkUserLoginStatus,
+    setNewProductAttributes
   }
 
   return (

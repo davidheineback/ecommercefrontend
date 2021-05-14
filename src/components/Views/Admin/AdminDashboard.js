@@ -6,7 +6,7 @@ import { getAllProducts } from '../../../fetch'
 import { Redirect } from 'react-router-dom'
 
 function AdminDashboard() {
-  const { loggedIn, checkUserLoginStatus } = React.useContext(GlobalStateContext)
+  const { loggedIn, checkUserLoginStatus, setNewProductAttributes } = React.useContext(GlobalStateContext)
   const [products, setProducts] = useState()
   const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('Edit')
@@ -40,7 +40,16 @@ function AdminDashboard() {
         <ProductInDashboard key={index}>{product}</ProductInDashboard>)
     })
     :
-    <div>New</div>
+    <form>
+      {setNewProductAttributes?.map(attribute => {
+        return (
+          <>
+          <div>{attribute.displayname}</div>
+          <input placeholder={attribute.displayname}/>
+          </>
+        )
+      })}
+    </form>
   }
     </Wrapper>
     :<Redirect to="./admin"/>
