@@ -57,3 +57,10 @@ ${props => props.totalPrice && {
   transform: "translateX(45px)"
 }}
 `
+export const StyledShippingInfoHeader = styled.div`
+text-transform: uppercase;
+font-size: 16px;
+font-weight: 700;
+margin-top: 15px;
+margin-bottom: 10px;
+`
