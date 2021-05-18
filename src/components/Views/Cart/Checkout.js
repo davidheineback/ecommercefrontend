@@ -1,18 +1,18 @@
 import React from 'react'
 import { GlobalStateContext } from '../../GlobalState/GlobalState'
-import ProductInCart from '../../Product/ProductInCart'
+import ProductInCheckout from '../../Product/ProductInCheckout'
 import { Wrapper, Button } from '../../Utilities/UtilitiesExporter'
 import { Redirect, Link } from 'react-router-dom'
 import {  StyledCartContainer,StyledCartHeaders, StyledCartGrid, StyledCartFooter } from './CartStyles'
 
-function Cart() {
+function Checkout() {
 const { currentSlug, itemsInCart, setEmptyCartFlash } = React.useContext(GlobalStateContext)
 
 const numberOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.numberInCart + total,0)
 const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.product.price * obj.numberInCart + total,0)
 
   return (
-    <Wrapper flex='bigFlex'>
+<Wrapper flex='bigFlex'>
     <StyledCartContainer>
       <StyledCartHeaders big>
         <StyledCartGrid itemName>Name:</StyledCartGrid>
@@ -20,7 +20,7 @@ const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.prod
         <StyledCartGrid totalPrice>Total price:</StyledCartGrid>
       </StyledCartHeaders>
       {itemsInCart.length > 0 ?
-      itemsInCart.map((item, index) => <ProductInCart key={index}>{item}</ProductInCart>)
+      itemsInCart.map((item, index) => <ProductInCheckout key={index}>{item}</ProductInCheckout>)
       : (
         setEmptyCartFlash(true),
         <Redirect to={currentSlug}/>
@@ -30,15 +30,15 @@ const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.prod
       <StyledCartGrid numberOfItems>{numberOfItemsInCart}</StyledCartGrid>
       <StyledCartGrid totalPrice>{totalPriceOfItemsInCart}kr</StyledCartGrid>
     </StyledCartFooter>
-    <Link to={currentSlug}>    
-    <Button btnType="primary">Back to shop</Button>
+    <Link to='/cart'>    
+    <Button btnType="primary">Back to cart</Button>
     </Link>
-    <Link to='/checkout'>
-    <Button btnType="primary">Proceed to checkout</Button>
+    <Link to='/cart'>    
+    <Button btnType="primary">Pay with paypal</Button>
     </Link>
     </StyledCartContainer>
     </Wrapper>
   )
 }
 
-export default Cart
+export default Checkout
