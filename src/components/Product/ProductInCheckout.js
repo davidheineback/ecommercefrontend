@@ -1,10 +1,10 @@
 import React from 'react'
 import { ProductImage } from '../Utilities/UtilitiesExporter'
-import { GlobalStateContext } from '../GlobalState/GlobalState'
+// import { GlobalStateContext } from '../GlobalState/GlobalState'
 import { StyledItemContainer, StyledDetails, StyledDetailsContainer, StyledCounter, StyledNumber } from './ProductStyles'
 
 function ProductInCheckout({ children }) {
-  const { itemsInCart, setItemsInCart } = React.useContext(GlobalStateContext)
+  // const { itemsInCart, setItemsInCart } = React.useContext(GlobalStateContext)
   const price = children.product.price * children.numberInCart
 
   return (
