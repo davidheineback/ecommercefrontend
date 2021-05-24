@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Wrapper, GradientBorder, TabSelect } from '../../Utilities/UtilitiesExporter'
+import { Wrapper, GradientBorder, TabSelect, Button } from '../../Utilities/UtilitiesExporter'
 import ProductInDashboard from '../../Product/ProductInDashboard'
 import { GlobalStateContext } from '../../GlobalState/GlobalState'
 import { getAllProducts } from '../../../fetch'
@@ -49,7 +49,10 @@ function AdminDashboard() {
           </>
         )
       })}
+      <div/>
+  <Button btnType="primary">Add new product</Button>
     </form>
+        
   }
     </Wrapper>
     :<Redirect to="./admin"/>
