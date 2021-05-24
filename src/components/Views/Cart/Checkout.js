@@ -34,7 +34,7 @@ const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.prod
     <Button btnType="primary">Back to cart</Button>
     </Link>
     <Link to='/cart'>    
-    <Button btnType="primary">Pay with paypal</Button>
+    <Button btnType="primary">Payment</Button>
     </Link>
     </StyledCartContainer>
     </Wrapper>
