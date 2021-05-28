@@ -10,11 +10,12 @@ export async function getCategories(setCategories) {
   }
 }
 
-export async function getAllProducts(setProducts) {
+export async function getAllProducts(setProducts, setIsLoading) {
   try {
     const products = await fetch(`${process.env.REACT_APP_URL}/products/`)
     const response = await products.json()
     setProducts(await response)
+    setIsLoading(false)
   } catch (error) {
     throw new Error(error)
   }
@@ -40,11 +41,12 @@ export async function getProductsBySubCategory(subcategory, setProducts) {
   }
 }
 
-export async function getProductById(productId, setProduct) {
+export async function getProductById(productId, setProduct, setIsLoading) {
   try {
     const products = await fetch(`${process.env.REACT_APP_URL}/product/${productId}`)
     const response = await products.json()
     setProduct(await response)
+    setIsLoading(false)
   } catch (error) {
     throw new Error(error)
   }

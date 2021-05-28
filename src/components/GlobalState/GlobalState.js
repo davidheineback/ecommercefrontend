@@ -14,6 +14,7 @@ export default function GlobalState({ children }) {
   const [loggedIn, setLoggedIn] = useState(false)
   const [editableAttributes] = useState(setEditableAttributes)
   const [loginFlash, setLoginFlash] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [loginFlashMessage, setLoginFlashMessage] = useState('Invalid username or password')
 
 
@@ -92,7 +93,9 @@ export default function GlobalState({ children }) {
     loginFlashMessage,
     handleLogOut,
     checkUserLoginStatus,
-    setNewProductAttributes
+    setNewProductAttributes,
+    isLoading,
+    setIsLoading
   }
 
   return (

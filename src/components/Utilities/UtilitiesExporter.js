@@ -13,6 +13,7 @@ import Sidebar from './Sidebar/Sidebar'
 import TabSelect from './TabSelect/TabSelect'
 import ThemeDiv from './ThemeDiv/ThemeDiv'
 import Wrapper from './Wrapper/Wrapper'
+import Loader from './Loader/Loader'
 
 export {
   Breadcrumbs,
@@ -23,6 +24,7 @@ export {
   Dot,
   Dropdown,
   GradientBorder,
+  Loader,
   ProductPageDetails,
   ProductDetails,
   ProductImage,
