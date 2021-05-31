@@ -6,9 +6,8 @@ import { getAllProducts } from '../../../fetch'
 import { Redirect } from 'react-router-dom'
 
 function AdminDashboard() {
-  const { loggedIn, checkUserLoginStatus, setNewProductAttributes } = React.useContext(GlobalStateContext)
+  const { loggedIn, checkUserLoginStatus, setNewProductAttributes, setIsLoading, isLoading  } = React.useContext(GlobalStateContext)
   const [products, setProducts] = useState()
-  const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('Edit')
 
   useEffect(() => {
@@ -17,12 +16,13 @@ function AdminDashboard() {
       setIsLoading(false)
     }
     loadLogin()
-  },[checkUserLoginStatus])
+  },[checkUserLoginStatus, setIsLoading])
 
 
   useEffect(() => {
-    loggedIn && getAllProducts(setProducts)
-  },[loggedIn])
+    setIsLoading(true)
+    loggedIn && getAllProducts(setProducts, setIsLoading)
+  },[loggedIn, setIsLoading])
 
   return (
     isLoading ?

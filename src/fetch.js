@@ -74,7 +74,7 @@ export async function userLogout(user) {
 }
 
 // 
-export async function userLogin(user) {
+export async function userLogin(user, setCurrentUser) {
   try {
     const login = await fetch(`${process.env.REACT_APP_URL}/admin/login`, {
       method: 'POST',
@@ -86,6 +86,7 @@ export async function userLogin(user) {
     )
     const response = await login.json()
     if (login.status === 200) {
+      setCurrentUser(response)
       localStorage.setItem('tokens', JSON.stringify(response))
       return (true)
     } else {
@@ -99,14 +100,19 @@ export async function userLogin(user) {
 // 
 // 'http://localhost:8080/api/v1/admin/auth'
 // 'Authorization': `Bearer ${user.access_token}`
+
+// `${process.env.REACT_APP_URL}/admin/auth`
 export async function authUser(user) {
+  const userString = JSON.stringify(user)
+  const base64auth = Buffer.from(userString, 'utf-8')
   try {
     const auth = await fetch(`${process.env.REACT_APP_URL}/admin/auth`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${base64auth}`
       },
-      body: JSON.stringify(user)
+      // body: JSON.stringify(user)
     }
     )
     const response = await auth.json()
@@ -124,17 +130,23 @@ export async function authUser(user) {
 }
 
 // `${process.env.REACT_APP_URL}/admin/patch`
-export async function patchNewValue(editObject) {
+export async function patchNewValue(editObject, user) {
+  const userString = JSON.stringify(user)
+  const base64auth = Buffer.from(userString, 'utf-8')
   try {
     const edit = await fetch(`${process.env.REACT_APP_URL}/admin/patch`, {
       method: 'PATCH',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${base64auth}`
       },
       body: JSON.stringify(editObject)
     }
     )
     if (edit.status === 200) {
+      const token = await edit.json()
+      user.access_token = token.access_token
+      localStorage.setItem('tokens', JSON.stringify(user))
       return true
     } else {
       throw new Error(edit.status)

@@ -7,7 +7,7 @@ import LoginFlash from '../Flash/LoginFlash'
 import { StyledLogInContainer, StyledInput } from './AdminStyles'
 
 function Admin() {
-  const { loggedIn, setLoggedIn, setLoginFlash, checkUserLoginStatus } = React.useContext(GlobalStateContext)
+  const { loggedIn, setLoggedIn, setLoginFlash, checkUserLoginStatus, setCurrentUser } = React.useContext(GlobalStateContext)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -27,7 +27,7 @@ function Admin() {
   }
 
   async function handleLogin () {
-    setLoggedIn(await userLogin({username, password}))   
+    setLoggedIn(await userLogin({username, password}, setCurrentUser))  
     if (!loggedIn) {setLoginFlash(true)}
   }
 

@@ -4,11 +4,12 @@ import { StyledProductManager, StyledFlexGridHeader, StyledFlexGridContent, Styl
 import * as API from '../../fetch'
 
 function ProductEditor({ focus, product }) {
-  const { editableAttributes } = React.useContext(GlobalStateContext)
+  const { editableAttributes, currentUser } = React.useContext(GlobalStateContext)
   const [edit, setEdit] = useState(false)
   const [editIndex, setEditIndex]  = useState()
   const [newValue, setNewValue] = useState()
   const [deleteQuestion, setDeleteQuestion] = useState(false)
+
 
   function handleEdit (index, currentValue) {
     setNewValue(currentValue)
@@ -18,7 +19,7 @@ function ProductEditor({ focus, product }) {
 
   function handleSave () {
     const editObject = {newValue, product, changeAttribute: editableAttributes[editIndex].name}
-    const patcher = API.patchNewValue(editObject)
+    const patcher = API.patchNewValue(editObject, currentUser)
     if (patcher) {
       product[editableAttributes[editIndex].name] = newValue
     }
