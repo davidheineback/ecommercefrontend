@@ -20,10 +20,6 @@ export default function GlobalState({ children }) {
 
   async function handleLogOut() {
     await API.userLogout(currentStoredUser.user.sub)
-    setLoggedIn(false)
-    setLoginFlashMessage('User Logged out')
-    setCurrentUser('')
-    setLoginFlashMessage('Invalid username or password')
   }
 
   async function checkUserLoginStatus () {
@@ -91,6 +87,7 @@ export default function GlobalState({ children }) {
     loginFlash,
     setLoginFlash,
     loginFlashMessage,
+    setLoginFlashMessage,
     handleLogOut,
     checkUserLoginStatus,
     setNewProductAttributes,

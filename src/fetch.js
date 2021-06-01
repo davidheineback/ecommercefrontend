@@ -157,17 +157,20 @@ export async function patchNewValue(editObject, user) {
 }
 
 // `${process.env.REACT_APP_URL}/admin/delete`
-export async function deleteProduct(editObject) {
+export async function deleteProduct(editObject, user) {
+  const userString = JSON.stringify(user)
+  const base64auth = Buffer.from(userString, 'utf-8')
   try {
     const edit = await fetch('http://localhost:8080/api/v1/admin/delete', {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${base64auth}`
       },
       body: JSON.stringify(editObject)
     }
     )
-    if (edit.status === 200) {
+    if (edit.status === 204) {
       return true
     } else {
       throw new Error(edit.status)

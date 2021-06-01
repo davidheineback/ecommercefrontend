@@ -5,10 +5,11 @@ import { GlobalStateContext } from '../GlobalState/GlobalState'
 import { StyledHeader } from './StyledHeader'
 
 function Header() {
-  const { itemsInCart, loggedIn, handleLogOut } = React.useContext(GlobalStateContext)
+  const { itemsInCart, loggedIn, handleLogOut, setLoggedIn, setCurrentUser, setLoginFlashMessage  } = React.useContext(GlobalStateContext)
   const [active, setActive] = useState(false)
   const [categories, setCategories] = useState([])
-  
+
+
   useEffect(() => {
     getCategories(setCategories) },[])
 
@@ -38,7 +39,12 @@ function Header() {
             )
       })
       }
-      {loggedIn && <Button onClick={handleLogOut}>Logout</Button>}
+      {loggedIn && <Button onClick={async () => {
+        setCurrentUser('')
+        setLoginFlashMessage('User Logged out')
+        setLoggedIn(false)
+        await handleLogOut()
+        }}>Logout</Button>}
       <CartIcon key='carticon' itemsInCart={numberOfItemsInCart}/>
       </StyledHeader> 
     <StyledHeader small key='smallstyledheader'>
