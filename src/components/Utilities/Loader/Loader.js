@@ -100,8 +100,8 @@ const StyledLoader = styled.div`
 
 function Loader() {
   return (
-      <StyledLoader class="loadingio-spinner-double-ring-kduv6bxr7c">
-        <div class="ldio-8jvuxvq08ud">
+      <StyledLoader className="loadingio-spinner-double-ring-kduv6bxr7c">
+        <div className="ldio-8jvuxvq08ud">
           <div></div>
           <div></div>
           <div><div></div></div>

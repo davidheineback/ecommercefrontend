@@ -16,6 +16,7 @@ export default function GlobalState({ children }) {
   const [loginFlash, setLoginFlash] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [loginFlashMessage, setLoginFlashMessage] = useState('Invalid username or password')
+  const [products, setProducts] = useState()
 
 
   async function handleLogOut() {
@@ -92,7 +93,9 @@ export default function GlobalState({ children }) {
     checkUserLoginStatus,
     setNewProductAttributes,
     isLoading,
-    setIsLoading
+    setIsLoading,
+    products,
+    setProducts
   }
 
   return (

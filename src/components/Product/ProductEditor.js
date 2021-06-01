@@ -3,8 +3,8 @@ import { GlobalStateContext } from '../GlobalState/GlobalState'
 import { StyledProductManager, StyledFlexGridHeader, StyledFlexGridContent, StyledEditorInput } from './ProductStyles'
 import * as API from '../../fetch'
 
-function ProductEditor({ focus, product }) {
-  const { editableAttributes, currentUser } = React.useContext(GlobalStateContext)
+function ProductEditor({ setFocus, focus, product }) {
+  const { editableAttributes, currentUser, setIsLoading, setProducts } = React.useContext(GlobalStateContext)
   const [edit, setEdit] = useState(false)
   const [editIndex, setEditIndex]  = useState()
   const [newValue, setNewValue] = useState()
@@ -17,9 +17,9 @@ function ProductEditor({ focus, product }) {
     setEditIndex(index)
   }
 
-  function handleSave () {
+  async function handleSave () {
     const editObject = {newValue, product, changeAttribute: editableAttributes[editIndex].name}
-    const patcher = API.patchNewValue(editObject, currentUser)
+    const patcher = await API.patchNewValue(editObject, currentUser, setIsLoading)
     if (patcher) {
       product[editableAttributes[editIndex].name] = newValue
     }
@@ -31,9 +31,13 @@ function ProductEditor({ focus, product }) {
     setNewValue(target.value)
   }
 
-  function handleDelete () {
+  async function handleDelete () {
     const editObject = {deleteObject: product.itemNr}
-    API.deleteProduct(editObject, currentUser)
+    const deleted = await API.deleteProduct(editObject, currentUser)
+    if (deleted) {
+      await API.getAllProducts(setProducts, setIsLoading)
+      setFocus(false)
+    }
   }
 
   function checkDelete () {
@@ -69,7 +73,7 @@ function ProductEditor({ focus, product }) {
         (<StyledFlexGridContent onClick={checkDelete} deleteBtn>Delete</StyledFlexGridContent>)
         : 
         <>
-        <StyledFlexGridContent>Are you sure?</StyledFlexGridContent>
+        <StyledFlexGridContent infoText>Are you sure?</StyledFlexGridContent>
         <StyledFlexGridContent onClick={handleDelete} deleteBtn>Yes</StyledFlexGridContent>
         <StyledFlexGridContent onClick={checkDelete} deleteBtn>No</StyledFlexGridContent>
         </>

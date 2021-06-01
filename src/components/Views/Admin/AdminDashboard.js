@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Wrapper, GradientBorder, TabSelect, Button } from '../../Utilities/UtilitiesExporter'
+import { Wrapper, GradientBorder, TabSelect, Button, Loader } from '../../Utilities/UtilitiesExporter'
 import ProductInDashboard from '../../Product/ProductInDashboard'
 import { GlobalStateContext } from '../../GlobalState/GlobalState'
 import { getAllProducts } from '../../../fetch'
 import { Redirect } from 'react-router-dom'
 
 function AdminDashboard() {
-  const { loggedIn, checkUserLoginStatus, setNewProductAttributes, setIsLoading, isLoading  } = React.useContext(GlobalStateContext)
-  const [products, setProducts] = useState()
+  const { loggedIn, checkUserLoginStatus, setNewProductAttributes, setIsLoading, isLoading, products, setProducts  } = React.useContext(GlobalStateContext)
   const [activeTab, setActiveTab] = useState('Edit')
 
   useEffect(() => {
@@ -20,14 +19,17 @@ function AdminDashboard() {
 
 
   useEffect(() => {
-    setIsLoading(true)
-    loggedIn && getAllProducts(setProducts, setIsLoading)
-  },[loggedIn, setIsLoading])
+    async function loadProducts() {
+      setIsLoading(true)
+      loggedIn && await getAllProducts(setProducts, setIsLoading)
+    }
+    loadProducts()
+  },[loggedIn, setIsLoading, setProducts])
 
   return (
     isLoading ?
     <Wrapper flex>
-    <div>Loading...</div>
+    <Loader/>
   </Wrapper>
   :
     loggedIn ?

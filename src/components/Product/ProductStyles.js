@@ -211,7 +211,12 @@ export const StyledFlexGridContent = styled.div`
 
 ${props => props.deleteBtn && {
     color: "red",
-    width: "80%"
+    width: "100%"
+    
+  }}
+
+${props => props.infoText && {
+    width: "100%"
   }}
 
 
