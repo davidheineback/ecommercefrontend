@@ -161,7 +161,7 @@ export async function deleteProduct(editObject, user) {
   const userString = JSON.stringify(user)
   const base64auth = Buffer.from(userString, 'utf-8')
   try {
-    const edit = await fetch('http://localhost:8080/api/v1/admin/delete', {
+    const edit = await fetch(`${process.env.REACT_APP_URL}/admin/delete`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
