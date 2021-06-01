@@ -32,7 +32,8 @@ function ProductEditor({ focus, product }) {
   }
 
   function handleDelete () {
-    
+    const editObject = {deleteObject: editableAttributes[editIndex].itemNr}
+    API.deleteProduct(editObject, currentUser)
   }
 
   function checkDelete () {
