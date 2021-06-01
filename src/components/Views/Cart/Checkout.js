@@ -32,10 +32,8 @@ const totalPriceOfItemsInCart = [...itemsInCart].reduce((total, obj) => obj.prod
     </StyledCartFooter>
     <Link to='/cart'>    
     <Button btnType="primary">Back to cart</Button>
-    </Link>
-    <Link to='/cart'>    
-    <Button btnType="primary">Payment</Button>
-    </Link>
+    </Link> 
+    <Button btnType={'disabled'}>Payment</Button>
     </StyledCartContainer>
     </Wrapper>
   )

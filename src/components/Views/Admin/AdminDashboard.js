@@ -50,9 +50,9 @@ function AdminDashboard() {
         )
       })}
       <div/>
-  <Button btnType="primary">Add new product</Button>
+    <Button btnType={'disabled'}>Add new product</Button>
     </form>
-        
+  
   }
     </Wrapper>
     :<Redirect to="./admin"/>
