@@ -55,7 +55,7 @@ function Header() {
     <BurgerButton key='burgerbtn' isActive={active} onBurgerClick={handleActive}/>
     <CartIcon key='smallcarticon' itemsInCart={numberOfItemsInCart}/>
     </StyledHeader>
-    {active && (<Sidebar key='sidebar' categories={categories}/>)}
+    {active && (<Sidebar setActive={setActive} key='sidebar' categories={categories}/>)}
     </>
   )
 }

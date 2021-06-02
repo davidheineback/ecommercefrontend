@@ -4,15 +4,15 @@ import { StyledLink } from '../../Header/StyledHeader'
 import { DivButton } from '../UtilitiesExporter'
 
 
-function SideBar({ categories }) {
+function SideBar({ setActive, categories }) {
   return (
     <StyledSideBar small>
     {categories.map((category, index) => {
             return (  
-            <StyledLink key={index} to={`./${category.searchurl}`} >
+            <StyledLink key={index} to={`./${category.searchurl}`} onClick={() => setActive(false)} >
             <DivButton
             sideBar={true}
-            useDropdown={false}
+            useDropdown={true}
             btnType="headerBtn"
             mainCategory={category}
             subCategories={category.subs}
