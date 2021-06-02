@@ -31,7 +31,7 @@ function Header() {
       <StyledHeader big key='styledheader'>
         {categories.map((category, index) => {
             return (
-              <StyledLink to={`./${category.searchurl}`} key={index}>
+              <StyledLink to={`/${category.searchurl}`} key={index}>
               <DivButton
                 useDropdown={true}
                 btnType="headerBtn"

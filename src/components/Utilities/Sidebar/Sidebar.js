@@ -9,10 +9,10 @@ function SideBar({ setActive, categories }) {
     <StyledSideBar small>
     {categories.map((category, index) => {
             return (  
-            <StyledLink key={index} to={`./${category.searchurl}`} onClick={() => setActive(false)} >
+            <StyledLink key={index} to={`/${category.searchurl}`} onClick={() => setActive(false)} >
             <DivButton
             sideBar={true}
-            useDropdown={true}
+            useDropdown={false}
             btnType="headerBtn"
             mainCategory={category}
             subCategories={category.subs}
