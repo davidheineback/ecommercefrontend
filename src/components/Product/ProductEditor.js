@@ -19,7 +19,7 @@ function ProductEditor({ setFocus, focus, product }) {
 
   async function handleSave () {
     const editObject = {newValue, product, changeAttribute: editableAttributes[editIndex].name}
-    const patcher = await API.patchNewValue(editObject, currentUser, setIsLoading)
+    const patcher = await API.patchNewValue(editObject, currentUser)
     if (patcher) {
       product[editableAttributes[editIndex].name] = newValue
     }

@@ -130,7 +130,7 @@ export async function authUser(user) {
 }
 
 // `${process.env.REACT_APP_URL}/admin/patch`
-export async function patchNewValue(editObject, user, setIsLoading) {
+export async function patchNewValue(editObject, user) {
   const userString = JSON.stringify(user)
   const base64auth = Buffer.from(userString, 'utf-8')
   try {
@@ -147,7 +147,6 @@ export async function patchNewValue(editObject, user, setIsLoading) {
       const token = await edit.json()
       user.access_token = token.access_token
       localStorage.setItem('tokens', JSON.stringify(user))
-      setIsLoading(true)
       return true
     } else {
       throw new Error(edit.status)
