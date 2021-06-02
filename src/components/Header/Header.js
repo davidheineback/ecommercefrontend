@@ -2,7 +2,9 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { Button, DivButton, BurgerButton, Sidebar, CartIcon } from '../Utilities/UtilitiesExporter'
 import { getCategories } from '../../fetch.js'
 import { GlobalStateContext } from '../GlobalState/GlobalState'
-import { StyledHeader } from './StyledHeader'
+import { StyledHeader, StyledLink } from './StyledHeader'
+
+
 
 function Header() {
   const { itemsInCart, loggedIn, handleLogOut, setLoggedIn, setCurrentUser, setLoginFlashMessage  } = React.useContext(GlobalStateContext)
@@ -29,6 +31,7 @@ function Header() {
       <StyledHeader big key='styledheader'>
         {categories.map((category, index) => {
             return (
+              <StyledLink to={`./${category.searchurl}`} key={index}>
               <DivButton
                 useDropdown={true}
                 btnType="headerBtn"
@@ -36,6 +39,7 @@ function Header() {
                 subCategories={category.subs}
                 key={'headerbtn'+index}>
               </DivButton>
+              </StyledLink>
             )
       })
       }

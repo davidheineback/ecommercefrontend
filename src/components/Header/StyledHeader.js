@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const StyledHeader = styled.header`
 position: fixed;
@@ -33,4 +34,8 @@ z-index: 800;
   minHeight: "2vh",
   paddingBottom: "20px"
 }}
+`
+
+export const StyledLink = styled(Link)`
+text-decoration:none;
 `
