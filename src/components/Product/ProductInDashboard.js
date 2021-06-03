@@ -23,7 +23,7 @@ function ProductInDashboard({ children }) {
         <StyledDetails itemName>{product.name}</StyledDetails>
         </StyledDetailsContainer>
       </StyledItemContainer>
-        <ProductEditor setFocus={setFocus} focus={focus} product={product}/>
+      <ProductEditor setFocus={setFocus} focus={focus} product={product}/>
         </StyledItemContainer>
   )
 }

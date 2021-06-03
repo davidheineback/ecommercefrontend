@@ -23,12 +23,14 @@ border-bottom: 1px solid lightgray;
 width: 100%;
 height: 90px;
 text-align:center;
-display: inline-flex;
+display: flex;
+flex: 1 0 99%;
 &:hover {
   box-shadow: 2px 2px 2px grey;
 }
 
 ${props => props.dashboard && {
+  position: "relative",
   maxWidth: "30vw",
   marginBottom: "20px",
   padding: "10px",
@@ -161,12 +163,15 @@ export const StyledActionCounter = styled.div`
 
 export const StyledProductManager = styled.div`
   position: absolute;
+  left: 0;
+  top: 10px;
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
   border: 1px solid lightgrey;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 35vw;
+  height: 500px;
   margin-left: 5px;
   margin-top: 100px;
   min-height: 100px;
@@ -174,6 +179,7 @@ export const StyledProductManager = styled.div`
   backdrop-filter: brightness(150%) saturate(150%) blur(5px);
   background-clip: padding-box;
   justify-content: space-evenly;
+  z-index: 100;
 
   @media screen and (max-width: 800px) {
     margin-top: 30px;
